@@ -12,6 +12,7 @@ func _on_Area2D_body_entered(body):
 		get_parent().get_parent().get_parent().get_node("Node/Control").add_child(died_screen)
 		for i in get_parent().get_parent().get_parent().get_children():
 			if i.name != "Node":
-				i.visible = false	
-		emit_signal("spike_connected")
+				i.queue_free()
+				#i.visible = false	
+		#emit_signal("spike_connected")
 		#get_tree().reload_current_scene()

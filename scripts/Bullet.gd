@@ -12,11 +12,13 @@ func _on_Area2D_body_entered(body):
 		#get_tree().reload_current_scene()
 		died_screen = died_screen_scene.instance()
 		#died_screen.rect_position = Vector2(312, 150)
+		print(get_parent().get_parent().name)
 		get_parent().get_parent().get_node("Node/Control").add_child(died_screen)
-		for i in get_parent().get_parent().get_parent().get_children():
+		for i in get_parent().get_parent().get_children():
 			if i.name != "Node":
-				i.visible = false	
-		emit_signal("spike_connected")
+				i.queue_free()
+				#i.visible = false	
+		#emit_signal("spike_connected")
 
 
 func _on_Area2D_area_entered(area):
@@ -28,7 +30,8 @@ func _on_Area2D_area_entered(area):
 		died_screen = died_screen_scene.instance()
 		#died_screen.rect_position = Vector2(312, 150)
 		get_parent().get_parent().get_node("Node/Control").add_child(died_screen)
-		for i in get_parent().get_parent().get_parent().get_children():
+		for i in get_parent().get_parent().get_children():
 			if i.name != "Node":
-				i.visible = false	
-		emit_signal("spike_connected")
+				i.queue_free()
+				#i.visible = false	
+		#emit_signal("spike_connected")

@@ -22,7 +22,8 @@ func _on_Spikes_body_entered(body):
 		get_node("Node/Control").add_child(died_screen)
 		for i in get_children():
 			if i.name != "Node":
-				i.visible = false	
+				#i.visible = false	
+				i.queue_free()
 		$Player.queue_free()
 
 
