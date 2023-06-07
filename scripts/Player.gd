@@ -11,9 +11,6 @@ var isStarted = false setget set_isStarted
 func set_isStarted(new_is_started):
 	isStarted = new_is_started
 
-func _ready():
-	#get_parent().get_node("spikes/spike_big/Area2D").connect("spike_connected", self, "camera_to_def")
-	pass
 func camera_to_def():
 	rotation_degrees = 0
 	print(rotation_degrees)
@@ -90,12 +87,9 @@ func _physics_process(delta):
 				velocity.y = 0
 			else:
 				velocity.x = 0
-				velocity.y = -x	
-			#velocity.x = y
-			#velocity.y = -x	
+				velocity.y = -x
 			rotate(-PI / 2)
 			normal.x = yn
 			normal.y = -xn
 
-		velocity = move_and_slide(velocity, normal)		
-	#print(String(Engine.get_frames_per_second()))
+		velocity = move_and_slide(velocity, normal)

@@ -1,10 +1,10 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scripts/DiedScreen.gd" type="Script" id=1]
-[ext_resource path="res://replay_down.png" type="Texture" id=2]
-[ext_resource path="res://replay_up.png" type="Texture" id=3]
-[ext_resource path="res://exit_up.png" type="Texture" id=4]
-[ext_resource path="res://exit_down.png" type="Texture" id=5]
+[ext_resource path="res://sprites/replay_down.png" type="Texture" id=2]
+[ext_resource path="res://sprites/replay_up.png" type="Texture" id=3]
+[ext_resource path="res://sprites/exit_up.png" type="Texture" id=4]
+[ext_resource path="res://sprites/exit_down.png" type="Texture" id=5]
 
 [node name="DiedScreen" type="CanvasLayer"]
 script = ExtResource( 1 )
@@ -60,6 +60,7 @@ margin_left = -58.5
 margin_top = -7.0
 margin_right = 58.5
 margin_bottom = 7.0
+grow_horizontal = 2
 text = "You died, try again"
 
 [connection signal="pressed" from="ColorRect/VBoxContainer/Replay" to="." method="_on_Replay_pressed"]

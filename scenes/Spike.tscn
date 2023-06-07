@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://gameset.png" type="Texture" id=1]
+[ext_resource path="res://sprites/gameset.png" type="Texture" id=1]
 [ext_resource path="res://scripts/Spike.gd" type="Script" id=2]
 
 [sub_resource type="OccluderPolygon2D" id=2]

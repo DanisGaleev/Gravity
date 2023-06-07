@@ -8,9 +8,7 @@ onready var d1 = $Dialog1
 onready var d2 = $Dialog2
 
 var this_phrase := 0
-#func _ready():
-#	timer.start()
-#	timer.connect("timeout", self, "time_out")
+
 func start():
 	timer.wait_time = 2
 	timer.start()

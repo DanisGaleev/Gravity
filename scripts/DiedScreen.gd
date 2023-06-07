@@ -1,7 +1,9 @@
 extends CanvasLayer
 
 func _ready():
-	Save.new().save_level("1")
+	var save = Save_Handler.new()
+	save.add_value("level", "1")
+	save.save_to_file("user://data.txt")
 
 func _input(event):
 	if event.is_action_pressed("exit"):

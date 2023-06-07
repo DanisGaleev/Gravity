@@ -59,11 +59,15 @@ func _ready():
 	
 	$Node/Control/CanvasLayer/Count.text ="Respawn count: " + str(respawnCount)
 	var player = preload("res://scenes/Player.tscn")
+	var save = Save_Handler.new()
+	save.load_from_file("user://data.txt")
 	pl = player.instance()
+	var tex_path = save.get_value("skin_path")
+	if tex_path != null:
+		pl.get_node("Sprite").texture = load(save.get_value("skin_path"))
 	pl.global_position = Vector2(start_vec.x, start_vec.y) * 16 + Vector2(8, 8)
 	add_child(pl)
 	
-	#get_tree().set_debug_collisions_hint(true) 
 func generate():
 	for x in map_size.x:
 		map.append([])
@@ -119,9 +123,6 @@ func create_start_and_finish():
 	map[start_vec.x][start_vec.y] = tiles.start
 	map[finish_vec.x][finish_vec.y] = tiles.finish
 	
-	#var start_tile_up = map[start_vec.x][start_vec.y - 1]
-	#map[start_vec.x][start_vec.y - 1] = tiles.nothing
-	
 	if start_vec.distance_to(finish_vec) > min_dist and astar.get_id_path(start_vec.x + start_vec.y * map_size.x, finish_vec.x + finish_vec.y * map_size.x).size() > 0:
 		isFoundPath = true
 		finish_area_node.position = finish_vec * 16 + Vector2(8, 8)
@@ -129,20 +130,6 @@ func create_start_and_finish():
 		map[start_vec.x][start_vec.y] = tiles.nothing
 		map[finish_vec.x][finish_vec.y] = tiles.nothing
 		empty_tiles.append(start_vec)
-		
-		#var finish_area = Area2D.new()
-		#var finish_shape = CollisionShape2D.new()
-		#finish_shape.shape = RectangleShape2D.new()
-		#(finish_shape.shape as RectangleShape2D).extents = Vector2(16, 16)
-		#var finish_shape = RectangleShape2D.new()
-		#finish_shape.extents = Vector2(16, 16)
-
-		#finish_area.add_child(finish_shape)
-		#finish_area.position = (finish_vec * 16)
-		#add_child(finish_area)
-		#map[start_vec.x][start_vec.y - 1] = start_tile_up
-
-
 func draw_map():
 	for x in range(0, map_size.x):
 		for y in range(0, map_size.y):
@@ -150,17 +137,6 @@ func draw_map():
 			match map[x][y]:
 				tiles.wall:
 					tilemap.set_cell(x, y, wall_tile_index)
-					#if x == 0 and y == 0:
-					#	tilemap.set_cell(x, y, 18)
-					#elif x == 0 and y == map_size.y - 1:
-					#	tilemap.set_cell(x, y, 18, false, true, true)
-					#elif x == map_size.x - 1 and y == map_size.y - 1:
-					#	tilemap.set_cell(x, y, 18, true, true)
-					#elif x == map_size.x - 1 and y == 0:
-					#	tilemap.set_cell(x, y, 18, true, false, true)
-					#elif x == 0 and 
-					#if isConform and map[x-1][y] == tiles.wall and map[x+1][y] == tiles.wall and map[x][y-1] == tiles.wall and map[x][y+1] == tiles.wall:
-					#	 tilemap.set_cell(x, y, 21)
 				tiles.spike:
 					draw_spikes(x, y)
 				tiles.start:
@@ -196,13 +172,10 @@ func draw_spikes(x, y):
 func _on_Area2D_body_entered(body):
 	if body.get_name() == "Player":
 		died_screen = died_screen_scene.instance()
-		#died_screen.rect_position = Vector2(312, 150)
 		get_node("Node/Control").add_child(died_screen)
 		for i in get_children():
 			if i.name != "Node":
-				i.visible = false	
-		#emit_signal("spike_connected")
-		#get_tree().reload_current_scene()
+				i.visible = false
 
 
 func _on_Finish_body_entered(body):
@@ -220,14 +193,11 @@ func _on_Finish_body_entered(body):
 func _on_Spikes_body_entered(body):
 	if body.get_name() == "Player":
 		died_screen = died_screen_scene.instance()
-		#died_screen.rect_position = Vector2(312, 150)
 		get_node("Node/Control").add_child(died_screen)
 		for i in get_children():
 			if i.name != "Node":
 				i.visible = false	
 		pl.queue_free()
-		#emit_signal("spike_connected")
-		#get_tree().reload_current_scene()
 
 
 func _on_Exit_pressed():

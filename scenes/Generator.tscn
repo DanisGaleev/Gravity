@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://tilemap.tres" type="TileSet" id=1]
-[ext_resource path="res://exit_up.png" type="Texture" id=2]
+[ext_resource path="res://tilemaps/tilemap.tres" type="TileSet" id=1]
+[ext_resource path="res://sprites/exit_up.png" type="Texture" id=2]
 [ext_resource path="res://scripts/Generator.gd" type="Script" id=3]
-[ext_resource path="res://exit_down.png" type="Texture" id=4]
+[ext_resource path="res://sprites/exit_down.png" type="Texture" id=4]
 
 [sub_resource type="RectangleShape2D" id=19]
 extents = Vector2( 8, 8 )
@@ -47,27 +47,27 @@ anchor_bottom = 1.0
 [node name="CanvasLayer" type="CanvasLayer" parent="Node/Control"]
 
 [node name="Count" type="Label" parent="Node/Control/CanvasLayer"]
-margin_left = 1130.0
-margin_top = 338.0
-margin_right = 1216.0
-margin_bottom = 372.0
+margin_right = 86.0
+margin_bottom = 34.0
 
 [node name="Insructions" type="Label" parent="Node/Control/CanvasLayer"]
-margin_left = 1057.0
-margin_top = 633.0
-margin_right = 1231.0
-margin_bottom = 681.0
-rect_scale = Vector2( 1.2, 1.2 )
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -174.0
+margin_bottom = 48.0
 text = "Click enter to respawn map
 Yelloy is start
 Green is finish"
 
 [node name="Exit" type="TextureButton" parent="Node/Control/CanvasLayer"]
+anchor_left = 0.5
 anchor_top = 1.0
+anchor_right = 0.5
 anchor_bottom = 1.0
-margin_top = -66.0
-margin_right = 164.0
-rect_min_size = Vector2( 164, 66 )
+margin_left = -41.0
+margin_top = -33.0
+margin_right = 41.0
+rect_min_size = Vector2( 82, 33 )
 rect_pivot_offset = Vector2( 82, 33 )
 texture_normal = ExtResource( 2 )
 texture_pressed = ExtResource( 4 )

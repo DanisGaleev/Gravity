@@ -18,7 +18,6 @@ func _ready():
 func _on_Spikes_body_entered(body):
 	if body.get_name() == "Player":
 		died_screen = died_screen_scene.instance()
-		#died_screen.rect_position = Vector2(312, 150)
 		get_node("Node/Control").add_child(died_screen)
 		for i in get_children():
 			if i.name != "Node":
