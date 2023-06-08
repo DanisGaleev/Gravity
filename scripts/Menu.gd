@@ -1,18 +1,21 @@
 extends Control
 
 onready var bar = $CenterContainer/HBoxContainer/ProgressBar
+onready var best_res = $CenterContainer/HBoxContainer/BestRes
 
 func _ready():
-	pass
-
-func _process(delta):
 	var save = Save_Handler.new()
 	save.load_from_file("user://data.txt")
 	var v = save.get_value("level")
+	var best = save.get_value("best_result")
 	if v == null:
 		bar.value = 0
 	else:	
 		bar.value = float(v) - 1
+	best.text = "BEST RESULT\n0" if best == null else "BEST RESULT\n" + str(best)
+
+func _process(delta):
+	pass
 
 func _on_Start_pressed():
 	var save = Save_Handler.new()

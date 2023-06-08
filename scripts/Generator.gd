@@ -3,6 +3,7 @@ extends Node2D
 onready var tilemap = $TileMap
 onready var spikes_map = $Spikes/spikes_map
 onready var finish_area_node = $Finish
+onready var result_label = $Node/Control/CanvasLayer/Result
 
 export var map_size = Vector2(20, 20)
 export var wall = -0.2
@@ -33,6 +34,9 @@ var start_pos_index:int
 var start_vec:Vector2
 var finish_vec:Vector2
 
+var current_result = 0
+var isFirstTime = false
+
 enum tiles{
 	nothing = 0,
 	wall = 1,
@@ -43,8 +47,19 @@ enum tiles{
 
 func _ready():
 	randomize()
-	print(str(min_dist) + "rgrgrg")
 	noise = OpenSimplexNoise.new()
+	
+	create_level()
+	var player = preload("res://scenes/Player.tscn")
+	var save = Save_Handler.new()
+	save.load_from_file("user://data.txt")
+	pl = player.instance()
+	add_child(pl)
+	var tex_path = save.get_value("skin_path")
+	if tex_path != null:
+		pl.get_node("Sprite").texture = load(save.get_value("skin_path"))
+	pl.global_position = Vector2(start_vec.x, start_vec.y) * 16 + Vector2(8, 8)
+func create_level() -> void:
 	noise.seed = randi()
 	noise.octaves = 1
 	noise.period = 3
@@ -58,15 +73,9 @@ func _ready():
 	draw_map()
 	
 	$Node/Control/CanvasLayer/Count.text ="Respawn count: " + str(respawnCount)
-	var player = preload("res://scenes/Player.tscn")
-	var save = Save_Handler.new()
-	save.load_from_file("user://data.txt")
-	pl = player.instance()
-	var tex_path = save.get_value("skin_path")
-	if tex_path != null:
-		pl.get_node("Sprite").texture = load(save.get_value("skin_path"))
-	pl.global_position = Vector2(start_vec.x, start_vec.y) * 16 + Vector2(8, 8)
-	add_child(pl)
+	if isFirstTime:
+		pl.global_position = Vector2(start_vec.x, start_vec.y) * 16 + Vector2(8, 8)
+	isFirstTime = true
 	
 func generate():
 	for x in map_size.x:
@@ -179,15 +188,28 @@ func _on_Area2D_body_entered(body):
 
 
 func _on_Finish_body_entered(body):
+	print(body.get_name())
 	if body.get_name() == "Player":
-		win_screen = win_screen_scene.instance()
-		get_node("Node/Control").add_child(win_screen)
-		win_screen.visible = true
-		print(get_parent().name)
-		for child in get_children():
-			if child.name != "Node":
-				child.visible = false
-		pl.queue_free()
+		#win_screen = win_screen_scene.instance()
+		#get_node("Node/Control").add_child(win_screen)
+		#win_screen.visible = true
+		#print(get_parent().name)
+		#for child in get_children():
+		#	if child.name != "Node":
+		#		child.visible = false
+		
+		#pl.queue_free()
+		map.clear()
+		tilemap.clear()
+		spikes_map.clear()
+		empty_tiles.clear()
+		astar.clear()
+		isFoundPath = false
+		create_level()
+		current_result+=1
+		result_label.text = "Result: " + str(current_result)
+		pl.set_isStarted(false)
+		pl.velocity = Vector2(0, 0)
 
 
 func _on_Spikes_body_entered(body):

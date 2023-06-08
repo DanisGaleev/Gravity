@@ -40,7 +40,7 @@ margin_bottom = 110.0
 
 [node name="HBoxContainer" type="VBoxContainer" parent="CenterContainer"]
 margin_right = 164.0
-margin_bottom = 226.0
+margin_bottom = 261.0
 
 [node name="ProgressBar" type="ProgressBar" parent="CenterContainer/HBoxContainer"]
 margin_right = 164.0
@@ -80,18 +80,28 @@ size_flags_horizontal = 5
 size_flags_vertical = 5
 text = "Autors"
 
-[node name="Generator" type="Button" parent="CenterContainer/HBoxContainer"]
+[node name="BestRes" type="Label" parent="CenterContainer/HBoxContainer"]
 margin_top = 182.0
 margin_right = 164.0
-margin_bottom = 202.0
+margin_bottom = 213.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Best result
+0"
+align = 1
+
+[node name="Generator" type="Button" parent="CenterContainer/HBoxContainer"]
+margin_top = 217.0
+margin_right = 164.0
+margin_bottom = 237.0
 size_flags_horizontal = 5
 size_flags_vertical = 5
 text = "Generator"
 
 [node name="Skins" type="Button" parent="CenterContainer/HBoxContainer"]
-margin_top = 206.0
+margin_top = 241.0
 margin_right = 164.0
-margin_bottom = 226.0
+margin_bottom = 261.0
 size_flags_horizontal = 5
 size_flags_vertical = 5
 text = "Skins"
