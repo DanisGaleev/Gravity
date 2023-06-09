@@ -71,8 +71,10 @@ func create_level() -> void:
 	while !isFoundPath:
 		create_start_and_finish()
 	draw_map()
-	
-	$Node/Control/CanvasLayer/Count.text ="Respawn count: " + str(respawnCount)
+	var save = Save_Handler.new()
+	save.load_from_file("user://data.txt")
+	result_label.text = "Result: 0" if save.get_value("current_result") == null else "Result: " + str(save.get_value("current_result"))
+	$Node/Control/CanvasLayer/Count.text = "Respawn count: " + str(respawnCount)
 	if isFirstTime:
 		pl.global_position = Vector2(start_vec.x, start_vec.y) * 16 + Vector2(8, 8)
 	isFirstTime = true
@@ -127,8 +129,6 @@ func create_start_and_finish():
 	start_vec = empty_tiles[start_pos_index]
 	empty_tiles.remove(start_pos_index)
 	finish_vec = empty_tiles[rand_range(0, empty_tiles.size())]
-	print(start_vec)
-	print(finish_vec)
 	map[start_vec.x][start_vec.y] = tiles.start
 	map[finish_vec.x][finish_vec.y] = tiles.finish
 	
@@ -190,6 +190,14 @@ func _on_Area2D_body_entered(body):
 func _on_Finish_body_entered(body):
 	print(body.get_name())
 	if body.get_name() == "Player":
+		get_tree().reload_current_scene()
+		var save = Save_Handler.new()
+		save.load_from_file("user://data.txt")
+		if save.get_value("current_result") == null:
+			save.add_value("current_result", 1)
+		else:
+			save.add_value("current_result", save.get_value("current_result") + 1)
+		save.save_to_file("user://data.txt")
 		#win_screen = win_screen_scene.instance()
 		#get_node("Node/Control").add_child(win_screen)
 		#win_screen.visible = true
@@ -199,21 +207,29 @@ func _on_Finish_body_entered(body):
 		#		child.visible = false
 		
 		#pl.queue_free()
-		map.clear()
-		tilemap.clear()
-		spikes_map.clear()
-		empty_tiles.clear()
-		astar.clear()
-		isFoundPath = false
-		create_level()
-		current_result+=1
-		result_label.text = "Result: " + str(current_result)
-		pl.set_isStarted(false)
-		pl.velocity = Vector2(0, 0)
+		
+		#map.clear()
+		#tilemap.clear()
+		#spikes_map.clear()
+		#empty_tiles.clear()
+		#astar.clear()
+		#isFoundPath = false
+		#create_level()
+		#current_result+=1
+		#result_label.text = "Result: " + str(current_result)
+		#pl.set_isStarted(false)
+		#pl.velocity = Vector2(0, 0)
 
 
 func _on_Spikes_body_entered(body):
 	if body.get_name() == "Player":
+		var save = Save_Handler.new()
+		save.load_from_file("user://data.txt")
+		if save.get_value("current_result") == null:
+			save.add_value("current_result", 0)
+		save.add_value("best_result", max(int(save.get_value("best_result")), save.get_value("current_result")))
+		save.add_value("current_result", 0)
+		save.save_to_file("user://data.txt")
 		died_screen = died_screen_scene.instance()
 		get_node("Node/Control").add_child(died_screen)
 		for i in get_children():

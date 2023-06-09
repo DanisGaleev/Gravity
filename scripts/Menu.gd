@@ -12,7 +12,10 @@ func _ready():
 		bar.value = 0
 	else:	
 		bar.value = float(v) - 1
-	best.text = "BEST RESULT\n0" if best == null else "BEST RESULT\n" + str(best)
+	if best == null :
+		save.add_value("best_result", 0)
+		save.save_to_file("user://data.txt")
+	best_res.text = "BEST RESULT\n0" if best == null else "BEST RESULT\n" + str(best)
 
 func _process(delta):
 	pass
