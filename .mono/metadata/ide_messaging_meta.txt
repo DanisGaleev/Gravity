@@ -1,2 +1,0 @@
-﻿51712
-D:/Danis/Android mi project/godot/Godot_v3.5-stable_mono_win32/Godot_v3.5-stable_mono_win32.exe
