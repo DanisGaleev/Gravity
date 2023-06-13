@@ -1,0 +1,198 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://scenes/entities/spike/Spike.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/entities/player/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://tilemaps/tilemap.tres" type="TileSet" id=3]
+[ext_resource path="res://scenes/entities/finish/Finish.tscn" type="PackedScene" id=4]
+[ext_resource path="res://sprites/finish.png" type="Texture" id=5]
+[ext_resource path="res://scenes/entities/start/Start.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/entities/bullet_machine/BulletMachine.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/entities/torch/Torch.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/levels/plot_levels/Level.gd" type="Script" id=10]
+
+[node name="Level2" type="Node2D"]
+script = ExtResource( 10 )
+
+[node name="Background" type="Sprite" parent="."]
+modulate = Color( 0.0588235, 0.223529, 0.32549, 1 )
+scale = Vector2( 100, 100 )
+texture = ExtResource( 5 )
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 3 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 196627, 8, 0, 196628, 8, 0, 196629, 8, 0, 196630, 8, 0, 196631, 8, 0, 196632, 8, 0, 196633, 8, 0, 196634, 8, 0, 196635, 8, 0, 262163, 8, 0, 262171, 8, 0, 327699, 8, 0, 327707, 8, 0, 393235, 8, 0, 393239, 8, 0, 393243, 8, 0, 393244, 8, 0, 393245, 8, 0, 393246, 8, 0, 393247, 8, 0, 393248, 8, 0, 393249, 8, 0, 393250, 8, 0, 393251, 8, 0, 458770, 8, 0, 458771, 8, 0, 458775, 8, 0, 458787, 8, 0, 524301, 8, 0, 524302, 8, 0, 524303, 8, 0, 524304, 8, 0, 524305, 8, 0, 524306, 8, 0, 524311, 8, 0, 524323, 8, 0, 589837, 8, 0, 589847, 8, 0, 589859, 8, 0, 655373, 8, 0, 655376, 8, 0, 655377, 8, 0, 655378, 8, 0, 655383, 8, 0, 655395, 8, 0, 720909, 8, 0, 720912, 8, 0, 720913, 8, 0, 720914, 8, 0, 720915, 8, 0, 720918, 8, 0, 720919, 8, 0, 720931, 8, 0, 786445, 8, 0, 786448, 8, 0, 786449, 8, 0, 786450, 8, 0, 786451, 8, 0, 786454, 8, 0, 786455, 8, 0, 786467, 8, 0, 851980, 8, 0, 851981, 8, 0, 851984, 8, 0, 851985, 8, 0, 851986, 8, 0, 851987, 8, 0, 851988, 8, 0, 851989, 8, 0, 851990, 8, 0, 851991, 8, 0, 851992, 8, 0, 851996, 8, 0, 851997, 8, 0, 851998, 8, 0, 851999, 8, 0, 852000, 8, 0, 852001, 8, 0, 852002, 8, 0, 852003, 8, 0, 917516, 8, 0, 917523, 8, 0, 917524, 8, 0, 917525, 8, 0, 917526, 8, 0, 917527, 8, 0, 917528, 8, 0, 917532, 8, 0, 983052, 8, 0, 983059, 8, 0, 983060, 8, 0, 983061, 8, 0, 983063, 8, 0, 983064, 8, 0, 983068, 8, 0, 1048588, 8, 0, 1048595, 8, 0, 1048596, 8, 0, 1048597, 8, 0, 1048598, 8, 0, 1048599, 8, 0, 1048600, 8, 0, 1048604, 8, 0, 1114124, 8, 0, 1114131, 8, 0, 1114132, 8, 0, 1114133, 8, 0, 1114134, 8, 0, 1114135, 8, 0, 1114136, 8, 0, 1114140, 8, 0, 1179660, 8, 0, 1179661, 8, 0, 1179662, 8, 0, 1179663, 8, 0, 1179664, 8, 0, 1179676, 8, 0, 1179677, 8, 0, 1179678, 8, 0, 1179679, 8, 0, 1179680, 8, 0, 1179681, 8, 0, 1179682, 8, 0, 1245200, 8, 0, 1245218, 8, 0, 1310736, 8, 0, 1310740, 8, 0, 1310741, 8, 0, 1310742, 8, 0, 1310743, 8, 0, 1310744, 8, 0, 1310745, 8, 0, 1310754, 8, 0, 1376272, 8, 0, 1376276, 8, 0, 1376281, 8, 0, 1376282, 8, 0, 1376283, 8, 0, 1376284, 8, 0, 1376285, 8, 0, 1376286, 8, 0, 1376287, 8, 0, 1376288, 8, 0, 1376289, 8, 0, 1376290, 8, 0, 1441808, 8, 0, 1441812, 8, 0, 1507344, 8, 0, 1507345, 8, 0, 1507346, 8, 0, 1507347, 8, 0, 1507348, 8, 0 )
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+
+[node name="spikes" type="Node2D" parent="."]
+visible = false
+
+[node name="spike_big" parent="spikes" instance=ExtResource( 1 )]
+position = Vector2( 440, 256 )
+rotation = -1.5708
+
+[node name="spike_big34" parent="spikes" instance=ExtResource( 1 )]
+position = Vector2( 312, 168 )
+
+[node name="spike_big2" parent="spikes" instance=ExtResource( 1 )]
+position = Vector2( 536, 312 )
+rotation = -1.5708
+
+[node name="spike_big3" parent="spikes" instance=ExtResource( 1 )]
+position = Vector2( 536, 328 )
+rotation = -1.5708
+
+[node name="spike_big4" parent="spikes" instance=ExtResource( 1 )]
+position = Vector2( 312, 360 )
+
+[node name="spike_big7" parent="spikes" instance=ExtResource( 1 )]
+position = Vector2( 312, 360 )
+
+[node name="spike_big28" parent="spikes" instance=ExtResource( 1 )]
+position = Vector2( 424, 328 )
+
+[node name="spike_big5" parent="spikes" instance=ExtResource( 1 )]
+position = Vector2( 296, 360 )
+
+[node name="spike_big22" parent="spikes" instance=ExtResource( 1 )]
+position = Vector2( 264, 280 )
+
+[node name="spike_big23" parent="spikes" instance=ExtResource( 1 )]
+position = Vector2( 248, 280 )
+
+[node name="spike_big24" parent="spikes" instance=ExtResource( 1 )]
+position = Vector2( 232, 280 )
+
+[node name="spike_big25" parent="spikes" instance=ExtResource( 1 )]
+position = Vector2( 296, 232 )
+rotation = 3.14159
+
+[node name="spike_big26" parent="spikes" instance=ExtResource( 1 )]
+position = Vector2( 216, 232 )
+rotation = 1.57079
+
+[node name="spike_big27" parent="spikes" instance=ExtResource( 1 )]
+position = Vector2( 232, 152 )
+rotation = 3.14159
+
+[node name="spike_big6" parent="spikes" instance=ExtResource( 1 )]
+position = Vector2( 472, 200 )
+
+[node name="spike_big29" parent="spikes" instance=ExtResource( 1 )]
+position = Vector2( 472, 120 )
+rotation = 3.14159
+
+[node name="spike_big30" parent="spikes" instance=ExtResource( 1 )]
+position = Vector2( 472, 120 )
+rotation = 3.14159
+
+[node name="spike_big33" parent="spikes" instance=ExtResource( 1 )]
+position = Vector2( 440, 120 )
+rotation = 3.14159
+
+[node name="spike_big31" parent="spikes" instance=ExtResource( 1 )]
+position = Vector2( 488, 120 )
+rotation = 3.14159
+
+[node name="spike_big32" parent="spikes" instance=ExtResource( 1 )]
+position = Vector2( 504, 120 )
+rotation = 3.14159
+
+[node name="spike_big8" parent="spikes" instance=ExtResource( 1 )]
+position = Vector2( 488, 200 )
+
+[node name="spike_big9" parent="spikes" instance=ExtResource( 1 )]
+position = Vector2( 504, 200 )
+
+[node name="spike_big10" parent="spikes" instance=ExtResource( 1 )]
+position = Vector2( 520, 200 )
+
+[node name="spike_big11" parent="spikes" instance=ExtResource( 1 )]
+position = Vector2( 536, 200 )
+
+[node name="spike_big12" parent="spikes" instance=ExtResource( 1 )]
+position = Vector2( 392, 184 )
+rotation = 1.5708
+
+[node name="spike_big13" parent="spikes" instance=ExtResource( 1 )]
+position = Vector2( 392, 136 )
+rotation = 1.5708
+
+[node name="spike_big14" parent="spikes" instance=ExtResource( 1 )]
+position = Vector2( 392, 104 )
+rotation = 1.5708
+
+[node name="spike_big15" parent="spikes" instance=ExtResource( 1 )]
+position = Vector2( 424, 104 )
+rotation = -1.5708
+
+[node name="spike_big16" parent="spikes" instance=ExtResource( 1 )]
+position = Vector2( 392, 72 )
+rotation = 3.14159
+
+[node name="spike_big17" parent="spikes" instance=ExtResource( 1 )]
+position = Vector2( 312, 136 )
+rotation = 3.14159
+
+[node name="spike_big18" parent="spikes" instance=ExtResource( 1 )]
+position = Vector2( 360, 152 )
+rotation = -1.5708
+
+[node name="spike_big19" parent="spikes" instance=ExtResource( 1 )]
+position = Vector2( 328, 72 )
+rotation = -4.71239
+
+[node name="spike_big20" parent="spikes" instance=ExtResource( 1 )]
+position = Vector2( 328, 88 )
+rotation = -4.71239
+
+[node name="spike_big21" parent="spikes" instance=ExtResource( 1 )]
+position = Vector2( 328, 104 )
+rotation = -4.71239
+
+[node name="Finish" parent="." instance=ExtResource( 4 )]
+position = Vector2( 336, 206 )
+scale = Vector2( 0.680029, 1 )
+
+[node name="Start" parent="." instance=ExtResource( 6 )]
+position = Vector2( 504, 334 )
+
+[node name="Node" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="Node"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Turret" parent="." instance=ExtResource( 7 )]
+position = Vector2( 328, 312 )
+direction = Vector2( 1, 0 )
+timerTime = 4
+speed = 80
+
+[node name="Toarches" type="Node2D" parent="."]
+
+[node name="toarch" parent="Toarches" instance=ExtResource( 8 )]
+position = Vector2( 400, 280 )
+
+[node name="toarch2" parent="Toarches" instance=ExtResource( 8 )]
+position = Vector2( 272, 312 )
+
+[node name="toarch3" parent="Toarches" instance=ExtResource( 8 )]
+position = Vector2( 208, 261 )
+
+[node name="toarch4" parent="Toarches" instance=ExtResource( 8 )]
+position = Vector2( 368, 165 )
+scale = Vector2( -1, 1 )
+
+[node name="Spikes" type="Area2D" parent="."]
+
+[node name="TileMap" type="TileMap" parent="Spikes"]
+tile_set = ExtResource( 3 )
+cell_size = Vector2( 16, 16 )
+collision_use_parent = true
+format = 1
+tile_data = PoolIntArray( 262164, -1610612725, 0, 262168, 1610612747, 0, 327700, -1610612725, 0, 393236, -1610612725, 0, 393240, -1610612725, 0, 393242, -1073741813, 0, 458779, 1610612747, 0, 458781, 1610612747, 0, 458782, 1610612747, 0, 458783, 1610612747, 0, 524307, 1610612747, 0, 524312, -1610612725, 0, 589838, 1610612747, 0, 589846, -1073741813, 0, 655379, 11, 0, 720920, -1610612725, 0, 786461, 11, 0, 786462, 11, 0, 786463, 11, 0, 786464, 11, 0, 786465, 11, 0, 917517, -1610612725, 0, 917522, 1610612747, 0, 983067, -1073741813, 0, 1114126, 11, 0, 1114127, 11, 0, 1114128, 11, 0, 1245217, -1073741813, 0, 1310746, 11, 0, 1310753, -1073741813, 0, 1441810, 11, 0, 1441811, 11, 0 )
+
+[connection signal="body_entered" from="Spikes" to="." method="_on_Spikes_body_entered"]

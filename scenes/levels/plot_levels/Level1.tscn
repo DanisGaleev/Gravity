@@ -1,0 +1,82 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://tilemaps/tilemap.tres" type="TileSet" id=2]
+[ext_resource path="res://scenes/entities/player/Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/entities/finish/Finish.tscn" type="PackedScene" id=4]
+[ext_resource path="res://sprites/finish.png" type="Texture" id=5]
+[ext_resource path="res://scenes/entities/bullet_machine/BulletMachine.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/entities/start/Start.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/levels/plot_levels/Level.gd" type="Script" id=8]
+[ext_resource path="res://scenes/entities/torch/Torch.tscn" type="PackedScene" id=10]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 110, 10.5 )
+
+[node name="Level1" type="Node2D"]
+script = ExtResource( 8 )
+
+[node name="Background" type="Sprite" parent="."]
+modulate = Color( 0.0588235, 0.223529, 0.32549, 1 )
+scale = Vector2( 100, 100 )
+texture = ExtResource( 5 )
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 720929, 8, 0, 720930, 8, 0, 720931, 8, 0, 720932, 8, 0, 720933, 8, 0, 720934, 8, 0, 720935, 8, 0, 720936, 8, 0, 720937, 8, 0, 786465, 8, 0, 786473, 8, 0, 852001, 8, 0, 852009, 8, 0, 917523, 8, 0, 917524, 8, 0, 917525, 8, 0, 917526, 8, 0, 917527, 8, 0, 917528, 8, 0, 917529, 8, 0, 917530, 8, 0, 917531, 8, 0, 917532, 8, 0, 917533, 8, 0, 917534, 8, 0, 917535, 8, 0, 917536, 8, 0, 917537, 8, 0, 917545, 8, 0, 983057, 8, 0, 983058, 8, 0, 983059, 8, 0, 983081, 8, 0, 1048593, 8, 0, 1048617, 8, 0, 1114129, 8, 0, 1114153, 8, 0, 1179665, 8, 0, 1179689, 8, 0, 1245201, 8, 0, 1245225, 8, 0, 1310737, 8, 0, 1310741, 8, 0, 1310742, 8, 0, 1310743, 8, 0, 1310744, 8, 0, 1310745, 8, 0, 1310746, 8, 0, 1310761, 8, 0, 1376272, 8, 0, 1376273, 8, 0, 1376277, 8, 0, 1376282, 8, 0, 1376297, 8, 0, 1441808, 8, 0, 1441813, 8, 0, 1441818, 8, 0, 1441833, 8, 0, 1507344, 8, 0, 1507349, 8, 0, 1507354, 8, 0, 1507369, 8, 0, 1572880, 8, 0, 1572885, 8, 0, 1572890, 8, 0, 1572891, 8, 0, 1572892, 8, 0, 1572893, 8, 0, 1572894, 8, 0, 1572895, 8, 0, 1572896, 8, 0, 1572897, 8, 0, 1572898, 8, 0, 1572899, 8, 0, 1572900, 8, 0, 1572901, 8, 0, 1572902, 8, 0, 1572903, 8, 0, 1572904, 8, 0, 1572905, 8, 0, 1638416, 8, 0, 1638421, 8, 0, 1703952, 8, 0, 1703953, 8, 0, 1703957, 8, 0, 1769489, 8, 0, 1769490, 8, 0, 1769491, 8, 0, 1769492, 8, 0, 1769493, 8, 0 )
+
+[node name="Finish" parent="." instance=ExtResource( 4 )]
+position = Vector2( 312, 430.428 )
+scale = Vector2( 1.041, 1 )
+
+[node name="Player" parent="." instance=ExtResource( 3 )]
+position = Vector2( 510, 350 )
+
+[node name="Turret" parent="." instance=ExtResource( 6 )]
+position = Vector2( 424, 312 )
+direction = Vector2( 1, 0 )
+timerTime = 3
+speed = 100
+
+[node name="Start" parent="." instance=ExtResource( 7 )]
+position = Vector2( 504, 382 )
+
+[node name="toarchs" type="Node2D" parent="."]
+
+[node name="torch" parent="toarchs" instance=ExtResource( 10 )]
+position = Vector2( 432, 327 )
+
+[node name="torch2" parent="toarchs" instance=ExtResource( 10 )]
+position = Vector2( 656, 248 )
+scale = Vector2( -1, 1 )
+
+[node name="torch3" parent="toarchs" instance=ExtResource( 10 )]
+position = Vector2( 288, 311 )
+
+[node name="Node" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="Node"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Spikes" type="Area2D" parent="."]
+
+[node name="TileMap" type="TileMap" parent="Spikes"]
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 16, 16 )
+collision_use_parent = true
+format = 1
+tile_data = PoolIntArray( 786468, 1610612747, 0, 786469, 1610612747, 0, 786470, 1610612747, 0, 786471, 1610612747, 0, 786472, 1610612747, 0, 983062, 1610612747, 0, 983063, 1610612747, 0, 983064, 1610612747, 0, 983065, 1610612747, 0, 983066, 1610612747, 0, 983067, 1610612747, 0, 1048616, -1073741813, 0, 1114130, -1610612725, 0, 1114152, -1073741813, 0, 1179688, -1073741813, 0, 1245205, 11, 0, 1245206, 11, 0, 1245207, 11, 0, 1245208, 11, 0, 1245209, 11, 0, 1245224, -1073741813, 0, 1310760, -1073741813, 0, 1441809, -1610612725, 0, 1507345, -1610612725, 0, 1507355, 11, 0, 1507356, 11, 0, 1507357, 11, 0, 1507361, 11, 0, 1507362, 11, 0, 1507363, 11, 0, 1507364, 11, 0, 1507365, 11, 0, 1572881, -1610612725, 0, 1638417, -1610612725, 0 )
+
+[node name="EnemyTrigger" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyTrigger"]
+position = Vector2( 544, 318.5 )
+shape = SubResource( 1 )
+
+[node name="EnemyPos" type="Position2D" parent="."]
+position = Vector2( 360, 212 )
+
+[connection signal="body_entered" from="Spikes" to="." method="_on_Spikes_body_entered"]
+[connection signal="body_entered" from="EnemyTrigger" to="." method="_on_EnemyTrigger_body_entered"]

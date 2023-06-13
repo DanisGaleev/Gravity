@@ -12,22 +12,22 @@ _global_script_classes=[ {
 "base": "Node2D",
 "class": "Dialog",
 "language": "GDScript",
-"path": "res://scripts/Dialog.gd"
+"path": "res://scenes/utils/Dialog.gd"
 }, {
 "base": "KinematicBody2D",
 "class": "Player",
 "language": "GDScript",
-"path": "res://scripts/Player.gd"
+"path": "res://scenes/entities/player/Player.gd"
 }, {
 "base": "Reference",
 "class": "Save",
 "language": "GDScript",
-"path": "res://scripts/Save.gd"
+"path": "res://Save.gd"
 }, {
 "base": "Reference",
 "class": "Save_Handler",
 "language": "GDScript",
-"path": "res://scripts/Save_Handler.gd"
+"path": "res://Save_Handler.gd"
 } ]
 _global_script_class_icons={
 "Dialog": "",
@@ -39,19 +39,17 @@ _global_script_class_icons={
 [application]
 
 config/name="Gravity"
-run/main_scene="res://scenes/Menu.tscn"
+run/main_scene="res://scenes/menu/menu/Menu.tscn"
 config/icon="res://scenes/icon.png"
 
 [autoload]
 
-SaveHandler="*res://scripts/Save_Handler.gd"
+SaveHandler="*res://Save_Handler.gd"
 
 [display]
 
 window/size/width=640
 window/size/height=360
-window/stretch/mode="2d"
-window/stretch/aspect="keep"
 
 [global]
 
