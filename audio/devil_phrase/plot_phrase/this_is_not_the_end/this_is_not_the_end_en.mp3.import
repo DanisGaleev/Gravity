@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/this_is_not_the_end_en.mp3-4e018458f19c68d6057fe7963f11f68d.mp3str"
+
+[deps]
+
+source_file="res://audio/devil_phrase/plot_phrase/this_is_not_the_end/this_is_not_the_end_en.mp3"
+dest_files=[ "res://.import/this_is_not_the_end_en.mp3-4e018458f19c68d6057fe7963f11f68d.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

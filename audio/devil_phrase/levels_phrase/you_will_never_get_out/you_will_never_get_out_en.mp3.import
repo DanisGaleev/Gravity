@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/you_will_never_get_out_en.mp3-f6216d9792918deb047ede7747f88c87.mp3str"
+
+[deps]
+
+source_file="res://audio/devil_phrase/levels_phrase/you_will_never_get_out/you_will_never_get_out_en.mp3"
+dest_files=[ "res://.import/you_will_never_get_out_en.mp3-f6216d9792918deb047ede7747f88c87.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

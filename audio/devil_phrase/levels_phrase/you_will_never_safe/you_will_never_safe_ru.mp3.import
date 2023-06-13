@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/you_will_never_safe_ru.mp3-13845084e2320a4c75aa6ecb6e0afa25.mp3str"
+
+[deps]
+
+source_file="res://audio/devil_phrase/levels_phrase/you_will_never_safe/you_will_never_safe_ru.mp3"
+dest_files=[ "res://.import/you_will_never_safe_ru.mp3-13845084e2320a4c75aa6ecb6e0afa25.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

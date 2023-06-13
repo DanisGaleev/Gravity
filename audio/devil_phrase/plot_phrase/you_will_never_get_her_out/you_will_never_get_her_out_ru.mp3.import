@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/you_will_never_get_her_out_ru.mp3-f04d77cb042cb820a25c88ccdd37c9ad.mp3str"
+
+[deps]
+
+source_file="res://audio/devil_phrase/plot_phrase/you_will_never_get_her_out/you_will_never_get_her_out_ru.mp3"
+dest_files=[ "res://.import/you_will_never_get_her_out_ru.mp3-f04d77cb042cb820a25c88ccdd37c9ad.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

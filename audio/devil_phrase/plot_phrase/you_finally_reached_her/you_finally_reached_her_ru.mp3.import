@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/you_finally_reached_her_ru.mp3-fb18a5c2279dd80f5f46f12d7e4f3eb0.mp3str"
+
+[deps]
+
+source_file="res://audio/devil_phrase/plot_phrase/you_finally_reached_her/you_finally_reached_her_ru.mp3"
+dest_files=[ "res://.import/you_finally_reached_her_ru.mp3-fb18a5c2279dd80f5f46f12d7e4f3eb0.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

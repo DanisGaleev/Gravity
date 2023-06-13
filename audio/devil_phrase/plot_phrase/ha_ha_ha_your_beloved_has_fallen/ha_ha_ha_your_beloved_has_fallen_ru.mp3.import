@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/ha_ha_ha_your_beloved_has_fallen_ru.mp3-5330f31ab747eefb02f6c24899f52b08.mp3str"
+
+[deps]
+
+source_file="res://audio/devil_phrase/plot_phrase/ha_ha_ha_your_beloved_has_fallen/ha_ha_ha_your_beloved_has_fallen_ru.mp3"
+dest_files=[ "res://.import/ha_ha_ha_your_beloved_has_fallen_ru.mp3-5330f31ab747eefb02f6c24899f52b08.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

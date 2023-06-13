@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/your_beloved_will_stay_ru.mp3-55917f55713850b8f53a4216c135af6b.mp3str"
+
+[deps]
+
+source_file="res://audio/devil_phrase/levels_phrase/your_beloved_will_stay/your_beloved_will_stay_ru.mp3"
+dest_files=[ "res://.import/your_beloved_will_stay_ru.mp3-55917f55713850b8f53a4216c135af6b.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

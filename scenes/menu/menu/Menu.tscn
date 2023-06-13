@@ -38,9 +38,9 @@ custom_constants/margin_bottom = 20
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 margin_left = 238.0
-margin_top = 49.0
+margin_top = 37.0
 margin_right = 402.0
-margin_bottom = 310.0
+margin_bottom = 322.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
@@ -79,7 +79,7 @@ margin_right = 164.0
 margin_bottom = 178.0
 size_flags_horizontal = 5
 size_flags_vertical = 5
-text = "Autors"
+text = "Authors"
 
 [node name="BestRes" type="Label" parent="MarginContainer/VBoxContainer"]
 margin_top = 182.0
@@ -107,8 +107,17 @@ size_flags_horizontal = 5
 size_flags_vertical = 5
 text = "Skins"
 
+[node name="Settings" type="Button" parent="MarginContainer/VBoxContainer"]
+margin_top = 265.0
+margin_right = 164.0
+margin_bottom = 285.0
+size_flags_horizontal = 5
+size_flags_vertical = 5
+text = "Settings"
+
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Start" to="." method="_on_Start_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Turorial" to="." method="_on_Turorial_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Authors" to="." method="_on_Authors_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Generator" to="." method="_on_Generator_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Skins" to="." method="_on_Skins_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Settings" to="." method="_on_Settings_pressed"]

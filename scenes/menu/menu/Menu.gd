@@ -47,3 +47,7 @@ func _on_Turorial_pressed():
 
 func _on_Skins_pressed():
 	get_tree().change_scene("res://scenes/menu/skins/Skins.tscn")
+
+
+func _on_Settings_pressed():
+	get_tree().change_scene("res://scenes/menu/settings/Settings.tscn")
