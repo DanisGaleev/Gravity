@@ -47,7 +47,8 @@ size_flags_vertical = 4
 [node name="ProgressBar" type="ProgressBar" parent="MarginContainer/VBoxContainer"]
 margin_right = 164.0
 margin_bottom = 14.0
-max_value = 5.0
+max_value = 6.0
+step = 1.0
 
 [node name="Start" type="TextureButton" parent="MarginContainer/VBoxContainer"]
 margin_top = 18.0

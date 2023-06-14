@@ -29,10 +29,10 @@ func _on_Start_pressed():
 	else:
 		v = float(v)
 	var level_path: String
-	if v < 6:
+	if v < 7:
 		level_path = "res://scenes/levels/plot_levels/Level" + str(v) + ".tscn"
 	else:
-		level_path = "res://scenes/levels/plot_levels/Level5.tscn"
+		level_path = "res://scenes/levels/plot_levels/Level6.tscn"
 	get_tree().change_scene(level_path)
 func _on_Authors_pressed():
 	get_tree().change_scene("res://scenes/menu/authors/Authors.tscn")	

@@ -1,6 +1,8 @@
 extends KinematicBody2D
 class_name Player
 
+onready var camera = $Camera2D
+
 const GRAVITY = 1.0
 const WALK_SPEED = 25
 var velocity = Vector2()
@@ -24,6 +26,11 @@ func _input(event):
 	if event.is_action_pressed("zoom_out"):
 		var x = 0
 		$Camera2D.zoom += Vector2(-0.1, -0.1)
+
+func _process(delta):
+	print(get_viewport_rect().size)
+	camera.zoom.x = 640 / get_viewport_rect().size.x
+	camera.zoom.y = camera.zoom.x
 
 func _physics_process(delta):
 	if isStarted:

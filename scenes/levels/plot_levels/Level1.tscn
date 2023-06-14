@@ -76,7 +76,7 @@ position = Vector2( 544, 318.5 )
 shape = SubResource( 1 )
 
 [node name="EnemyPos" type="Position2D" parent="."]
-position = Vector2( 360, 212 )
+position = Vector2( 360, 208 )
 
 [connection signal="body_entered" from="Spikes" to="." method="_on_Spikes_body_entered"]
 [connection signal="body_entered" from="EnemyTrigger" to="." method="_on_EnemyTrigger_body_entered"]
