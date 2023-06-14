@@ -76,13 +76,11 @@ region_rect = Rect2( 59, 82, 17, 24 )
 
 [node name="Text" type="Label" parent="."]
 modulate = Color( 1, 1, 1, 0 )
-margin_left = -27.0
-margin_top = -28.0
-margin_right = 93.0
-margin_bottom = 3.0
+margin_left = -32.0
+margin_top = -32.0
+margin_right = 96.0
+margin_bottom = -1.0
 rect_scale = Vector2( 0.5, 0.5 )
-text = "You will never
-safe your beloved"
 align = 1
 
 [node name="Timer" type="Timer" parent="."]

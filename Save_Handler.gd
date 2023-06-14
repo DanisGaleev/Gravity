@@ -30,4 +30,6 @@ func load_from_file(file_path):
 		file.close()
 	else:
 		add_value("level", "1")
+		add_value("language", "english")
+		add_value("best_result", 0)
 		save_to_file(file_path)
