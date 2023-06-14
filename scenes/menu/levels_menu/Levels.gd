@@ -6,11 +6,6 @@ func _on_Level_1_pressed():
 func _on_Level_2_pressed():
 	get_tree().change_scene("res://scenes/levels/plot_levels/Level2.tscn")
 
-
-func _on_Exit_pressed():
-	get_tree().change_scene("res://scenes/menu/menu/Menu.tscn")
-
-
 func _on_Level_3_pressed():
 	get_tree().change_scene("res://scenes/levels/plot_levels/Level3.tscn")
 

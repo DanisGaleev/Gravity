@@ -1,9 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://scenes/menu/levels_menu/Levels.gd" type="Script" id=1]
-[ext_resource path="res://sprites/exit_up.png" type="Texture" id=2]
-[ext_resource path="res://sprites/exit_down.png" type="Texture" id=3]
 [ext_resource path="res://sprites/background.png" type="Texture" id=4]
+[ext_resource path="res://scenes/entities/exit/Exit.tscn" type="PackedScene" id=5]
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
@@ -81,23 +80,21 @@ margin_bottom = 116.0
 rect_min_size = Vector2( 58, 20 )
 text = "Level 5"
 
-[node name="Exit" type="TextureButton" parent="MarginContainer/VBoxContainer"]
+[node name="Exit" parent="MarginContainer/VBoxContainer" instance=ExtResource( 5 )]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_left = 218.0
 margin_top = 254.0
 margin_right = 382.0
 margin_bottom = 320.0
-rect_min_size = Vector2( 164, 66 )
-rect_pivot_offset = Vector2( 82, 33 )
 size_flags_horizontal = 4
 size_flags_vertical = 10
-texture_normal = ExtResource( 2 )
-texture_pressed = ExtResource( 3 )
-texture_hover = ExtResource( 3 )
-expand = true
+exit_to_path = "res://scenes/menu/menu/Menu.tscn"
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Level 1" to="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" method="_on_Level_1_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Level 2" to="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" method="_on_Level_2_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Level 3" to="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" method="_on_Level_3_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Level 4" to="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" method="_on_Level_4_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Level 5" to="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" method="_on_Level_5_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Exit" to="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" method="_on_Exit_pressed"]

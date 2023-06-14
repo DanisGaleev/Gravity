@@ -7,6 +7,3 @@ func _ready():
 	save = save.get_value("skin_path")
 	#for child in $ScrollContainer/HBoxContainer:
 		#if child.get_node("MarginContainer/Skin").
-
-func _on_Exit_pressed():
-	get_tree().change_scene("res://scenes/menu/menu/Menu.tscn")
