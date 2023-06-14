@@ -15,6 +15,9 @@ script = ExtResource( 1 )
 rotation = 3.14159
 scale = Vector2( 0.12, 0.12 )
 texture = ExtResource( 3 )
+color = Color( 0.470588, 0.976471, 1, 1 )
+shadow_enabled = true
+shadow_color = Color( 0.690196, 0.117647, 0.917647, 0 )
 
 [node name="Sprite" type="Sprite" parent="."]
 visible = false

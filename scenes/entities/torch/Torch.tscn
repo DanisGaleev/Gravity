@@ -79,7 +79,7 @@ radius = 4.0
 position = Vector2( 8, 0 )
 frames = SubResource( 5 )
 animation = "timur"
-frame = 1
+frame = 3
 playing = true
 
 [node name="Light2D" type="Light2D" parent="AnimatedSprite"]
@@ -87,6 +87,7 @@ position = Vector2( -3, 0 )
 scale = Vector2( 0.28, 0.28 )
 texture = ExtResource( 2 )
 color = Color( 0.917647, 0.282353, 0.952941, 1 )
+shadow_enabled = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 3, 0 )
