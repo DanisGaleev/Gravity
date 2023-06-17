@@ -1,7 +1,12 @@
 extends KinematicBody2D
 
+export var canShot : bool
+
 onready var timer = $Timer
 onready var text = $Text
+onready var pos = $Self_guided_bullets_position
+
+var self_guided_bul = preload("res://scenes/entities/self_guided_bullet/Self_giuded_bullet.tscn")
 
 var visibleTime = 4
 
@@ -31,6 +36,19 @@ func _ready():
 	randomize()
 	save.load_from_file("user://data.txt")
 	_on_Timer_timeout()
+	if canShot:
+		var timer = Timer.new()
+		add_child(timer)
+		timer.wait_time = 10
+		timer.start()
+		timer.connect("timeout", self, "bullet_timer")
+		
+func bullet_timer() -> void:
+	print("bullet_timer")
+	var bullet = self_guided_bul.instance()
+	bullet.global_position = pos.global_position
+	get_parent().add_child(bullet)
+	
 func play_sound():
 	#save.get_value("language")
 	#var t = text.text
@@ -55,4 +73,4 @@ func _on_Timer_timeout():
 		text.text = enemy_phrases_en[randi() % enemy_phrases_en.size()]
 	else:
 		text.text = enemy_phrases_ru[randi() % enemy_phrases_ru.size()]
-	print(text.text)
+	#print(text.text)

@@ -20,28 +20,7 @@ func camera_to_def():
 func _input(event):
 	if event.is_action_pressed("left") or event.is_action_pressed("right") or event.is_action_pressed("rotate_left") or event.is_action_pressed("rotate_right"):
 		isStarted = true
-	if event.is_action_pressed("zoom_in"):
-		var x = 0
-		$Camera2D.zoom += Vector2(0.1, 0.1)
-	if event.is_action_pressed("zoom_out"):
-		var x = 0
-		$Camera2D.zoom += Vector2(-0.1, -0.1)
-
-func _process(delta):
-	print(get_viewport_rect().size)
-	camera.zoom.x = 640 / get_viewport_rect().size.x
-	camera.zoom.y = camera.zoom.x
-
-func _physics_process(delta):
-	if isStarted:
-		if g % 4 == 0:
-			velocity.y += GRAVITY
-		elif g % 4 == 1:
-			velocity.x -= GRAVITY
-		elif g % 4 == 2:
-			velocity.y -= GRAVITY
-		else:
-			velocity.x += GRAVITY			
+	if isStarted:	
 		if Input.is_action_pressed("left"):
 			if g % 4 == 0:
 				velocity.x = -WALK_SPEED
@@ -99,4 +78,26 @@ func _physics_process(delta):
 			normal.x = yn
 			normal.y = -xn
 
+#	if event.is_action_pressed("zoom_in"):
+#		var x = 0
+#		$Camera2D.zoom += Vector2(0.1, 0.1)
+#	if event.is_action_pressed("zoom_out"):
+#		var x = 0
+#		$Camera2D.zoom += Vector2(-0.1, -0.1)
+
+func _process(delta):
+	#print(get_viewport_rect().size)
+	camera.zoom.x = 640 / get_viewport_rect().size.x
+	camera.zoom.y = camera.zoom.x
+
+func _physics_process(delta):
+	if isStarted:
+		if g % 4 == 0:
+			velocity.y += GRAVITY
+		elif g % 4 == 1:
+			velocity.x -= GRAVITY
+		elif g % 4 == 2:
+			velocity.y -= GRAVITY
+		else:
+			velocity.x += GRAVITY		
 		velocity = move_and_slide(velocity, normal)

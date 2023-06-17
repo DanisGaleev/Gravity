@@ -2,7 +2,7 @@
 
 [ext_resource path="res://scenes/entities/finish/Finish.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/entities/player/Player.tscn" type="PackedScene" id=2]
-[ext_resource path="res://scenes/entities/spike/Spike.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Label.tscn" type="PackedScene" id=3]
 [ext_resource path="res://sprites/finish.png" type="Texture" id=4]
 [ext_resource path="res://tilemaps/tilemap.tres" type="TileSet" id=5]
 [ext_resource path="res://scenes/entities/start/Start.tscn" type="PackedScene" id=6]
@@ -27,126 +27,6 @@ tile_data = PoolIntArray( 786447, 8, 0, 786448, 8, 0, 786449, 8, 0, 786450, 8, 0
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 488, 320 )
 
-[node name="spikes" type="Node2D" parent="."]
-visible = false
-
-[node name="spike_big" parent="spikes" instance=ExtResource( 3 )]
-position = Vector2( 440, 280 )
-rotation = -3.14159
-
-[node name="spike_big29" parent="spikes" instance=ExtResource( 3 )]
-position = Vector2( 424, 424 )
-rotation = -6.28318
-
-[node name="spike_big30" parent="spikes" instance=ExtResource( 3 )]
-position = Vector2( 424, 456 )
-rotation = -9.42476
-
-[node name="spike_big2" parent="spikes" instance=ExtResource( 3 )]
-position = Vector2( 392, 264 )
-
-[node name="spike_big3" parent="spikes" instance=ExtResource( 3 )]
-position = Vector2( 296, 280 )
-rotation = -3.14159
-
-[node name="spike_big4" parent="spikes" instance=ExtResource( 3 )]
-position = Vector2( 312, 424 )
-rotation = -1.57079
-
-[node name="spike_big5" parent="spikes" instance=ExtResource( 3 )]
-position = Vector2( 376, 440 )
-rotation = -1.57079
-
-[node name="spike_big6" parent="spikes" instance=ExtResource( 3 )]
-position = Vector2( 360, 472 )
-
-[node name="spike_big7" parent="spikes" instance=ExtResource( 3 )]
-position = Vector2( 520, 456 )
-
-[node name="spike_big8" parent="spikes" instance=ExtResource( 3 )]
-position = Vector2( 520, 424 )
-rotation = 3.14159
-
-[node name="spike_big9" parent="spikes" instance=ExtResource( 3 )]
-position = Vector2( 568, 424 )
-rotation = 4.71238
-
-[node name="spike_big25" parent="spikes" instance=ExtResource( 3 )]
-position = Vector2( 632, 472 )
-rotation = 6.28318
-
-[node name="spike_big26" parent="spikes" instance=ExtResource( 3 )]
-position = Vector2( 647, 472 )
-rotation = 6.28318
-
-[node name="spike_big27" parent="spikes" instance=ExtResource( 3 )]
-position = Vector2( 616, 472 )
-rotation = 6.28318
-
-[node name="spike_big28" parent="spikes" instance=ExtResource( 3 )]
-position = Vector2( 472, 440 )
-rotation = 7.85397
-
-[node name="spike_big10" parent="spikes" instance=ExtResource( 3 )]
-position = Vector2( 584, 440 )
-rotation = 3.14159
-
-[node name="spike_big11" parent="spikes" instance=ExtResource( 3 )]
-position = Vector2( 616, 344 )
-rotation = 4.71238
-
-[node name="spike_big12" parent="spikes" instance=ExtResource( 3 )]
-position = Vector2( 648, 344 )
-rotation = 7.85397
-
-[node name="spike_big13" parent="spikes" instance=ExtResource( 3 )]
-position = Vector2( 632, 296 )
-rotation = 9.42476
-
-[node name="spike_big14" parent="spikes" instance=ExtResource( 3 )]
-position = Vector2( 616, 216 )
-rotation = 9.42476
-
-[node name="spike_big15" parent="spikes" instance=ExtResource( 3 )]
-position = Vector2( 648, 216 )
-rotation = 9.42476
-
-[node name="spike_big16" parent="spikes" instance=ExtResource( 3 )]
-position = Vector2( 632, 392 )
-rotation = 9.42476
-
-[node name="spike_big17" parent="spikes" instance=ExtResource( 3 )]
-position = Vector2( 600, 376 )
-rotation = 7.85397
-
-[node name="spike_big18" parent="spikes" instance=ExtResource( 3 )]
-position = Vector2( 664, 376 )
-rotation = 4.71238
-
-[node name="spike_big19" parent="spikes" instance=ExtResource( 3 )]
-position = Vector2( 312, 312 )
-rotation = 6.28318
-
-[node name="spike_big20" parent="spikes" instance=ExtResource( 3 )]
-position = Vector2( 328, 312 )
-rotation = 6.28318
-
-[node name="spike_big21" parent="spikes" instance=ExtResource( 3 )]
-position = Vector2( 264, 440 )
-rotation = 6.28318
-
-[node name="spike_big22" parent="spikes" instance=ExtResource( 3 )]
-position = Vector2( 280, 440 )
-rotation = 6.28318
-
-[node name="spike_big23" parent="spikes" instance=ExtResource( 3 )]
-position = Vector2( 408, 328 )
-rotation = 7.85397
-
-[node name="spike_big24" parent="spikes" instance=ExtResource( 3 )]
-position = Vector2( 408, 312 )
-rotation = 7.85397
-
 [node name="Finish" parent="." instance=ExtResource( 1 )]
 position = Vector2( 632, 334 )
 scale = Vector2( 0.359998, 1 )
@@ -159,10 +39,8 @@ position = Vector2( 488, 334 )
 [node name="Control" type="Control" parent="Node"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -8.0
-margin_top = 36.0
-margin_right = -8.0
-margin_bottom = 36.0
+
+[node name="Label" parent="Node/Control" instance=ExtResource( 3 )]
 
 [node name="Turret" parent="." instance=ExtResource( 7 )]
 position = Vector2( 584, 264 )

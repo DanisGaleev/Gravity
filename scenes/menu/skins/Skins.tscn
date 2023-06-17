@@ -42,6 +42,8 @@ custom_constants/separation = 74
 [node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer"]
 margin_right = 600.0
 margin_bottom = 100.0
+size_flags_horizontal = 5
+size_flags_vertical = 5
 scroll_vertical_enabled = false
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/ScrollContainer"]

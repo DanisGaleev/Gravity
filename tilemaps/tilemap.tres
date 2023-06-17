@@ -1,13 +1,23 @@
-[gd_resource type="TileSet" load_steps=8 format=2]
+[gd_resource type="TileSet" load_steps=10 format=2]
 
 [ext_resource path="res://sprites/gameset.png" type="Texture" id=1]
 [ext_resource path="res://sprites/tileset.png" type="Texture" id=2]
+
+[sub_resource type="NavigationPolygon" id=19]
+vertices = PoolVector2Array( 0, 16, 8, 2, 16, 16 )
+polygons = [ PoolIntArray( 0, 1, 2 ) ]
+outlines = [ PoolVector2Array( 0, 16, 8, 2, 16, 16 ) ]
 
 [sub_resource type="OccluderPolygon2D" id=17]
 polygon = PoolVector2Array( 8, 2, 16, 16, 0, 16 )
 
 [sub_resource type="ConvexPolygonShape2D" id=18]
 points = PoolVector2Array( 8, 2, 8, 2, 16, 16, 0, 16 )
+
+[sub_resource type="NavigationPolygon" id=20]
+vertices = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
+polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
+outlines = [ PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 ) ]
 
 [sub_resource type="OccluderPolygon2D" id=13]
 polygon = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
@@ -27,6 +37,7 @@ points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 8/occluder_offset = Vector2( 0, 0 )
 8/occluder = SubResource( 13 )
 8/navigation_offset = Vector2( 0, 0 )
+8/navigation = SubResource( 20 )
 8/shape_offset = Vector2( 0, 0 )
 8/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 8/shape = SubResource( 14 )
@@ -49,6 +60,7 @@ points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 11/occluder_offset = Vector2( 0, 0 )
 11/occluder = SubResource( 17 )
 11/navigation_offset = Vector2( 0, 0 )
+11/navigation = SubResource( 19 )
 11/shape_offset = Vector2( 0, 0 )
 11/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 11/shape = SubResource( 18 )
@@ -90,4 +102,18 @@ points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 13/shape_one_way_margin = 0.0
 13/shapes = [  ]
 13/z_index = 0
+14/name = "tileset.png 14"
+14/texture = ExtResource( 2 )
+14/tex_offset = Vector2( 0, 0 )
+14/modulate = Color( 1, 1, 1, 1 )
+14/region = Rect2( 16, 80, 16, 16 )
+14/tile_mode = 0
+14/occluder_offset = Vector2( 0, 0 )
+14/navigation_offset = Vector2( 0, 0 )
+14/shape_offset = Vector2( 0, 0 )
+14/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+14/shape_one_way = false
+14/shape_one_way_margin = 0.0
+14/shapes = [  ]
+14/z_index = 0
 script = SubResource( 16 )

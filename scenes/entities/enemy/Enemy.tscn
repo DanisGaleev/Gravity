@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://scenes/entities/enemy/Enemy.gd" type="Script" id=1]
 [ext_resource path="res://sprites/devil.png" type="Texture" id=2]
@@ -6,6 +6,13 @@
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8, 8 )
+
+[sub_resource type="DynamicFontData" id=4]
+font_path = "res://fonts/fonts/ttf/Geologica-Black.ttf"
+
+[sub_resource type="DynamicFont" id=5]
+size = 18
+font_data = SubResource( 4 )
 
 [sub_resource type="Animation" id=2]
 length = 0.001
@@ -63,6 +70,13 @@ tracks/1/keys = {
 } ]
 }
 
+[sub_resource type="DynamicFontData" id=6]
+font_path = "res://fonts/fonts/ttf/Geologica-Black.ttf"
+
+[sub_resource type="DynamicFont" id=7]
+size = 20
+font_data = SubResource( 6 )
+
 [node name="Enemy" type="KinematicBody2D"]
 script = ExtResource( 1 )
 
@@ -76,12 +90,15 @@ region_rect = Rect2( 59, 82, 17, 24 )
 
 [node name="Text" type="Label" parent="."]
 modulate = Color( 1, 1, 1, 0 )
-margin_left = -32.0
-margin_top = -32.0
-margin_right = 96.0
-margin_bottom = -1.0
+margin_left = -65.0
+margin_top = -62.0
+margin_right = 195.0
+margin_bottom = 20.0
+grow_horizontal = 2
 rect_scale = Vector2( 0.5, 0.5 )
+custom_fonts/font = SubResource( 5 )
 align = 1
+valign = 1
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 7.0
@@ -95,5 +112,19 @@ anims/alpha = SubResource( 3 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
+
+[node name="Self_guided_bullets_position" type="Position2D" parent="."]
+position = Vector2( 0, -24 )
+
+[node name="Label" type="Label" parent="."]
+visible = false
+margin_left = -60.0
+margin_top = -62.0
+margin_right = 61.0
+margin_bottom = -29.0
+grow_horizontal = 2
+custom_fonts/font = SubResource( 7 )
+align = 1
+valign = 1
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

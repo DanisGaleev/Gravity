@@ -10,10 +10,17 @@ var enemy: KinematicBody2D
 onready var player = $Player
 onready var startPosition = $Start/startPos
 onready var enemyPos = $EnemyPos
+onready var navmesh = $Navigation2D
 
 func _ready():
 	player.global_position = startPosition.global_position
 
+func _process(delta):
+#	if self.name == "Level7":
+#		for blt in self_bullets.get_children():
+#			var simple_path = navmesh.get_simple_path(blt.global_position, player.global_position)
+#			blt.path = simple_path
+	pass
 
 func _on_Spikes_body_entered(body):
 	if body.get_name() == "Player":

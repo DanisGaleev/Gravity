@@ -8,7 +8,7 @@ func _on_Area2D_body_entered(body):
 		var save = Save_Handler.new()
 		save.load_from_file("user://data.txt")
 		print(save.data)
-		save.add_value("level", str(int(get_parent().name.substr(5)) + 1))
+		save.add_value("level", int(get_parent().name.substr(5)) + 1)
 		save.save_to_file("user://data.txt")
 		win_screen = win_screen_scene.instance()
 		get_parent().get_node("Node/Control").add_child(win_screen)

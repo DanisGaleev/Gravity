@@ -20,3 +20,16 @@ region_rect = Rect2( 112, 0, 16, 16 )
 [node name="Camera2D" type="Camera2D" parent="."]
 rotating = true
 current = true
+
+[node name="Label" type="Label" parent="."]
+visible = false
+margin_left = -64.0
+margin_top = -72.0
+margin_right = 70.0
+margin_bottom = -30.0
+grow_horizontal = 2
+text = "egegegeegg egge egeg eg
+gege
+jj"
+align = 1
+valign = 1

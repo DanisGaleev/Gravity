@@ -9,7 +9,7 @@
 [ext_resource path="res://scenes/levels/plot_levels/Level.gd" type="Script" id=7]
 [ext_resource path="res://scenes/entities/bullet_machine/BulletMachine.tscn" type="PackedScene" id=8]
 [ext_resource path="res://sprites/gameset.png" type="Texture" id=9]
-[ext_resource path="res://sprites/devil.png" type="Texture" id=11]
+[ext_resource path="res://Label.tscn" type="PackedScene" id=10]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 32, 5 )
@@ -45,10 +45,8 @@ scale = Vector2( 0.38501, 0.161 )
 [node name="Control" type="Control" parent="Node"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -8.0
-margin_top = 36.0
-margin_right = -8.0
-margin_bottom = 36.0
+
+[node name="Label" parent="Node/Control" instance=ExtResource( 10 )]
 
 [node name="Spikes" type="Area2D" parent="."]
 
@@ -91,10 +89,6 @@ shape = SubResource( 1 )
 
 [node name="EnemyPos" type="Position2D" parent="."]
 position = Vector2( 776, 180 )
-
-[node name="Devil" type="Sprite" parent="."]
-position = Vector2( 794, 194 )
-texture = ExtResource( 11 )
 
 [node name="Gameset" type="Sprite" parent="."]
 position = Vector2( 729, 212 )

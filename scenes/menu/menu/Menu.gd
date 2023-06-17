@@ -8,14 +8,16 @@ func _ready():
 	save.load_from_file("user://data.txt")
 	var v = save.get_value("level")
 	var best = save.get_value("best_result")
-	if v == null:
-		bar.value = 0
-	else:	
-		bar.value = float(v) - 1
-	if best == null :
-		save.add_value("best_result", 0)
-		save.save_to_file("user://data.txt")
-	best_res.text = "BEST RESULT\n0" if best == null else "BEST RESULT\n" + str(best)
+#	if v == null:
+#		bar.value = 0
+#	else:	
+#		bar.value = float(v) - 1
+	bar.value = float(v) - 1
+#	if best == null :
+#		save.add_value("best_result", 0)
+#		save.save_to_file("user://data.txt")
+#	best_res.text = "BEST RESULT\n0" if best == null else "BEST RESULT\n" + str(best)
+	best_res.text = "BEST RESULT\n" + str(best)
 
 func _process(delta):
 	pass
@@ -23,11 +25,11 @@ func _process(delta):
 func _on_Start_pressed():
 	var save = Save_Handler.new()
 	save.load_from_file("user://data.txt")
-	var v = save.get_value("level")
-	if v == null:
-		v = 1
-	else:
-		v = float(v)
+	var v = float(save.get_value("level"))
+#	if v == null:
+#		v = 1
+#	else:
+#		v = float(v)
 	var level_path: String
 	if v < 7:
 		level_path = "res://scenes/levels/plot_levels/Level" + str(v) + ".tscn"
