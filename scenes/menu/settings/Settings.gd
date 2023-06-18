@@ -11,7 +11,6 @@ func _ready():
 			lang.select(idx)
 
 func _on_Languages_item_selected(index):
-	print(lang.get_item_text(index).to_lower())
 	var save = Save_Handler.new()
 	save.load_from_file("user://data.txt")
 	save.add_value("language", lang.get_item_text(index).to_lower())

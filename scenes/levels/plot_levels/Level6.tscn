@@ -7,8 +7,8 @@
 [ext_resource path="res://sprites/finish.png" type="Texture" id=5]
 [ext_resource path="res://scenes/levels/plot_levels/Level.gd" type="Script" id=6]
 [ext_resource path="res://tilemaps/tilemap.tres" type="TileSet" id=7]
-[ext_resource path="res://scenes/entities/bullet_machine/BulletMachine.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Label.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/entities/turret/Turret.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/entities/fps/Label.tscn" type="PackedScene" id=9]
 
 [sub_resource type="DynamicFontData" id=1]
 font_path = "res://fonts/fonts/ttf/Geologica-Black.ttf"

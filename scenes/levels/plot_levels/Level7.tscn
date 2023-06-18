@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://scenes/entities/start/Start.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/entities/finish/Finish.tscn" type="PackedScene" id=2]
@@ -7,8 +7,8 @@
 [ext_resource path="res://sprites/finish.png" type="Texture" id=5]
 [ext_resource path="res://scenes/levels/plot_levels/Level.gd" type="Script" id=6]
 [ext_resource path="res://tilemaps/tilemap.tres" type="TileSet" id=7]
-[ext_resource path="res://scenes/entities/bullet_machine/BulletMachine.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Label.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/entities/turret/Turret.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/entities/fps/Label.tscn" type="PackedScene" id=9]
 [ext_resource path="res://scenes/entities/enemy/Enemy.tscn" type="PackedScene" id=10]
 
 [sub_resource type="NavigationPolygon" id=1]
@@ -76,9 +76,6 @@ vertices = PoolVector2Array( 114, 156, 112, 152, 124, 152, 116, 156, 124, 164, 1
 polygons = [ PoolIntArray( 0, 1, 2, 3 ), PoolIntArray( 3, 2, 4, 5 ), PoolIntArray( 6, 5, 4, 7 ), PoolIntArray( 8, 6, 7, 9 ), PoolIntArray( 10, 8, 9, 11 ), PoolIntArray( 12, 13, 10, 11, 14, 15 ), PoolIntArray( 16, 17, 18, 19, 20, 14 ), PoolIntArray( 20, 21, 22, 23, 24, 14 ), PoolIntArray( 15, 25, 26, 12 ), PoolIntArray( 12, 27, 13 ), PoolIntArray( 24, 15, 14 ) ]
 outlines = [ PoolVector2Array( 184, 164, 124, 164, 124, 152, 112, 152, 114, 156, 116, 156, 116, 172, 132, 172, 138, 180, 138, 189, 132, 196, 128, 196, 128, 208, 116, 208, 116, 220, 132, 220, 132, 244, 130, 244, 120, 258, 120, 268, 132, 268, 132, 300, 184, 300, 184, 274, 172, 261, 158, 248, 172, 236, 184, 222 ) ]
 
-[sub_resource type="RectangleShape2D" id=14]
-extents = Vector2( 33, 21.5 )
-
 [node name="Level7" type="Node2D"]
 script = ExtResource( 6 )
 
@@ -141,7 +138,7 @@ navpoly = SubResource( 12 )
 navpoly = SubResource( 13 )
 
 [node name="Enemy" parent="Navigation2D" instance=ExtResource( 10 )]
-position = Vector2( 430, 102 )
+position = Vector2( 432, 112 )
 canShot = true
 
 [node name="Finish" parent="." instance=ExtResource( 2 )]
@@ -210,14 +207,5 @@ scale = Vector2( -1, 1 )
 direction = Vector2( 0, 1 )
 timerTime = 8
 speed = 80
-
-[node name="EnemyTrigger" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyTrigger"]
-position = Vector2( 390, 91.5 )
-shape = SubResource( 14 )
-
-[node name="EnemyPos" type="Position2D" parent="."]
-position = Vector2( 776, 180 )
 
 [connection signal="body_entered" from="Spikes" to="." method="_on_Spikes_body_entered"]

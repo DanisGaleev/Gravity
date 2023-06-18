@@ -5,7 +5,7 @@
 [ext_resource path="res://audio/devil_phrase/levels_phrase/you_will_never_safe/you_will_never_safe_en.mp3" type="AudioStream" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 8, 8 )
+extents = Vector2( 8, 14 )
 
 [sub_resource type="DynamicFontData" id=4]
 font_path = "res://fonts/fonts/ttf/Geologica-Black.ttf"
@@ -81,7 +81,7 @@ font_data = SubResource( 6 )
 script = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, 8 )
+position = Vector2( 0, 2 )
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
@@ -114,7 +114,7 @@ anims/alpha = SubResource( 3 )
 stream = ExtResource( 3 )
 
 [node name="Self_guided_bullets_position" type="Position2D" parent="."]
-position = Vector2( 0, -24 )
+position = Vector2( 0, -22 )
 
 [node name="Label" type="Label" parent="."]
 visible = false

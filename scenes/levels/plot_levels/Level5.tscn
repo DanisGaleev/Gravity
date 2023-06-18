@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://scenes/entities/finish/Finish.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/entities/player/Player.tscn" type="PackedScene" id=2]
@@ -7,9 +7,8 @@
 [ext_resource path="res://scenes/entities/torch/Torch.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/entities/start/Start.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/levels/plot_levels/Level.gd" type="Script" id=7]
-[ext_resource path="res://scenes/entities/bullet_machine/BulletMachine.tscn" type="PackedScene" id=8]
-[ext_resource path="res://sprites/gameset.png" type="Texture" id=9]
-[ext_resource path="res://Label.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/entities/turret/Turret.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/entities/fps/Label.tscn" type="PackedScene" id=10]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 32, 5 )
@@ -88,25 +87,7 @@ position = Vector2( 816, 216 )
 shape = SubResource( 1 )
 
 [node name="EnemyPos" type="Position2D" parent="."]
-position = Vector2( 776, 180 )
-
-[node name="Gameset" type="Sprite" parent="."]
-position = Vector2( 729, 212 )
-texture = ExtResource( 9 )
-region_enabled = true
-region_rect = Rect2( 0, 48, 16, 16 )
-
-[node name="Gameset2" type="Sprite" parent="."]
-position = Vector2( 744, 212 )
-texture = ExtResource( 9 )
-region_enabled = true
-region_rect = Rect2( 0, 48, 16, 16 )
-
-[node name="Gameset3" type="Sprite" parent="."]
-position = Vector2( 759, 212 )
-texture = ExtResource( 9 )
-region_enabled = true
-region_rect = Rect2( 0, 48, 16, 16 )
+position = Vector2( 776, 176 )
 
 [connection signal="body_entered" from="Spikes" to="." method="_on_Spikes_body_entered"]
 [connection signal="body_entered" from="EnemyTrigger" to="." method="_on_EnemyTrigger_body_entered"]

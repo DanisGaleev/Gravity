@@ -79,7 +79,6 @@ radius = 4.0
 position = Vector2( 8, 0 )
 frames = SubResource( 5 )
 animation = "timur"
-frame = 3
 playing = true
 
 [node name="Light2D" type="Light2D" parent="AnimatedSprite"]

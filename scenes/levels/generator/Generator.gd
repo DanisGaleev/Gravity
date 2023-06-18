@@ -193,41 +193,14 @@ func _on_Finish_body_entered(body):
 		get_tree().reload_current_scene()
 		var save = Save_Handler.new()
 		save.load_from_file("user://data.txt")
-#		if save.get_value("current_result") == null:
-#			save.add_value("current_result", 1)
-#		else:
-#			save.add_value("current_result", save.get_value("current_result") + 1)
 		save.add_value("current_result", save.get_value("current_result") + 1)
 		save.save_to_file("user://data.txt")
-		#win_screen = win_screen_scene.instance()
-		#get_node("Node/Control").add_child(win_screen)
-		#win_screen.visible = true
-		#print(get_parent().name)
-		#for child in get_children():
-		#	if child.name != "Node":
-		#		child.visible = false
-		
-		#pl.queue_free()
-		
-		#map.clear()
-		#tilemap.clear()
-		#spikes_map.clear()
-		#empty_tiles.clear()
-		#astar.clear()
-		#isFoundPath = false
-		#create_level()
-		#current_result+=1
-		#result_label.text = "Result: " + str(current_result)
-		#pl.set_isStarted(false)
-		#pl.velocity = Vector2(0, 0)
 
 
 func _on_Spikes_body_entered(body):
 	if body.get_name() == "Player":
 		var save = Save_Handler.new()
 		save.load_from_file("user://data.txt")
-#		if save.get_value("current_result") == null:
-#			save.add_value("current_result", 0)
 		save.add_value("best_result", max(int(save.get_value("best_result")), save.get_value("current_result")))
 		save.add_value("current_result", 0)
 		save.save_to_file("user://data.txt")

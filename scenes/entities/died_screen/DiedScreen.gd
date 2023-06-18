@@ -1,7 +1,6 @@
 extends CanvasLayer
 
 func _ready():
-	print("name: " + get_parent().get_parent().get_parent().name)
 	if get_parent().get_parent().get_parent().name.begins_with("Level"):
 		var save = Save_Handler.new()
 		save.load_from_file("user://data.txt")

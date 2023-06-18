@@ -39,38 +39,21 @@ func _ready():
 	if canShot:
 		var timer = Timer.new()
 		add_child(timer)
-		timer.wait_time = 10
+		timer.wait_time = 15
 		timer.start()
 		timer.connect("timeout", self, "bullet_timer")
 		
 func bullet_timer() -> void:
-	print("bullet_timer")
 	var bullet = self_guided_bul.instance()
 	bullet.global_position = pos.global_position
 	get_parent().add_child(bullet)
 	
 func play_sound():
-	#save.get_value("language")
-	#var t = text.text
 	var def_path = "res://audio/devil_phrase/levels_phrase/"
-	#var path: String
 	$AudioStreamPlayer.stream = load(def_path + auduo_paths[text.text] + ".mp3")
-#	if t == enemy_phrases_en[0]:
-#		path = "you_will_never_safe/you_will_never_safe_en.mp3")
-#	elif t == enemy_phrases_en[1]:
-#		$AudioStreamPlayer.stream = load("you_will_never_get_out/you_will_never_get_out_en.mp3")
-#	elif t == enemy_phrases_en[2]:
-#		$AudioStreamPlayer.stream = load("your_beloved_will_stay/your_beloved_will_stay_en.mp3")
-#	elif t == enemy_phrases_ru[0]:
-#		$AudioStreamPlayer.stream = load("you_will_never_safe/you_will_never_safe_ru.mp3")
-#	elif t == enemy_phrases_ru[1]:
-#		$AudioStreamPlayer.stream = load("you_will_never_get_out/you_will_never_get_out_ru.mp3")
-#	elif t == enemy_phrases_ru[2]:
-#		$AudioStreamPlayer.stream = load("your_beloved_will_stay/your_beloved_will_stay_ru.mp3")
 	$AudioStreamPlayer.playing = true
 func _on_Timer_timeout():
 	if 	save.get_value("language") == "english":
 		text.text = enemy_phrases_en[randi() % enemy_phrases_en.size()]
 	else:
 		text.text = enemy_phrases_ru[randi() % enemy_phrases_ru.size()]
-	#print(text.text)

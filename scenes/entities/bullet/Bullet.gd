@@ -9,7 +9,6 @@ func _on_Area2D_body_entered(body):
 		queue_free()
 	elif body.get_name() == "Player":
 		died_screen = died_screen_scene.instance()
-		print(get_parent().get_parent().name)
 		get_parent().get_parent().get_node("Node/Control").add_child(died_screen)
 		for child in get_parent().get_parent().get_children():
 			if child.name != "Node":
