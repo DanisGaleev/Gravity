@@ -40,7 +40,7 @@ _global_script_class_icons={
 
 config/name="Gravity"
 run/main_scene="res://scenes/menu/menu/Menu.tscn"
-config/icon="res://icon.png"
+config/icon="res://scenes/icon.png"
 
 [autoload]
 
