@@ -142,7 +142,7 @@ position = Vector2( 432, 112 )
 canShot = true
 
 [node name="Finish" parent="." instance=ExtResource( 2 )]
-position = Vector2( 406, 88 )
+position = Vector2( 404, 88 )
 scale = Vector2( 0.345, 0.666 )
 
 [node name="Start" parent="." instance=ExtResource( 1 )]
