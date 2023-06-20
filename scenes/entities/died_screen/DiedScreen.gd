@@ -10,6 +10,3 @@ func _ready():
 func _input(event):
 	if event.is_action_pressed("exit"):
 		get_tree().change_scene("res://scenes/menu/menu/Menu.tscn")	
-
-func _on_Exit_pressed():
-	get_tree().change_scene("res://scenes/menu/menu/Menu.tscn")

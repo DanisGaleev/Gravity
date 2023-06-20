@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-onready var label = $Panel/Label
+onready var label = $MarginContainer/Label
 
 func _ready():
 	var level_name = get_parent().get_parent().get_parent().name

@@ -1,8 +1,7 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://scenes/entities/win_screen/WinScreen.gd" type="Script" id=1]
-[ext_resource path="res://sprites/exit_up.png" type="Texture" id=2]
-[ext_resource path="res://sprites/exit_down.png" type="Texture" id=3]
+[ext_resource path="res://scenes/entities/exit/Exit.tscn" type="PackedScene" id=2]
 
 [node name="Canvas" type="CanvasLayer"]
 script = ExtResource( 1 )
@@ -17,31 +16,32 @@ margin_top = -180.0
 margin_right = 320.0
 margin_bottom = 180.0
 
-[node name="Exit" type="TextureButton" parent="Panel"]
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -82.0
-margin_top = -66.0
-margin_right = 82.0
-rect_min_size = Vector2( 164, 66 )
-rect_pivot_offset = Vector2( 82, 33 )
-texture_normal = ExtResource( 2 )
-texture_pressed = ExtResource( 3 )
-texture_hover = ExtResource( 3 )
-expand = true
+custom_constants/margin_right = 20
+custom_constants/margin_top = 20
+custom_constants/margin_left = 20
+custom_constants/margin_bottom = 20
 
-[node name="Label" type="Label" parent="Panel"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -74.5
-margin_top = -24.0
-margin_right = 74.5
-margin_bottom = 24.0
+[node name="Exit" parent="MarginContainer" instance=ExtResource( 2 )]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 238.0
+margin_top = 274.0
+margin_right = 402.0
+margin_bottom = 340.0
+size_flags_horizontal = 4
+size_flags_vertical = 8
+exit_to_path = "res://scenes/menu/menu/Menu.tscn"
+
+[node name="Label" type="Label" parent="MarginContainer"]
+margin_left = 20.0
+margin_top = 173.0
+margin_right = 620.0
+margin_bottom = 187.0
 grow_horizontal = 2
+size_flags_horizontal = 5
 align = 1
-
-[connection signal="pressed" from="Panel/Exit" to="." method="_on_Exit_pressed"]

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/TUTOR D R.png-4bb15af67cf3de186e4109f7a2b23416.stex"
+path="res://.import/EXIT L R.png-e464169b545c2c16f1b715d6025e66af.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/gui/TUTOR D R.png"
-dest_files=[ "res://.import/TUTOR D R.png-4bb15af67cf3de186e4109f7a2b23416.stex" ]
+source_file="res://sprites/gui/menu/EXIT L R.png"
+dest_files=[ "res://.import/EXIT L R.png-e464169b545c2c16f1b715d6025e66af.stex" ]
 
 [params]
 

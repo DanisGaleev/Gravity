@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/SETT D R.png-95e138364e2a5dbddea970a5b4b93d9f.stex"
+path="res://.import/SKINS L R.png-9692a7828895aeaa811410e67850d03b.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/gui/SETT D R.png"
-dest_files=[ "res://.import/SETT D R.png-95e138364e2a5dbddea970a5b4b93d9f.stex" ]
+source_file="res://sprites/gui/menu/SKINS L R.png"
+dest_files=[ "res://.import/SKINS L R.png-9692a7828895aeaa811410e67850d03b.stex" ]
 
 [params]
 

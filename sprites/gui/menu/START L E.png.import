@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/SKINS L R.png-686686ec0c97f6fdd2ea8faf7868e228.stex"
+path="res://.import/START L E.png-77431be1cb2e61ba7c67b11076cbad62.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/gui/SKINS L R.png"
-dest_files=[ "res://.import/SKINS L R.png-686686ec0c97f6fdd2ea8faf7868e228.stex" ]
+source_file="res://sprites/gui/menu/START L E.png"
+dest_files=[ "res://.import/START L E.png-77431be1cb2e61ba7c67b11076cbad62.stex" ]
 
 [params]
 

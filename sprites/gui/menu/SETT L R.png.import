@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/EXIT D R.png-dfac0a6ae242d6fb171b22889cac8a2f.stex"
+path="res://.import/SETT L R.png-a2dd52da6065ddf85f9e9816eeedddb7.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/gui/EXIT D R.png"
-dest_files=[ "res://.import/EXIT D R.png-dfac0a6ae242d6fb171b22889cac8a2f.stex" ]
+source_file="res://sprites/gui/menu/SETT L R.png"
+dest_files=[ "res://.import/SETT L R.png-a2dd52da6065ddf85f9e9816eeedddb7.stex" ]
 
 [params]
 

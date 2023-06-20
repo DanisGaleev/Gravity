@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/START L R.png-6d9b5d33e28ff369529503ac753326ff.stex"
+path="res://.import/GENER D R.png-0b78ce9ebcda5ddfb701eec5f3842aba.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/gui/START L R.png"
-dest_files=[ "res://.import/START L R.png-6d9b5d33e28ff369529503ac753326ff.stex" ]
+source_file="res://sprites/gui/menu/GENER D R.png"
+dest_files=[ "res://.import/GENER D R.png-0b78ce9ebcda5ddfb701eec5f3842aba.stex" ]
 
 [params]
 
