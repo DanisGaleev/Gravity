@@ -1,0 +1,16 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+
+[deps]
+
+files=[ "res://translation/start_cutscene/start_cutscene.en.translation", "res://translation/start_cutscene/start_cutscene.ru.translation" ]
+
+source_file="res://translation/start_cutscene/start_cutscene.csv"
+dest_files=[ "res://translation/start_cutscene/start_cutscene.en.translation", "res://translation/start_cutscene/start_cutscene.ru.translation" ]
+
+[params]
+
+compress=true
+delimiter=0

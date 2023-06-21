@@ -40,11 +40,11 @@ _global_script_class_icons={
 
 config/name="Gravity"
 run/main_scene="res://scenes/menu/menu/Menu.tscn"
-config/icon="res://scenes/icon.png"
+config/icon="res://icon.png"
 
 [autoload]
 
-SaveHandler="*res://scripts/Save_Handler.gd"
+SaveHandler="*res://Save_Handler.gd"
 
 [display]
 
@@ -107,6 +107,10 @@ zoom_out={
 "events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":5,"pressed":false,"doubleclick":false,"script":null)
  ]
 }
+
+[locale]
+
+translations=PoolStringArray( "res://translation/start_cutscene/start_cutscene.en.translation", "res://translation/start_cutscene/start_cutscene.ru.translation", "res://translation/end_cutscene/end_cutscene.en.translation", "res://translation/end_cutscene/end_cutscene.ru.translation", "res://translation/final_cutscene/final_cutscene.en.translation", "res://translation/final_cutscene/final_cutscene.ru.translation" )
 
 [physics]
 

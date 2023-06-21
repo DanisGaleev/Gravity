@@ -12,7 +12,7 @@ func _ready():
 	if is_begin:
 		$SceneManagerBegin.play("cutscene")
 	else:
-		$SceneManagerEnd.play("cutscene")
+		$SceneManagerEnd.play("cutscene_end")
 
 func _process(delta):
 	if isStarted:

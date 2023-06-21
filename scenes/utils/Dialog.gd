@@ -11,18 +11,20 @@ onready var timer = $Timer
 onready var d1 = $Dialog1
 onready var d2 = $Dialog2
 
-var this_phrase := 0
+var this_phrase = 0
 var lang : String
 
 func _ready():
 	var save = Save_Handler.new()
 	save.load_from_file("user://data.txt")
 	lang = save.get_value("language")
+	#start()
 
 func start():
 	timer.wait_time = wait_time
 	timer.start()
 	timer.connect("timeout", self, "time_out")
+	#time_out()
 
 func time_out():
 	if this_phrase == dialog_en.size():
@@ -31,13 +33,13 @@ func time_out():
 	if this_phrase % 2 == 0:
 		if lang == "russian":
 			d1.text = dialog_ru[this_phrase]
-		elif lang == "englisn":
+		elif lang == "english":
 			d1.text = dialog_en[this_phrase]
 		d2.text = ""
 	else:
 		if lang == "russian":
 			d2.text = dialog_ru[this_phrase]
-		elif lang == "englisn":
+		elif lang == "english":
 			d2.text = dialog_en[this_phrase]
 		d1.text = ""
 	this_phrase += 1	

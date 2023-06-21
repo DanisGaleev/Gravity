@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://sprites/hero.png" type="Texture" id=1]
 [ext_resource path="res://sprites/devil.png" type="Texture" id=2]
@@ -10,6 +10,8 @@
 [ext_resource path="res://sprites/finish.png" type="Texture" id=8]
 [ext_resource path="res://tilemaps/tilemap.tres" type="TileSet" id=9]
 [ext_resource path="res://scenes/cutscenes/final_cutscene/Final_Cutscene.gd" type="Script" id=10]
+[ext_resource path="res://scenes/cutscenes/final_cutscene/Monolog.gd" type="Script" id=11]
+[ext_resource path="res://scenes/cutscenes/final_cutscene/Monolog.tscn" type="PackedScene" id=12]
 
 [sub_resource type="Animation" id=2]
 length = 0.001
@@ -42,17 +44,17 @@ tracks/0/keys = {
 "values": [ Vector2( 25, 66 ), Vector2( 236, 96 ) ]
 }
 tracks/1/type = "method"
-tracks/1/path = NodePath("Dialog")
+tracks/1/path = NodePath("Begin_Monolog")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 1 ),
+"times": PoolRealArray( 4.1 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
-"method": "start"
+"method": "started"
 } ]
 }
 
@@ -96,7 +98,7 @@ tracks/1/keys = {
 }
 
 [sub_resource type="Animation" id=8]
-resource_name = "cutscene"
+resource_name = "cutscene_end"
 length = 20.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("Camera2D:position")
@@ -110,8 +112,8 @@ tracks/0/keys = {
 "update": 0,
 "values": [ Vector2( 384, 109 ) ]
 }
-tracks/1/type = "method"
-tracks/1/path = NodePath("Dialog2")
+tracks/1/type = "value"
+tracks/1/path = NodePath("Path2D/PathFollow2D/Devil:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -119,37 +121,44 @@ tracks/1/enabled = true
 tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [  ],
-"method": "start"
-} ]
+"update": 0,
+"values": [ Vector2( 0, -11 ) ]
 }
-tracks/2/type = "value"
-tracks/2/path = NodePath("Path2D/PathFollow2D/Devil:position")
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 0, -11 ) ]
-}
-tracks/3/type = "method"
-tracks/3/path = NodePath(".")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 12 ),
+"times": PoolRealArray( 9.5 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
 "method": "set_str"
 } ]
 }
+tracks/3/type = "method"
+tracks/3/path = NodePath("End_Monolog")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 1.5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "started"
+} ]
+}
+
+[sub_resource type="DynamicFontData" id=10]
+font_path = "res://fonts/fonts/ttf/Geologica-Black.ttf"
+
+[sub_resource type="DynamicFont" id=11]
+size = 10
+font_data = SubResource( 10 )
 
 [node name="Final_Cutscene" type="Node2D"]
 script = ExtResource( 10 )
@@ -228,6 +237,7 @@ timerTime = 8
 speed = 80
 
 [node name="SceneManagerBegin" type="AnimationPlayer" parent="."]
+reset_on_save = false
 anims/RESET = SubResource( 2 )
 anims/cutscene = SubResource( 1 )
 
@@ -249,18 +259,19 @@ position = Vector2( 0, -11 )
 texture = ExtResource( 2 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( 384, 109 )
+position = Vector2( 25, 66 )
 current = true
 
-[node name="Dialog" type="Node2D" parent="."]
+[node name="Begin_dialog" type="Node2D" parent="."]
+visible = false
 script = ExtResource( 7 )
 dialog_en = [ "You finally reached her. But you still can't save her! Ha-ha-ha!" ]
 dialog_ru = [ "Ты всё-таки добрался до неё. Но тебе всё равно её не спасти! Ха-ха-ха!" ]
-wait_time = 4
+wait_time = 3
 
-[node name="Timer" type="Timer" parent="Dialog"]
+[node name="Timer" type="Timer" parent="Begin_dialog"]
 
-[node name="Dialog1" type="Label" parent="Dialog"]
+[node name="Dialog1" type="Label" parent="Begin_dialog"]
 margin_left = 363.0
 margin_top = 16.0
 margin_right = 464.0
@@ -270,22 +281,23 @@ align = 1
 valign = 1
 autowrap = true
 
-[node name="Dialog2" type="Label" parent="Dialog"]
+[node name="Dialog2" type="Label" parent="Begin_dialog"]
 margin_left = -13.0
 margin_top = 23.0
 margin_right = 75.0
 margin_bottom = 47.0
 custom_fonts/font = SubResource( 6 )
 
-[node name="Dialog2" type="Node2D" parent="."]
+[node name="End_dialog" type="Node2D" parent="."]
+visible = false
 script = ExtResource( 7 )
 dialog_en = [ "You'll never get her out of my magical prison!", "This is not the end yet! Next time, you won't win!" ]
 dialog_ru = [ "Ты никогда не вытащишь её из моей магической тюрьмы!", "Это ещё не конец! В следующий раз тебе не победить!" ]
 wait_time = 4
 
-[node name="Timer" type="Timer" parent="Dialog2"]
+[node name="Timer" type="Timer" parent="End_dialog"]
 
-[node name="Dialog1" type="Label" parent="Dialog2"]
+[node name="Dialog1" type="Label" parent="End_dialog"]
 margin_left = 363.0
 margin_top = 16.0
 margin_right = 464.0
@@ -295,7 +307,7 @@ align = 1
 valign = 1
 autowrap = true
 
-[node name="Dialog2" type="Label" parent="Dialog2"]
+[node name="Dialog2" type="Label" parent="End_dialog"]
 margin_left = 363.0
 margin_top = 16.0
 margin_right = 464.0
@@ -304,7 +316,26 @@ custom_fonts/font = SubResource( 6 )
 align = 1
 valign = 1
 autowrap = true
+script = ExtResource( 11 )
 
 [node name="SceneManagerEnd" type="AnimationPlayer" parent="."]
+reset_on_save = false
 anims/RESET = SubResource( 7 )
-anims/cutscene = SubResource( 8 )
+anims/cutscene_end = SubResource( 8 )
+
+[node name="Begin_Monolog" parent="." instance=ExtResource( 12 )]
+cutscene = 2
+times = [ 3.0 ]
+
+[node name="End_Monolog" type="Label" parent="."]
+margin_left = 359.0
+margin_top = 16.0
+margin_right = 464.0
+margin_bottom = 87.0
+custom_fonts/font = SubResource( 11 )
+align = 1
+valign = 1
+autowrap = true
+script = ExtResource( 11 )
+cutscene = 3
+times = [ 3.0, 2.0, 3.0 ]
