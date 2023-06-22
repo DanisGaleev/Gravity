@@ -1,45 +1,68 @@
 extends Node2D
 
 class_name Dialog
+enum Speaker{
+	Hero = 0,
+	Devil = 1,
+	Beloved = 2
+}
+export (Dictionary) var dialog_windows
+export (int, "start_cutscene_0", "start_cutscene_1","final_cutscene_0","final_cutscene_1", "end_cutscene_0") var cutscene
+export (Array, float) var times
+var current_time = 0.0
+var current_step = 0
+var step_time = 0
 
-export (Array, String) var dialog_en
-export (Array, String) var dialog_ru
-
-export var wait_time:int = 2
-
-onready var timer = $Timer
-onready var d1 = $Dialog1
-onready var d2 = $Dialog2
-
-var this_phrase = 0
-var lang : String
-
-func _ready():
-	var save = Save_Handler.new()
-	save.load_from_file("user://data.txt")
-	lang = save.get_value("language")
-	#start()
+var isStarted = false
 
 func start():
-	timer.wait_time = wait_time
-	timer.start()
-	timer.connect("timeout", self, "time_out")
-	#time_out()
+	isStarted = true
 
-func time_out():
-	if this_phrase == dialog_en.size():
-		queue_free()
-		return
-	if this_phrase % 2 == 0:
-		if lang == "russian":
-			d1.text = dialog_ru[this_phrase]
-		elif lang == "english":
-			d1.text = dialog_en[this_phrase]
-		d2.text = ""
-	else:
-		if lang == "russian":
-			d2.text = dialog_ru[this_phrase]
-		elif lang == "english":
-			d2.text = dialog_en[this_phrase]
-		d1.text = ""
-	this_phrase += 1	
+var monolog = {
+	0 : [
+		{"Hero" : tr("start_cutscene_0")},
+		{"Beloved" : tr("start_cutscene_1")},
+		{"Hero" : tr("start_cutscene_2")},
+		{"Beloved" : tr("start_cutscene_3")}
+	],
+	1 : [
+		{Speaker.Devil : tr("start_cutscene_4")},
+		{Speaker.Hero : tr("start_cutscene_5")}
+	],
+	2 : [
+		{Speaker.Devil : tr("final_cutscene_0")}
+	],
+	3 :[
+		{Speaker.Devil : tr("final_cutscene_1")},
+		{Speaker.Devil : tr("final_cutscene_2")},
+	],
+	4 : [
+		{Speaker.Beloved : tr("end_cutscene_0")}
+	]
+}
+func _ready():
+	for label_path in dialog_windows.values():
+		get_node(label_path).visible = false
+	get_node(dialog_windows.get(monolog.get(cutscene)[current_step].keys()[0])).text = monolog.get(cutscene)[current_step].values()[0]
+
+func _process(delta):
+	if isStarted:
+		current_time += delta
+		for label_path in dialog_windows.values():
+			get_node(label_path).visible = true
+		if current_time >= times[step_time] and current_step == monolog.get(cutscene).size() - 1:
+			print("gg")
+			for label_path in dialog_windows.values():
+				get_node(label_path).text = ""
+			queue_free()
+		elif current_time >= times[step_time] and step_time % 2 == 0:
+			print("hhh")
+			for label_path in dialog_windows.values():
+				get_node(label_path).text = ""
+			current_time = 0
+			step_time += 1
+		elif current_time >= times[step_time]:
+			current_step += 1
+			step_time += 1
+			get_node(dialog_windows.get(monolog.get(cutscene)[current_step].keys()[0])).text = monolog.get(cutscene)[current_step].values()[0]
+			current_time = 0

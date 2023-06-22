@@ -17,3 +17,5 @@ func _ready():
 func _process(delta):
 	if isStarted:
 		$Path2D/PathFollow2D.offset = $Path2D/PathFollow2D.offset + delta * jump_speed
+	if $Path2D/PathFollow2D.unit_offset == 1 and has_node("Path2D/PathFollow2D/Devil"):
+		$Path2D/PathFollow2D/Devil.queue_free()

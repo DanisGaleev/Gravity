@@ -259,15 +259,12 @@ position = Vector2( 0, -11 )
 texture = ExtResource( 2 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( 25, 66 )
+position = Vector2( 384, 109 )
 current = true
 
 [node name="Begin_dialog" type="Node2D" parent="."]
 visible = false
 script = ExtResource( 7 )
-dialog_en = [ "You finally reached her. But you still can't save her! Ha-ha-ha!" ]
-dialog_ru = [ "Ты всё-таки добрался до неё. Но тебе всё равно её не спасти! Ха-ха-ха!" ]
-wait_time = 3
 
 [node name="Timer" type="Timer" parent="Begin_dialog"]
 
@@ -291,9 +288,6 @@ custom_fonts/font = SubResource( 6 )
 [node name="End_dialog" type="Node2D" parent="."]
 visible = false
 script = ExtResource( 7 )
-dialog_en = [ "You'll never get her out of my magical prison!", "This is not the end yet! Next time, you won't win!" ]
-dialog_ru = [ "Ты никогда не вытащишь её из моей магической тюрьмы!", "Это ещё не конец! В следующий раз тебе не победить!" ]
-wait_time = 4
 
 [node name="Timer" type="Timer" parent="End_dialog"]
 
