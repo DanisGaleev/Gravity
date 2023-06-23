@@ -1,0 +1,16 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+
+[deps]
+
+files=[ "res://translation/devil_level_phrases/devil_level_phrases.en.translation", "res://translation/devil_level_phrases/devil_level_phrases.ru.translation" ]
+
+source_file="res://translation/devil_level_phrases/devil_level_phrases.csv"
+dest_files=[ "res://translation/devil_level_phrases/devil_level_phrases.en.translation", "res://translation/devil_level_phrases/devil_level_phrases.ru.translation" ]
+
+[params]
+
+compress=true
+delimiter=0

@@ -3,7 +3,8 @@ extends TextureButton
 export (String) var exit_to_path
 
 func _process(delta):
-	set_language()
+	pass
+#	set_language()
 
 func set_language():
 	var save = Save_Handler.new()

@@ -1,9 +1,7 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://tilemaps/tilemap.tres" type="TileSet" id=1]
-[ext_resource path="res://sprites/exit_up.png" type="Texture" id=2]
 [ext_resource path="res://scenes/levels/generator/Generator.gd" type="Script" id=3]
-[ext_resource path="res://sprites/exit_down.png" type="Texture" id=4]
 
 [sub_resource type="RectangleShape2D" id=19]
 extents = Vector2( 8, 8 )
@@ -46,39 +44,40 @@ anchor_bottom = 1.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Node/Control"]
 
-[node name="Count" type="Label" parent="Node/Control/CanvasLayer"]
-margin_right = 86.0
-margin_bottom = 34.0
+[node name="MarginContainer" type="MarginContainer" parent="Node/Control/CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 20
+custom_constants/margin_top = 20
+custom_constants/margin_left = 20
+custom_constants/margin_bottom = 20
 
-[node name="Result" type="Label" parent="Node/Control/CanvasLayer"]
-margin_top = 34.0
-margin_right = 86.0
-margin_bottom = 68.0
+[node name="Count" type="Label" parent="Node/Control/CanvasLayer/MarginContainer"]
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 620.0
+margin_bottom = 34.0
+size_flags_vertical = 0
+
+[node name="Result" type="Label" parent="Node/Control/CanvasLayer/MarginContainer"]
+margin_left = 564.0
+margin_top = 20.0
+margin_right = 620.0
+margin_bottom = 34.0
+size_flags_horizontal = 8
+size_flags_vertical = 0
 text = "Result: 0"
 
-[node name="Insructions" type="Label" parent="Node/Control/CanvasLayer"]
-anchor_left = 1.0
-anchor_right = 1.0
-margin_left = -174.0
-margin_bottom = 48.0
+[node name="Insructions" type="Label" parent="Node/Control/CanvasLayer/MarginContainer"]
+margin_left = 20.0
+margin_top = 292.0
+margin_right = 194.0
+margin_bottom = 340.0
+size_flags_horizontal = 0
+size_flags_vertical = 8
 text = "Click enter to respawn map
 Yelloy is start
 Green is finish"
-
-[node name="Exit" type="TextureButton" parent="Node/Control/CanvasLayer"]
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-margin_left = -41.0
-margin_top = -33.0
-margin_right = 41.0
-rect_min_size = Vector2( 82, 33 )
-rect_pivot_offset = Vector2( 82, 33 )
-texture_normal = ExtResource( 2 )
-texture_pressed = ExtResource( 4 )
-texture_hover = ExtResource( 4 )
-expand = true
 
 [node name="Finish" type="Area2D" parent="."]
 
@@ -86,5 +85,4 @@ expand = true
 shape = SubResource( 19 )
 
 [connection signal="body_entered" from="Spikes" to="." method="_on_Spikes_body_entered"]
-[connection signal="pressed" from="Node/Control/CanvasLayer/Exit" to="." method="_on_Exit_pressed"]
 [connection signal="body_entered" from="Finish" to="." method="_on_Finish_body_entered"]

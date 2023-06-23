@@ -78,6 +78,7 @@ size = 20
 font_data = SubResource( 6 )
 
 [node name="Enemy" type="KinematicBody2D"]
+position = Vector2( 189, 120 )
 script = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

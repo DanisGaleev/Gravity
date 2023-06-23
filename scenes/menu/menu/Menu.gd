@@ -16,7 +16,7 @@ func _ready():
 	var best = save.get_value("best_result")
 	bar.value = float(v) - 1
 	best_res.text = "BEST RESULT\n" + str(best)
-	set_language(save)
+	#set_language(save)
 
 func set_language(save : Save_Handler) -> void:
 	if save.get_value("language") == "english":

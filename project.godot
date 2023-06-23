@@ -12,7 +12,7 @@ _global_script_classes=[ {
 "base": "Node2D",
 "class": "Dialog",
 "language": "GDScript",
-"path": "res://scenes/utils/Dialog.gd"
+"path": "res://scenes/utils/dialog/Dialog.gd"
 }, {
 "base": "KinematicBody2D",
 "class": "Player",
@@ -22,12 +22,12 @@ _global_script_classes=[ {
 "base": "Reference",
 "class": "Save",
 "language": "GDScript",
-"path": "res://Save.gd"
+"path": "res://scenes/utils/save/Save.gd"
 }, {
 "base": "Reference",
 "class": "Save_Handler",
 "language": "GDScript",
-"path": "res://Save_Handler.gd"
+"path": "res://scenes/utils/save/Save_Handler.gd"
 } ]
 _global_script_class_icons={
 "Dialog": "",
@@ -44,7 +44,7 @@ config/icon="res://icon.png"
 
 [autoload]
 
-SaveHandler="*res://Save_Handler.gd"
+SaveHandler="*res://scenes/utils/save/Save_Handler.gd"
 
 [display]
 
@@ -110,23 +110,32 @@ zoom_out={
 
 [locale]
 
-translations=PoolStringArray( "res://translation/start_cutscene/start_cutscene.en.translation", "res://translation/start_cutscene/start_cutscene.ru.translation", "res://translation/end_cutscene/end_cutscene.en.translation", "res://translation/end_cutscene/end_cutscene.ru.translation", "res://translation/final_cutscene/final_cutscene.en.translation", "res://translation/final_cutscene/final_cutscene.ru.translation" )
+test="ru"
+translations=PoolStringArray( "res://translation/start_cutscene/start_cutscene.en.translation", "res://translation/start_cutscene/start_cutscene.ru.translation", "res://translation/end_cutscene/end_cutscene.en.translation", "res://translation/end_cutscene/end_cutscene.ru.translation", "res://translation/final_cutscene/final_cutscene.en.translation", "res://translation/final_cutscene/final_cutscene.ru.translation", "res://translation/devil_level_phrases/devil_level_phrases.en.translation", "res://translation/devil_level_phrases/devil_level_phrases.ru.translation" )
 translation_remaps={
-"res://sprites/gui/menu/AUTHORS D E.png": PoolStringArray( "res://sprites/gui/menu/AUTHORS D R.png:ru_RU" ),
+"res://audio/devil_phrase/levels_phrase/you_will_never_get_out/you_will_never_get_out_en.mp3": PoolStringArray( "res://audio/devil_phrase/levels_phrase/you_will_never_get_out/you_will_never_get_out_ru.mp3:ru" ),
+"res://audio/devil_phrase/levels_phrase/you_will_never_safe/you_will_never_safe_en.mp3": PoolStringArray( "res://audio/devil_phrase/levels_phrase/you_will_never_safe/you_will_never_safe_ru.mp3:ru" ),
+"res://audio/devil_phrase/levels_phrase/your_beloved_will_stay/your_beloved_will_stay_en.mp3": PoolStringArray( "res://audio/devil_phrase/levels_phrase/your_beloved_will_stay/your_beloved_will_stay_ru.mp3:ru" ),
+"res://audio/devil_phrase/plot_phrase/ha_ha_ha_your_beloved_has_fallen/ha_ha_ha_your_beloved_has_fallen_en.mp3": PoolStringArray( "res://audio/devil_phrase/plot_phrase/ha_ha_ha_your_beloved_has_fallen/ha_ha_ha_your_beloved_has_fallen_ru.mp3:ru" ),
+"res://audio/devil_phrase/plot_phrase/this_is_not_the_end/this_is_not_the_end_en.mp3": PoolStringArray( "res://audio/devil_phrase/plot_phrase/this_is_not_the_end/this_is_not_the_end_ru.mp3:ru" ),
+"res://audio/devil_phrase/plot_phrase/you_finally_reached_her/you_finally_reached_her_en.mp3": PoolStringArray( "res://audio/devil_phrase/plot_phrase/you_finally_reached_her/you_finally_reached_her_ru.mp3:ru" ),
+"res://audio/devil_phrase/plot_phrase/you_will_never_get_her_out/you_will_never_get_her_out_en.mp3": PoolStringArray( "res://audio/devil_phrase/plot_phrase/you_will_never_get_her_out/you_will_never_get_her_out_ru.mp3:ru" ),
+"res://sprites/gui/menu/AUTHORS D E.png": PoolStringArray( "res://sprites/gui/menu/AUTHORS D R.png:ru" ),
 "res://sprites/gui/menu/AUTHORS L E.png": PoolStringArray( "res://sprites/gui/menu/AUTHORS L R.png:ru_RU" ),
-"res://sprites/gui/menu/EXIT D E.png": PoolStringArray(  ),
-"res://sprites/gui/menu/EXIT L E.png": PoolStringArray(  ),
-"res://sprites/gui/menu/GENER D E.png": PoolStringArray(  ),
-"res://sprites/gui/menu/GENER L E.png": PoolStringArray(  ),
-"res://sprites/gui/menu/SETT D E.png": PoolStringArray(  ),
-"res://sprites/gui/menu/SETT L E.png": PoolStringArray(  ),
-"res://sprites/gui/menu/SKINS D E.png": PoolStringArray(  ),
-"res://sprites/gui/menu/SKINS L E.png": PoolStringArray(  ),
-"res://sprites/gui/menu/START D E.png": PoolStringArray(  ),
-"res://sprites/gui/menu/START L E.png": PoolStringArray(  ),
-"res://sprites/gui/menu/TUTOR D E.png": PoolStringArray(  ),
-"res://sprites/gui/menu/TUTOR L E.png": PoolStringArray(  )
+"res://sprites/gui/menu/EXIT D E.png": PoolStringArray( "res://sprites/gui/menu/EXIT D R.png:ru" ),
+"res://sprites/gui/menu/EXIT L E.png": PoolStringArray( "res://sprites/gui/menu/EXIT L R.png:ru" ),
+"res://sprites/gui/menu/GENER D E.png": PoolStringArray( "res://sprites/gui/menu/GENER D R.png:ru" ),
+"res://sprites/gui/menu/GENER L E.png": PoolStringArray( "res://sprites/gui/menu/GENER L R.png:ru" ),
+"res://sprites/gui/menu/SETT D E.png": PoolStringArray( "res://sprites/gui/menu/SETT D R.png:ru" ),
+"res://sprites/gui/menu/SETT L E.png": PoolStringArray( "res://sprites/gui/menu/SETT L R.png:ru" ),
+"res://sprites/gui/menu/SKINS D E.png": PoolStringArray( "res://sprites/gui/menu/SKINS D R.png:ru" ),
+"res://sprites/gui/menu/SKINS L E.png": PoolStringArray( "res://sprites/gui/menu/SKINS L R.png:ru" ),
+"res://sprites/gui/menu/START D E.png": PoolStringArray( "res://sprites/gui/menu/START D R.png:ru" ),
+"res://sprites/gui/menu/START L E.png": PoolStringArray( "res://sprites/gui/menu/START L R.png:ru" ),
+"res://sprites/gui/menu/TUTOR D E.png": PoolStringArray( "res://sprites/gui/menu/TUTOR D R.png:ru" ),
+"res://sprites/gui/menu/TUTOR L E.png": PoolStringArray( "res://sprites/gui/menu/TUTOR L R.png:ru" )
 }
+locale_filter=[ 1, [ "en", "ru" ] ]
 
 [physics]
 

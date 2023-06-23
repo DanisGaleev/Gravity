@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://sprites/exit_up.png" type="Texture" id=1]
-[ext_resource path="res://sprites/exit_down.png" type="Texture" id=2]
+[ext_resource path="res://sprites/gui/menu/EXIT L E.png" type="Texture" id=1]
+[ext_resource path="res://sprites/gui/menu/EXIT D E.png" type="Texture" id=2]
 [ext_resource path="res://scenes/entities/exit/Exit.gd" type="Script" id=3]
 
 [node name="Exit" type="TextureButton"]

@@ -12,6 +12,12 @@ var visibleTime = 4
 
 var nowTime = 0
 
+var enemy_phrases = {
+	tr("devil_level_phrase_0") : "you_will_never_safe/you_will_never_safe_en",
+	tr("devil_level_phrase_1") : "you_will_never_get_out/you_will_never_get_out_en", 
+	tr("devil_level_phrase_2") : "your_beloved_will_stay/your_beloved_will_stay_en"
+}
+
 var enemy_phrases_en = [
 	"You will never\nsafe your beloved!",
 	"You will never\nget out of my maze!",
@@ -50,10 +56,13 @@ func bullet_timer() -> void:
 	
 func play_sound():
 	var def_path = "res://audio/devil_phrase/levels_phrase/"
-	$AudioStreamPlayer.stream = load(def_path + auduo_paths[text.text] + ".mp3")
+	$AudioStreamPlayer.stream = load(def_path + enemy_phrases.get(text.text) + ".mp3")
 	$AudioStreamPlayer.playing = true
+#	$AudioStreamPlayer.stream = load(def_path + auduo_paths[text.text] + ".mp3")
+#	$AudioStreamPlayer.playing = true
 func _on_Timer_timeout():
-	if 	save.get_value("language") == "english":
-		text.text = enemy_phrases_en[randi() % enemy_phrases_en.size()]
-	else:
-		text.text = enemy_phrases_ru[randi() % enemy_phrases_ru.size()]
+	text.text = enemy_phrases.keys()[randi() % enemy_phrases.size()]
+#	if 	save.get_value("language") == "english":
+#		text.text = enemy_phrases_en[randi() % enemy_phrases_en.size()]
+#	else:
+#		text.text = enemy_phrases_ru[randi() % enemy_phrases_ru.size()]

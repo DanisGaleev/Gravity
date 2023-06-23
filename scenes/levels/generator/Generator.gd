@@ -3,7 +3,7 @@ extends Node2D
 onready var tilemap = $TileMap
 onready var spikes_map = $Spikes/spikes_map
 onready var finish_area_node = $Finish
-onready var result_label = $Node/Control/CanvasLayer/Result
+onready var result_label = $Node/Control/CanvasLayer/MarginContainer/Result
 
 export var map_size = Vector2(20, 20)
 export var wall = -0.2
@@ -74,7 +74,7 @@ func create_level() -> void:
 	var save = Save_Handler.new()
 	save.load_from_file("user://data.txt")
 	result_label.text = "Result: 0" if save.get_value("current_result") == null else "Result: " + str(save.get_value("current_result"))
-	$Node/Control/CanvasLayer/Count.text = "Respawn count: " + str(respawnCount)
+	$Node/Control/CanvasLayer/MarginContainer/Count.text = "Respawn count: " + str(respawnCount)
 	if isFirstTime:
 		pl.global_position = Vector2(start_vec.x, start_vec.y) * 16 + Vector2(8, 8)
 	isFirstTime = true
@@ -154,6 +154,10 @@ func draw_map():
 					tilemap.set_cell(x, y, finish_tile_index)
 	tilemap.update_bitmask_region(Vector2(0.0, 0.0), Vector2(map_size.x, map_size.y))
 	spikes_map.update_bitmask_region(Vector2(0.0, 0.0), Vector2(map_size.x, map_size.y))
+
+func _input(event):
+	if event.is_action_pressed("exit"):
+		get_tree().change_scene("res://scenes/menu/menu/Menu.tscn")
 
 func _process(delta):
 	if Input.is_action_just_pressed("respawn"):

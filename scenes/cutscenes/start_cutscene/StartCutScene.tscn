@@ -2,7 +2,7 @@
 
 [ext_resource path="res://sprites/beloved.png" type="Texture" id=1]
 [ext_resource path="res://sprites/hero.png" type="Texture" id=2]
-[ext_resource path="res://scenes/utils/Dialog.gd" type="Script" id=3]
+[ext_resource path="res://scenes/utils/dialog/Dialog.gd" type="Script" id=3]
 [ext_resource path="res://scenes/cutscenes/start_cutscene/StartCutScene.gd" type="Script" id=4]
 [ext_resource path="res://sprites/devil.png" type="Texture" id=5]
 
