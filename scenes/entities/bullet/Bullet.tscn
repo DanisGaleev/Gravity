@@ -1,11 +1,11 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scenes/entities/bullet/Bullet.gd" type="Script" id=1]
-[ext_resource path="res://icon.png" type="Texture" id=2]
-[ext_resource path="res://sprites/bullet.png" type="Texture" id=3]
-
+[ext_resource path="res://sprites/bullet.png" type="Texture" id=2]
+[ext_resource path="res://sprites/bullet_light.png" type="Texture" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
+radius = 10.5
 
 [node name="Bullet" type="RigidBody2D"]
 mass = 0.05
@@ -20,17 +20,17 @@ color = Color( 0.470588, 0.976471, 1, 1 )
 shadow_enabled = true
 shadow_color = Color( 0.690196, 0.117647, 0.917647, 0 )
 
-[node name="Sprite" type="Sprite" parent="."]
-visible = false
-scale = Vector2( -0.12, -0.12 )
-texture = ExtResource( 2 )
-
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 rotation = 3.14159
 scale = Vector2( 0.458548, 0.458548 )
 shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+rotation = 3.14159
+scale = Vector2( 0.12, 0.12 )
+texture = ExtResource( 2 )
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]

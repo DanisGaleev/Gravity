@@ -26,21 +26,22 @@ var monolog = {
 		{"Beloved" : tr("start_cutscene_3")}
 	],
 	1 : [
-		{Speaker.Devil : tr("start_cutscene_4")},
-		{Speaker.Hero : tr("start_cutscene_5")}
+		{"Devil" : tr("start_cutscene_4")},
+		{"Hero" : tr("start_cutscene_5")}
 	],
 	2 : [
-		{Speaker.Devil : tr("final_cutscene_0")}
+		{"Devil" : tr("final_cutscene_0")}
 	],
 	3 :[
-		{Speaker.Devil : tr("final_cutscene_1")},
-		{Speaker.Devil : tr("final_cutscene_2")},
+		{"Devil" : tr("final_cutscene_1")},
+		{"Devil" : tr("final_cutscene_2")},
 	],
 	4 : [
-		{Speaker.Beloved : tr("end_cutscene_0")}
+		{"Beloved" : tr("end_cutscene_0")}
 	]
 }
 func _ready():
+	print(monolog.get(cutscene)[current_step].keys()[0])
 	for label_path in dialog_windows.values():
 		get_node(label_path).visible = false
 	get_node(dialog_windows.get(monolog.get(cutscene)[current_step].keys()[0])).text = monolog.get(cutscene)[current_step].values()[0]

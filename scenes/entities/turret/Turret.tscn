@@ -1,14 +1,13 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://scenes/entities/turret/Turret.gd" type="Script" id=1]
-[ext_resource path="res://sprites/gameset.png" type="Texture" id=2]
+[ext_resource path="res://sprites/gun.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 7.5, 6 )
 
 [node name="Turret" type="Sprite"]
 texture = ExtResource( 2 )
-region_enabled = true
 region_rect = Rect2( 64, 0, 16, 16 )
 script = ExtResource( 1 )
 

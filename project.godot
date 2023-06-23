@@ -111,6 +111,22 @@ zoom_out={
 [locale]
 
 translations=PoolStringArray( "res://translation/start_cutscene/start_cutscene.en.translation", "res://translation/start_cutscene/start_cutscene.ru.translation", "res://translation/end_cutscene/end_cutscene.en.translation", "res://translation/end_cutscene/end_cutscene.ru.translation", "res://translation/final_cutscene/final_cutscene.en.translation", "res://translation/final_cutscene/final_cutscene.ru.translation" )
+translation_remaps={
+"res://sprites/gui/menu/AUTHORS D E.png": PoolStringArray( "res://sprites/gui/menu/AUTHORS D R.png:ru_RU" ),
+"res://sprites/gui/menu/AUTHORS L E.png": PoolStringArray( "res://sprites/gui/menu/AUTHORS L R.png:ru_RU" ),
+"res://sprites/gui/menu/EXIT D E.png": PoolStringArray(  ),
+"res://sprites/gui/menu/EXIT L E.png": PoolStringArray(  ),
+"res://sprites/gui/menu/GENER D E.png": PoolStringArray(  ),
+"res://sprites/gui/menu/GENER L E.png": PoolStringArray(  ),
+"res://sprites/gui/menu/SETT D E.png": PoolStringArray(  ),
+"res://sprites/gui/menu/SETT L E.png": PoolStringArray(  ),
+"res://sprites/gui/menu/SKINS D E.png": PoolStringArray(  ),
+"res://sprites/gui/menu/SKINS L E.png": PoolStringArray(  ),
+"res://sprites/gui/menu/START D E.png": PoolStringArray(  ),
+"res://sprites/gui/menu/START L E.png": PoolStringArray(  ),
+"res://sprites/gui/menu/TUTOR D E.png": PoolStringArray(  ),
+"res://sprites/gui/menu/TUTOR L E.png": PoolStringArray(  )
+}
 
 [physics]
 

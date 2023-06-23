@@ -1,7 +1,8 @@
-[gd_resource type="TileSet" load_steps=10 format=2]
+[gd_resource type="TileSet" load_steps=17 format=2]
 
 [ext_resource path="res://sprites/gameset.png" type="Texture" id=1]
 [ext_resource path="res://sprites/tileset.png" type="Texture" id=2]
+[ext_resource path="res://sprites/tiles new.png" type="Texture" id=3]
 
 [sub_resource type="NavigationPolygon" id=19]
 vertices = PoolVector2Array( 0, 16, 8, 2, 16, 16 )
@@ -13,6 +14,28 @@ polygon = PoolVector2Array( 8, 2, 16, 16, 0, 16 )
 
 [sub_resource type="ConvexPolygonShape2D" id=18]
 points = PoolVector2Array( 8, 2, 8, 2, 16, 16, 0, 16 )
+
+[sub_resource type="NavigationPolygon" id=21]
+vertices = PoolVector2Array( 0, 16, 8, 2, 16, 16 )
+polygons = [ PoolIntArray( 0, 1, 2, 0 ) ]
+outlines = [ PoolVector2Array( 0, 16, 8, 2, 16, 16, 0, 16 ) ]
+
+[sub_resource type="OccluderPolygon2D" id=22]
+polygon = PoolVector2Array( 0, 16, 8, 2, 16, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=23]
+points = PoolVector2Array( 0, 16, 8, 2, 16, 16 )
+
+[sub_resource type="NavigationPolygon" id=24]
+vertices = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
+polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
+outlines = [ PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 ) ]
+
+[sub_resource type="OccluderPolygon2D" id=25]
+polygon = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=26]
+points = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
 
 [sub_resource type="NavigationPolygon" id=20]
 vertices = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
@@ -116,4 +139,50 @@ points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 14/shape_one_way_margin = 0.0
 14/shapes = [  ]
 14/z_index = 0
+15/name = "tiles new.png 0"
+15/texture = ExtResource( 3 )
+15/tex_offset = Vector2( 0, 0 )
+15/modulate = Color( 1, 1, 1, 1 )
+15/region = Rect2( 80, 0, 16, 16 )
+15/tile_mode = 0
+15/occluder_offset = Vector2( 0, 0 )
+15/occluder = SubResource( 22 )
+15/navigation_offset = Vector2( 0, 0 )
+15/navigation = SubResource( 21 )
+15/shape_offset = Vector2( 0, 0 )
+15/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+15/shape = SubResource( 23 )
+15/shape_one_way = false
+15/shape_one_way_margin = 1.0
+15/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 23 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+15/z_index = 0
+16/name = "tiles new.png 0"
+16/texture = ExtResource( 3 )
+16/tex_offset = Vector2( 0, 0 )
+16/modulate = Color( 1, 1, 1, 1 )
+16/region = Rect2( 0, 0, 16, 16 )
+16/tile_mode = 0
+16/occluder_offset = Vector2( 0, 0 )
+16/occluder = SubResource( 25 )
+16/navigation_offset = Vector2( 0, 0 )
+16/navigation = SubResource( 24 )
+16/shape_offset = Vector2( 0, 0 )
+16/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+16/shape = SubResource( 26 )
+16/shape_one_way = false
+16/shape_one_way_margin = 1.0
+16/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 26 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+16/z_index = 0
 script = SubResource( 16 )
