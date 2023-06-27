@@ -9,9 +9,18 @@ var velocity = Vector2()
 var g = 0
 var normal = Vector2.DOWN
 var isStarted = false setget set_isStarted
+var isCutScene = false
+
+func set_velocity_v() -> void:
+	self.velocity = move_and_slide(self.velocity * 0, normal)
+#	self.velocity = Vector2.ZERO
+func get_rt():
+	return 
 
 func set_isStarted(new_is_started):
 	isStarted = new_is_started
+func set_isCutScene(new_is_started):
+	isCutScene = new_is_started
 
 func camera_to_def():
 	rotation_degrees = 0
@@ -33,7 +42,7 @@ func _process(delta):
 	camera.zoom.y = camera.zoom.x
 
 func _physics_process(delta):
-	if isStarted:
+	if isStarted and !isCutScene:
 		if g % 4 == 0:
 			velocity.y += GRAVITY
 		elif g % 4 == 1:
@@ -77,8 +86,8 @@ func _physics_process(delta):
 			else:
 				velocity.x = 0
 				velocity.y = x
-				
-			rotate(PI / 2)
+			rotation_degrees += 90
+			#rotate(PI / 2)
 			normal.x = -yn
 			normal.y = xn
 		if Input.is_action_just_pressed("rotate_right"):
@@ -95,8 +104,8 @@ func _physics_process(delta):
 			else:
 				velocity.x = 0
 				velocity.y = -x
-			rotate(-PI / 2)
+			rotation_degrees -= 90
+			#rotate(-PI / 2)
 			normal.x = yn
 			normal.y = -xn
-
-		velocity = move_and_slide(velocity, normal)
+		velocity = move_and_slide(velocity)
