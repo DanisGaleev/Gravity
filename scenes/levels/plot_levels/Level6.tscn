@@ -39,7 +39,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id=4]
 resource_name = "sword"
-length = 6.0
+length = 2.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sword:position")
 tracks/0/interp = 1
@@ -59,39 +59,11 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 2.7 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [  ],
-"method": "start"
-} ]
-}
-tracks/2/type = "method"
-tracks/2/path = NodePath(".")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
 "method": "tween"
-} ]
-}
-tracks/3/type = "method"
-tracks/3/path = NodePath(".")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 5.3 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [  ],
-"method": "remove_wall"
 } ]
 }
 
@@ -248,7 +220,7 @@ anims/RESET = SubResource( 5 )
 anims/sword = SubResource( 4 )
 
 [node name="Sword" parent="." instance=ExtResource( 11 )]
-position = Vector2( 507, 190 )
+position = Vector2( 507, 216 )
 
 [node name="Path2D" type="Path2D" parent="."]
 curve = SubResource( 6 )
@@ -261,6 +233,7 @@ loop = false
 [node name="Hero_move_node" type="Node2D" parent="Path2D/PathFollow2D"]
 
 [node name="Sword_pick_up_animation" type="AnimationPlayer" parent="."]
+reset_on_save = false
 anims/sword = SubResource( 7 )
 
 [connection signal="body_entered" from="Spikes" to="." method="_on_Spikes_body_entered"]

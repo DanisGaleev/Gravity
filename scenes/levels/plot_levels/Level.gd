@@ -12,6 +12,8 @@ onready var startPosition = $Start/startPos
 onready var enemyPos = $EnemyPos
 onready var navmesh = $Navigation2D
 
+signal continue_animation
+
 var isStart : bool
 export var speed : float
 
@@ -20,9 +22,11 @@ func start():
 
 func _ready():
 	player.global_position = startPosition.global_position
-	
+func _input(event):
+	if event.is_action_pressed("jump"):
+		emit_signal("continue_animation")
 func continue_animation() -> void:
-	
+	$Sword_pick_up_animation.play("sword")
 func remove_wall() -> void:
 	$TileMap.set_cell(17, 15, -1)
 	$TileMap.set_cell(20, 16, -1)
@@ -62,7 +66,9 @@ func tween() -> void:
 		$Player.g = 3
 	tween.tween_property($Player, "rotation_degrees", 0.0, 1.0)
 	tween.tween_property($Player, "global_position", Vector2(476, 216), 1.0)
-	yield(tween, "finished")
+	yield($PreCutScene, "animation_finished")
+	yield(self, "continue_animation")
+	continue_animation()
 	 
 func _process(delta):
 	if isStart:
