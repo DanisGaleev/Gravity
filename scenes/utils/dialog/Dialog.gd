@@ -23,11 +23,12 @@ var monolog = {
 		{"Hero" : tr("start_cutscene_0")},
 		{"Beloved" : tr("start_cutscene_1")},
 		{"Hero" : tr("start_cutscene_2")},
-		{"Beloved" : tr("start_cutscene_3")}
+		{"Beloved" : tr("start_cutscene_3")},
+		{"Beloved" : tr("start_cutscene_4")}
 	],
 	1 : [
-		{"Devil" : tr("start_cutscene_4")},
-		{"Hero" : tr("start_cutscene_5")}
+		{"Devil" : tr("start_cutscene_5")},
+		{"Hero" : tr("start_cutscene_6")}
 	],
 	2 : [
 		{"Devil" : tr("final_cutscene_0")}

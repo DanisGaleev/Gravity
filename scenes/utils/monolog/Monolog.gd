@@ -54,8 +54,8 @@ func _process(delta):
 	if isStarted:
 		visible = true
 		current_time += delta
-		print(step_time)
-		print(current_time)
+#		print(step_time)
+#		print(current_time)
 		if current_time >= times[step_time] and current_step == monolog.get(cutscene).size() - 1:
 			queue_free()
 		elif current_time >= times[step_time] and step_time % 2 == 0:

@@ -41,7 +41,7 @@ func _process(delta):
 	camera.zoom.x = 640 / get_viewport_rect().size.x
 	camera.zoom.y = camera.zoom.x
 	print(get_viewport_rect().size)
-	get_parent().get_node("CanvasLayer/Cavebackground").scale = Vector2(0.213/640 * get_viewport_rect().size.x, 0.129 / 360 *get_viewport_rect().size.y)
+	get_parent().get_node("CanvasLayer").scale = Vector2(get_viewport_rect().size.x / 640, get_viewport_rect().size.y / 360)
 
 func _physics_process(delta):
 	if isStarted and !isCutScene:

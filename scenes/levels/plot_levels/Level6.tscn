@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://scenes/entities/start/Start.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/entities/finish/Finish.tscn" type="PackedScene" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://scenes/entities/fps/Label.tscn" type="PackedScene" id=9]
 [ext_resource path="res://scenes/entities/chest/Chest.tscn" type="PackedScene" id=10]
 [ext_resource path="res://scenes/entities/sword/Sword.tscn" type="PackedScene" id=11]
+[ext_resource path="res://sprites/cavebackground.png" type="Texture" id=12]
 
 [sub_resource type="DynamicFontData" id=1]
 font_path = "res://fonts/fonts/ttf/Geologica-Black.ttf"
@@ -111,7 +112,16 @@ __meta__ = {
 }
 speed = 50.0
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -3
+
+[node name="Cavebackground" type="Sprite" parent="CanvasLayer"]
+position = Vector2( 320, 180 )
+scale = Vector2( 0.213333, 0.128571 )
+texture = ExtResource( 12 )
+
 [node name="Background" type="Sprite" parent="."]
+visible = false
 position = Vector2( 309, 167 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 5 )

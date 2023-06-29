@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://sprites/beloved.png" type="Texture" id=1]
 [ext_resource path="res://sprites/devil.png" type="Texture" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://scenes/cutscenes/final_cutscene/Final_Cutscene.gd" type="Script" id=10]
 [ext_resource path="res://scenes/utils/monolog/Monolog.gd" type="Script" id=11]
 [ext_resource path="res://scenes/utils/monolog/Monolog.tscn" type="PackedScene" id=12]
+[ext_resource path="res://sprites/cavebackground.png" type="Texture" id=13]
 
 [sub_resource type="Animation" id=2]
 length = 0.001
@@ -30,7 +31,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id=1]
 resource_name = "cutscene"
-length = 20.0
+length = 11.15
 tracks/0/type = "value"
 tracks/0/path = NodePath("Camera2D:position")
 tracks/0/interp = 1
@@ -38,10 +39,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 4 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0, 4, 7.1, 11.1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 25, 66 ), Vector2( 236, 96 ) ]
+"values": [ Vector2( 25, 66 ), Vector2( 236, 96 ), Vector2( 236, 96 ), Vector2( 25, 66 ) ]
 }
 tracks/1/type = "method"
 tracks/1/path = NodePath("Begin_Monolog")
@@ -65,7 +66,7 @@ _data = {
 
 [sub_resource type="Animation" id=8]
 resource_name = "cutscene_end"
-length = 20.0
+length = 11.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("Camera2D:position")
 tracks/0/interp = 1
@@ -128,10 +129,18 @@ font_data = SubResource( 10 )
 
 [node name="Final_Cutscene" type="Node2D"]
 script = ExtResource( 10 )
-is_begin = true
 jump_speed = 140
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -2
+
+[node name="Cavebackground" type="Sprite" parent="CanvasLayer"]
+position = Vector2( 320, 180 )
+scale = Vector2( 0.213333, 0.128571 )
+texture = ExtResource( 13 )
+
 [node name="Background" type="Sprite" parent="."]
+visible = false
 position = Vector2( 224, 160 )
 scale = Vector2( 1.07813, 1.78125 )
 texture = ExtResource( 8 )
