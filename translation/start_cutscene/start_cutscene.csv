@@ -1,7 +1,8 @@
 id,en,ru
 start_cutscene_0,It's good that we came here.,"Как хорошо, что мы пришли сюда."
 start_cutscene_1,"Yes, you’re right.","Да, ты прав."
-start_cutscene_2,"Whoa, what is this? Look there.","Ого, что это? Посмотри туда."
-start_cutscene_3,"Where, here? Aaaaaaaa!","Где, здесь? Аааааааа!"
-start_cutscene_4,"Ha-ha-ha! Your beloved has fallen into my magical maze, she will never get out of there!","Ха-ха-ха! Твоя возлюбленная провалилась в мой магический лабиринт, она никогда не выберется оттуда!"
-start_cutscene_5,"No, I'll save her!","Нет, я спасу её!"
+start_cutscene_2,"Wow, that's an old well.","Ух ты, это же старый колодец."
+start_cutscene_3,And what's inside?,А что там внутри?
+start_cutscene_4,Aaaaaaaa!,Аааааааа!
+start_cutscene_5,"Ha-ha-ha! Your beloved has fallen into my magical maze, she will never get out of there!","Ха-ха-ха! Твоя возлюбленная провалилась в мой магический лабиринт, она никогда не выберется оттуда!"
+start_cutscene_6,"No, I'll save her!","Нет, я спасу её!"

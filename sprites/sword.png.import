@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/tiles new.png-9cd21283fe0f8d6c2c50e4a07bd2ba62.stex"
+path="res://.import/sword.png-d5f04571aeb6fed61adcb2ff4de7ce00.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/tiles new.png"
-dest_files=[ "res://.import/tiles new.png-9cd21283fe0f8d6c2c50e4a07bd2ba62.stex" ]
+source_file="res://sprites/sword.png"
+dest_files=[ "res://.import/sword.png-d5f04571aeb6fed61adcb2ff4de7ce00.stex" ]
 
 [params]
 
@@ -19,8 +19,8 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
-flags/repeat=2
-flags/filter=false
+flags/repeat=0
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

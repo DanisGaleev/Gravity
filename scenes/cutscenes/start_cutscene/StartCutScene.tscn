@@ -1,10 +1,11 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://sprites/beloved.png" type="Texture" id=1]
 [ext_resource path="res://sprites/hero.png" type="Texture" id=2]
 [ext_resource path="res://scenes/utils/dialog/Dialog.gd" type="Script" id=3]
 [ext_resource path="res://scenes/cutscenes/start_cutscene/StartCutScene.gd" type="Script" id=4]
 [ext_resource path="res://sprites/devil.png" type="Texture" id=5]
+[ext_resource path="res://sprites/forestbackground.png" type="Texture" id=6]
 
 [sub_resource type="Animation" id=1]
 length = 0.001
@@ -58,7 +59,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 6 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 566, 328 ), Vector2( 414, 328 ) ]
+"values": [ Vector2( 598, 284 ), Vector2( 482, 284 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Beloved:position")
@@ -67,10 +68,10 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 6, 11.9, 13.9 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 6, 12, 12.8, 13.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 542, 328 ), Vector2( 390, 328 ), Vector2( 390, 328 ), Vector2( 390, 440 ) ]
+"values": [ Vector2( 534, 284 ), Vector2( 418, 284 ), Vector2( 418, 284 ), Vector2( 320, 244 ), Vector2( 320, 400 ) ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("Devil:visible")
@@ -136,7 +137,7 @@ font_data = SubResource( 7 )
 
 [sub_resource type="Curve2D" id=9]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 416, 329, 10.7043, 0.0417977, -10.7043, -0.0417977, 403, 304, 0, 0, 0, 0, 392, 314, -0.294961, -0.117984, 0.294961, 0.117984, 385, 377 )
+"points": PoolVector2Array( 10.3943, 84.0997, -10.3943, -84.0997, 482, 285, 10.7043, 0.0417977, -10.7043, -0.0417977, 392, 208, 9.46008, -32.795, -9.46008, 32.795, 323, 263, -0.294961, -0.117984, 0.294961, 0.117984, 316, 416 )
 }
 
 [sub_resource type="DynamicFontData" id=5]
@@ -150,24 +151,31 @@ font_data = SubResource( 5 )
 script = ExtResource( 4 )
 jump_speed = 140
 
+[node name="Forestbackground" type="Sprite" parent="."]
+position = Vector2( 320, 180 )
+scale = Vector2( 0.200501, 0.184615 )
+texture = ExtResource( 6 )
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/RESET = SubResource( 1 )
 anims/cutscene = SubResource( 2 )
 
 [node name="Beloved" type="Sprite" parent="."]
 position = Vector2( 592, 328 )
+scale = Vector2( 3, 3 )
 texture = ExtResource( 1 )
 
 [node name="Devil" type="Sprite" parent="."]
 visible = false
-position = Vector2( 390, 284 )
+position = Vector2( 304, 162 )
+scale = Vector2( 3, 3 )
 texture = ExtResource( 5 )
 
 [node name="HeroLabel" type="Label" parent="."]
-margin_left = 416.0
-margin_top = 244.0
-margin_right = 496.0
-margin_bottom = 284.0
+margin_left = 484.0
+margin_top = 180.0
+margin_right = 564.0
+margin_bottom = 220.0
 custom_fonts/font = SubResource( 8 )
 align = 1
 valign = 1
@@ -184,30 +192,30 @@ valign = 1
 autowrap = true
 
 [node name="BelovedLabel" type="Label" parent="."]
-margin_left = 304.0
-margin_top = 244.0
-margin_right = 384.0
-margin_bottom = 284.0
+margin_left = 332.0
+margin_top = 176.0
+margin_right = 412.0
+margin_bottom = 216.0
 custom_fonts/font = SubResource( 8 )
 align = 1
 valign = 1
 autowrap = true
 
 [node name="HeroLabel2" type="Label" parent="."]
-margin_left = 416.0
-margin_top = 244.0
-margin_right = 496.0
-margin_bottom = 284.0
+margin_left = 460.0
+margin_top = 180.0
+margin_right = 540.0
+margin_bottom = 220.0
 custom_fonts/font = SubResource( 8 )
 align = 1
 valign = 1
 autowrap = true
 
 [node name="DevilLabel2" type="Label" parent="."]
-margin_left = 255.0
-margin_top = 180.0
-margin_right = 384.0
-margin_bottom = 251.0
+margin_left = 104.0
+margin_top = 136.0
+margin_right = 233.0
+margin_bottom = 207.0
 custom_fonts/font = SubResource( 8 )
 align = 1
 valign = 1
@@ -225,18 +233,18 @@ autowrap = true
 
 [node name="Hero" type="Sprite" parent="."]
 position = Vector2( 616, 328 )
+scale = Vector2( 3, 3 )
 texture = ExtResource( 2 )
 
 [node name="Path2D" type="Path2D" parent="."]
 curve = SubResource( 9 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
-position = Vector2( 416, 329 )
+position = Vector2( 482, 285 )
 rotate = false
 loop = false
 
 [node name="move" type="Node2D" parent="Path2D/PathFollow2D"]
-position = Vector2( 414, 328 )
 
 [node name="Begin_dialog" type="Node2D" parent="."]
 script = ExtResource( 3 )
@@ -245,7 +253,7 @@ dialog_windows = {
 "Devil": NodePath("../DevilLabel"),
 "Hero": NodePath("../HeroLabel")
 }
-times = [ 2.0, 0.0, 2.0, 0.0, 2.0, 0.0, 1.0, 0.0 ]
+times = [ 2.0, 0.0, 2.0, 0.0, 2.0, 0.0, 2.0, 0.0 ]
 
 [node name="Timer" type="Timer" parent="Begin_dialog"]
 

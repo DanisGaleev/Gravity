@@ -6,7 +6,7 @@ var sub : Vector2
 
 func _ready():
 	$AnimationPlayer.play("cutscene")
-	$Path2D/PathFollow2D/move.global_position = Vector2(414, 328)
+	$Path2D/PathFollow2D/move.global_position = Vector2(482, 285)
 	print($Path2D/PathFollow2D/move.global_position)
 	sub = $Hero.global_position - $Path2D/PathFollow2D/move.global_position
 func _process(delta):
