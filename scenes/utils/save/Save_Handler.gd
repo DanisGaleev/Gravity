@@ -34,4 +34,7 @@ func load_from_file(file_path):
 		add_value("best_result", 0)
 		add_value("skin_path", "res://sprites/hero.png")
 		add_value("current_result", 0)
+		add_value("start_cutscene", false)
+		add_value("final_cutscene", false)
+		add_value("end_cutscene", false)
 		save_to_file(file_path)

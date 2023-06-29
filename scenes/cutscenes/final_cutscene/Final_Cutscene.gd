@@ -1,16 +1,20 @@
 extends Node2D
 
-export var is_begin : bool
+var is_begin = _Global.isStartScene
 export var jump_speed : int
 
 var isStarted = false
+
+var save = Save_Handler.new()
 
 func set_str():
 	isStarted = true
 
 func _ready():
+	save.load_from_file("user://data.txt")
 	if is_begin:
 		$SceneManagerBegin.play("cutscene")
+		_Global.isStartScene = false
 	else:
 		$SceneManagerEnd.play("cutscene_end")
 	yield($SceneManagerBegin, "animation_finished")
@@ -27,5 +31,9 @@ func _process(delta):
 		isStarted = false
 		$Path2D.queue_free()
 		yield($SceneManagerEnd, "animation_finished")
-		get_tree().change_scene("res://scenes/cutscenes/end_cutscene/EndCutScene.tscn")
+		change_scene()
 #		$Path2D/PathFollow2D/Devil.queue_free()
+func change_scene() -> void:
+	save.add_value("final_cutscene", true)
+	save.save_to_file("user://data.txt")
+	get_tree().change_scene("res://scenes/cutscenes/end_cutscene/EndCutScene.tscn")

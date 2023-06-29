@@ -52,7 +52,7 @@ margin_right = 100.0
 margin_bottom = 14.0
 size_flags_vertical = 1
 size_flags_stretch_ratio = 2.0
-max_value = 8.0
+max_value = 7.0
 step = 1.0
 
 [node name="Start" type="TextureButton" parent="MarginContainer/VBoxContainer" groups=["textureButtons"]]

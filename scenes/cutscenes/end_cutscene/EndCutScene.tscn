@@ -8,7 +8,7 @@
 
 [sub_resource type="Animation" id=2]
 resource_name = "cutscene"
-length = 8.0
+length = 4.1
 tracks/0/type = "method"
 tracks/0/path = NodePath("Begin_dialog")
 tracks/0/interp = 1
@@ -70,3 +70,7 @@ dialog_windows = {
 }
 cutscene = 4
 times = [ 2.0, 0.0 ]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 320, 180 )
+current = true
