@@ -2,7 +2,6 @@
 
 [ext_resource path="res://scenes/utils/monolog/Monolog.gd" type="Script" id=1]
 
-
 [sub_resource type="DynamicFontData" id=10]
 font_path = "res://fonts/fonts/ttf/Geologica-Black.ttf"
 

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/it_good_ru.mp3-81c61875eb6f0dce1891714dde2627f1.mp3str"
+
+[deps]
+
+source_file="res://audio/hero_phrases/it_good/it_good_ru.mp3"
+dest_files=[ "res://.import/it_good_ru.mp3-81c61875eb6f0dce1891714dde2627f1.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

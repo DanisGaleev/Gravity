@@ -7,6 +7,7 @@ var sub : Vector2
 var save = Save_Handler.new()
 
 func _ready():
+	#TranslationServer.set_locale("en")
 	save.load_from_file("user://data.txt")
 	$AnimationPlayer.play("cutscene")
 	yield($AnimationPlayer, "animation_finished")

@@ -1,7 +1,7 @@
 [gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://sprites/beloved.png" type="Texture" id=1]
-[ext_resource path="res://sprites/hero.png" type="Texture" id=2]
+[ext_resource path="res://sprites/good guy.png" type="Texture" id=2]
 [ext_resource path="res://scenes/utils/dialog/Dialog.gd" type="Script" id=3]
 [ext_resource path="res://scenes/cutscenes/start_cutscene/StartCutScene.gd" type="Script" id=4]
 [ext_resource path="res://sprites/devil.png" type="Texture" id=5]
@@ -49,7 +49,7 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id=2]
 resource_name = "cutscene"
-length = 21.5
+length = 26.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("Hero:position")
 tracks/0/interp = 1
@@ -93,7 +93,7 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 19 ),
+"times": PoolRealArray( 24.7 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
@@ -276,7 +276,8 @@ dialog_windows = {
 "Devil": NodePath("../DevilLabel"),
 "Hero": NodePath("../HeroLabel")
 }
-times = [ 2.0, 0.0, 2.0, 0.0, 2.0, 0.0, 1.0, 0.0, 1.0, 0.0 ]
+times = [ 2.06, 0.0, 1.3, 0.0, 2.12, 0.0, 1.1, 0.0, 1.0, 0.0 ]
+audiostream_path = NodePath("../AudioStreamPlayer")
 
 [node name="Timer" type="Timer" parent="Begin_dialog"]
 
@@ -300,7 +301,8 @@ dialog_windows = {
 "Hero": NodePath("../HeroLabel2")
 }
 cutscene = 1
-times = [ 4.0, 0.0, 1.0, 0.0 ]
+times = [ 8.74, 0.0, 1.68, 0.0 ]
+audiostream_path = NodePath("../AudioStreamPlayer2")
 
 [node name="Timer" type="Timer" parent="End_dialog"]
 
@@ -328,5 +330,9 @@ scale = Vector2( 0.201, 0.185 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Beloved_visibility_trigger"]
 position = Vector2( -19.9005, 254.054 )
 shape = SubResource( 10 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
 
 [connection signal="area_entered" from="Beloved_visibility_trigger" to="." method="_on_Beloved_visibility_trigger_area_entered"]

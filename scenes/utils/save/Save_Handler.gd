@@ -30,7 +30,7 @@ func load_from_file(file_path):
 		file.close()
 	else:
 		add_value("level", 1)
-		add_value("language", "english")
+		add_value("language", str(TranslationServer.get_locale()))
 		add_value("best_result", 0)
 		add_value("skin_path", "res://sprites/hero.png")
 		add_value("current_result", 0)

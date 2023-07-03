@@ -16,3 +16,5 @@ func _on_Trigger_entered(body):
 		animation.play("sword")
 		#добавитить вызов анимации
 		trigger.queue_free()
+func change_sprite_texture() -> void:
+	$Sprite.texture = load("res://sprites/chesttrue.png")

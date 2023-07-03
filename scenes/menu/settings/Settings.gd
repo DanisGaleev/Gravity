@@ -9,11 +9,15 @@ func _ready():
 	elif l == "en":
 		lang.select(0)
 func _on_Languages_item_selected(index):
+	var save = Save_Handler.new()
+	save.load_from_file("user://data.txt")
 	match index:
 		0:
 			TranslationServer.set_locale("en")
 		1:
 			TranslationServer.set_locale("ru")
+	save.add_value("language", TranslationServer.get_locale())
+	save.save_to_file("user://data.txt")
 	#TranslationServer.set_locale(lang.get_item_text(index).to_lower().substr(0, 2))
 #	save.load_from_file("user://data.txt")
 #	save.add_value("language", lang.get_item_text(index).to_lower())

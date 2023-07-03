@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/wow_well_ru.mp3-801f1aea6edd5ff120070b27ac607310.mp3str"
+
+[deps]
+
+source_file="res://audio/hero_phrases/wow_well/wow_well_ru.mp3"
+dest_files=[ "res://.import/wow_well_ru.mp3-801f1aea6edd5ff120070b27ac607310.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

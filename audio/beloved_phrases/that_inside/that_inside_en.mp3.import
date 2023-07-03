@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/that_inside_en.mp3-eb8b47576d54adaaec5c3e66d23e4d89.mp3str"
+
+[deps]
+
+source_file="res://audio/beloved_phrases/that_inside/that_inside_en.mp3"
+dest_files=[ "res://.import/that_inside_en.mp3-eb8b47576d54adaaec5c3e66d23e4d89.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

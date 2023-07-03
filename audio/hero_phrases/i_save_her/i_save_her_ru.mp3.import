@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/i_save_her_ru.mp3-459b8af012ccebd6e75be5682a9ef297.mp3str"
+
+[deps]
+
+source_file="res://audio/hero_phrases/i_save_her/i_save_her_ru.mp3"
+dest_files=[ "res://.import/i_save_her_ru.mp3-459b8af012ccebd6e75be5682a9ef297.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

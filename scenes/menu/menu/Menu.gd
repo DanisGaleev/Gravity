@@ -16,6 +16,7 @@ func _ready():
 	var best = save.get_value("best_result")
 	bar.value = float(v) - 1
 	best_res.text = "BEST RESULT\n" + str(best)
+	TranslationServer.set_locale(save.get_value("language"))
 
 func _on_Start_pressed():
 	var save = Save_Handler.new()
@@ -28,7 +29,7 @@ func _on_Start_pressed():
 	
 	var level_path: String
 	if level < 8:
-		if level == 1 and not start_cutscene:
+		if level == 1:
 			level_path = "res://scenes/cutscenes/start_cutscene/StartCutScene.tscn"
 		elif level == 7 and not final_cutscene:
 			level_path = "res://scenes/cutscenes/final_cutscene/Final_Cutscene.tscn"

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/aaaa_en.mp3-52b65b358bbd0b84892e4040704cf9c3.mp3str"
+
+[deps]
+
+source_file="res://audio/beloved_phrases/aaaa/aaaa_en.mp3"
+dest_files=[ "res://.import/aaaa_en.mp3-52b65b358bbd0b84892e4040704cf9c3.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0
