@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/yes_right_ru.mp3-1e679e765fa734aaf1ef67787ca9fe85.mp3str"
+
+[deps]
+
+source_file="res://audio/beloved_phrases/yes_right/yes_right_ru.mp3"
+dest_files=[ "res://.import/yes_right_ru.mp3-1e679e765fa734aaf1ef67787ca9fe85.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

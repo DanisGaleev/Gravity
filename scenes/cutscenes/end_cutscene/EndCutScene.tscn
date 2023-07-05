@@ -69,7 +69,7 @@ dialog_windows = {
 "Beloved": NodePath("../BelovedLabel")
 }
 cutscene = 4
-times = [ 2.0, 0.0 ]
+times = [ 2.73, 0.0 ]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 320, 180 )

@@ -125,6 +125,10 @@ jump={
 test="ru"
 translations=PoolStringArray( "res://translation/start_cutscene/start_cutscene.en.translation", "res://translation/start_cutscene/start_cutscene.ru.translation", "res://translation/end_cutscene/end_cutscene.en.translation", "res://translation/end_cutscene/end_cutscene.ru.translation", "res://translation/final_cutscene/final_cutscene.en.translation", "res://translation/final_cutscene/final_cutscene.ru.translation", "res://translation/devil_level_phrases/devil_level_phrases.en.translation", "res://translation/devil_level_phrases/devil_level_phrases.ru.translation" )
 translation_remaps={
+"res://audio/beloved_phrases/aaaa/aaaa_en.mp3": PoolStringArray( "res://audio/beloved_phrases/aaaa/aaaa_ru.mp3:ru" ),
+"res://audio/beloved_phrases/that_inside/that_inside_en.mp3": PoolStringArray( "res://audio/beloved_phrases/that_inside/that_inside_ru.mp3:ru" ),
+"res://audio/beloved_phrases/yes_right/yes_right_en.mp3": PoolStringArray( "res://audio/beloved_phrases/yes_right/yes_right_ru.mp3:ru" ),
+"res://audio/beloved_phrases/you_hero/you_hero_en.mp3": PoolStringArray( "res://audio/beloved_phrases/you_hero/ypu_hero_ru.mp3:ru" ),
 "res://audio/devil_phrase/levels_phrase/you_will_never_get_out/you_will_never_get_out_en.mp3": PoolStringArray( "res://audio/devil_phrase/levels_phrase/you_will_never_get_out/you_will_never_get_out_ru.mp3:ru" ),
 "res://audio/devil_phrase/levels_phrase/you_will_never_safe/you_will_never_safe_en.mp3": PoolStringArray( "res://audio/devil_phrase/levels_phrase/you_will_never_safe/you_will_never_safe_ru.mp3:ru" ),
 "res://audio/devil_phrase/levels_phrase/your_beloved_will_stay/your_beloved_will_stay_en.mp3": PoolStringArray( "res://audio/devil_phrase/levels_phrase/your_beloved_will_stay/your_beloved_will_stay_ru.mp3:ru" ),

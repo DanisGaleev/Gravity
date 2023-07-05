@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/you_hero_ru.mp3-34c2fcd322dde1e8d95d5b5762ed286c.mp3str"
+
+[deps]
+
+source_file="res://audio/beloved_phrases/you_hero/you_hero_ru.mp3"
+dest_files=[ "res://.import/you_hero_ru.mp3-34c2fcd322dde1e8d95d5b5762ed286c.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0
