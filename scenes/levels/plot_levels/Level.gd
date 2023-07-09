@@ -99,3 +99,12 @@ func _on_EnemyTrigger_body_entered(body):
 		enemy = enemy_scene.instance()
 		add_child(enemy)
 		enemy.global_position = enemyPos.global_position
+
+
+func _on_Start_cutscene_trigger_body_entered(body):
+	if body.name == "Player":
+		_Global.playerPos_bef_Cutscene = $Player.global_position
+		_Global.playerRotation_bef_Cutscene = round($Player.rotation_degrees)
+		_Global.isStartScene = false
+		$Start_cutscene_trigger.queue_free()
+		get_tree().change_scene("res://scenes/cutscenes/final_cutscene/Final_Cutscene.tscn")

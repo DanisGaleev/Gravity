@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scenes/entities/finish/Finish.gd" type="Script" id=1]
 [ext_resource path="res://sprites/finish.png" type="Texture" id=2]
 [ext_resource path="res://sprites/light.png" type="Texture" id=3]
+[ext_resource path="res://scenes/entities/transition/Scene_transition.tscn" type="PackedScene" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 23, 1 )
@@ -22,5 +23,7 @@ shadow_enabled = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
+
+[node name="Scene_transition" parent="." instance=ExtResource( 4 )]
 
 [connection signal="body_entered" from="." to="." method="_on_Area2D_body_entered"]

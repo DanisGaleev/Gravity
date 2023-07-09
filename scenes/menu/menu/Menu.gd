@@ -29,7 +29,7 @@ func _on_Start_pressed():
 	
 	var level_path: String
 	if level < 8:
-		if level == 1:
+		if level == 1: #исправить на level == 1 and not start_cutscene 
 			level_path = "res://scenes/cutscenes/start_cutscene/StartCutScene.tscn"
 		elif level == 7 and not final_cutscene:
 			level_path = "res://scenes/cutscenes/final_cutscene/Final_Cutscene.tscn"
@@ -37,7 +37,8 @@ func _on_Start_pressed():
 			level_path = "res://scenes/levels/plot_levels/Level" + str(level) + ".tscn"
 	else:
 			level_path = "res://scenes/levels/plot_levels/Level7.tscn"
-	get_tree().change_scene(level_path)
+	$Scene_transition.transition_to(level_path)
+#	get_tree().change_scene(level_path)
 func _on_Authors_pressed():
 	get_tree().change_scene("res://scenes/menu/authors/Authors.tscn")	
 

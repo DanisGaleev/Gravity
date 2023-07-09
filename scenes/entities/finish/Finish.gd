@@ -10,7 +10,8 @@ func _on_Area2D_body_entered(body):
 		if get_parent().name.ends_with("7"):
 			save.add_value("level", int(get_parent().name.substr(5)) + 1)
 			save.save_to_file("user://data.txt")
-			get_tree().change_scene("res://scenes/cutscenes/final_cutscene/Final_Cutscene.tscn")
+			$Scene_transition.transition_to("res://scenes/cutscenes/final_cutscene/Final_Cutscene.tscn")
+#			get_tree().change_scene("res://scenes/cutscenes/final_cutscene/Final_Cutscene.tscn")
 		save.add_value("level", int(get_parent().name.substr(5)) + 1)
 		save.save_to_file("user://data.txt")
 		win_screen = win_screen_scene.instance()
