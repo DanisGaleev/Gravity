@@ -29,7 +29,7 @@ func _on_Start_pressed():
 	
 	var level_path: String
 	if level < 8:
-		if level == 1: #исправить на level == 1 and not start_cutscene 
+		if level == 1 and not start_cutscene: #исправить на level == 1 and not start_cutscene 
 			level_path = "res://scenes/cutscenes/start_cutscene/StartCutScene.tscn"
 		elif level == 7 and not final_cutscene:
 			level_path = "res://scenes/cutscenes/final_cutscene/Final_Cutscene.tscn"
@@ -40,19 +40,12 @@ func _on_Start_pressed():
 	$Scene_transition.transition_to(level_path)
 #	get_tree().change_scene(level_path)
 func _on_Authors_pressed():
-	get_tree().change_scene("res://scenes/menu/authors/Authors.tscn")	
-
+	$Scene_transition.transition_to("res://scenes/menu/authors/Authors.tscn")	
 func _on_Generator_pressed():
-	get_tree().change_scene("res://scenes/levels/generator/Generator.tscn")
-
-
+	$Scene_transition.transition_to("res://scenes/levels/generator/Generator.tscn")
 func _on_Turorial_pressed():
-	get_tree().change_scene("res://scenes/menu/tutorial/Tutorial.tscn")
-
-
+	$Scene_transition.transition_to("res://scenes/menu/tutorial/Tutorial.tscn")
 func _on_Skins_pressed():
-	get_tree().change_scene("res://scenes/menu/skins/Skins.tscn")
-
-
+	$Scene_transition.transition_to("res://scenes/menu/skins/Skins.tscn")
 func _on_Settings_pressed():
-	get_tree().change_scene("res://scenes/menu/settings/Settings.tscn")
+	$Scene_transition.transition_to("res://scenes/menu/settings/Settings.tscn")

@@ -1,5 +1,6 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
+[ext_resource path="res://scenes/entities/transition/Scene_transition.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/entities/exit/Exit.tscn" type="PackedScene" id=2]
 [ext_resource path="res://sprites/background.png" type="Texture" id=4]
 
@@ -44,3 +45,5 @@ margin_bottom = 340.0
 size_flags_horizontal = 4
 size_flags_vertical = 8
 exit_to_path = "res://scenes/menu/menu/Menu.tscn"
+
+[node name="Scene_transition" parent="." instance=ExtResource( 1 )]

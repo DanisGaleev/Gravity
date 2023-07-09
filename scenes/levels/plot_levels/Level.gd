@@ -106,5 +106,9 @@ func _on_Start_cutscene_trigger_body_entered(body):
 		_Global.playerPos_bef_Cutscene = $Player.global_position
 		_Global.playerRotation_bef_Cutscene = round($Player.rotation_degrees)
 		_Global.isStartScene = false
+		var save = Save_Handler.new()
+		save.load_from_file("user://data.txt")
+		save.add_value("level", 8)
+		save.save_to_file("user://data.txt")
 		$Start_cutscene_trigger.queue_free()
 		get_tree().change_scene("res://scenes/cutscenes/final_cutscene/Final_Cutscene.tscn")
