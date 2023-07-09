@@ -1,6 +1,6 @@
 extends Node2D
 
-var is_begin = _Global.isStartScene #исправить на _Global.is_begin
+var is_begin = false #исправить на _Global.is_begin
 export var jump_speed : int
 
 var isStarted = false

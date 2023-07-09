@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=2]
+[gd_scene load_steps=49 format=2]
 
 [ext_resource path="res://sprites/beloved.png" type="Texture" id=1]
 [ext_resource path="res://sprites/devil.png" type="Texture" id=2]
@@ -36,6 +36,8 @@
 [ext_resource path="res://sprites/devil_without_horn/Sprite-0036f.png" type="Texture" id=34]
 [ext_resource path="res://sprites/devil_without_horn/Sprite-0033f.png" type="Texture" id=35]
 [ext_resource path="res://scenes/entities/transition/Scene_transition.tscn" type="PackedScene" id=36]
+[ext_resource path="res://sprites/goodguysword.png" type="Texture" id=37]
+[ext_resource path="res://sprites/devilnohorn.png" type="Texture" id=38]
 
 [sub_resource type="Animation" id=2]
 length = 0.001
@@ -271,6 +273,18 @@ tracks/9/keys = {
 "update": 1,
 "values": [ false ]
 }
+tracks/10/type = "value"
+tracks/10/path = NodePath("Hero:texture")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 5.2 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 37 ) ]
+}
 
 [sub_resource type="DynamicFontData" id=10]
 font_path = "res://fonts/fonts/ttf/Geologica-Black.ttf"
@@ -398,8 +412,8 @@ loop = false
 
 [node name="Devil" type="Sprite" parent="Path2D/PathFollow2D"]
 visible = false
-position = Vector2( 0, -8 )
-texture = ExtResource( 2 )
+position = Vector2( 0, -6 )
+texture = ExtResource( 38 )
 
 [node name="Player_path" type="Path2D" parent="."]
 curve = SubResource( 15 )
@@ -411,7 +425,7 @@ loop = false
 
 [node name="Player" type="Sprite" parent="Player_path/PathFollow2D"]
 visible = false
-texture = ExtResource( 7 )
+texture = ExtResource( 37 )
 
 [node name="Beloved_path" type="Path2D" parent="."]
 curve = SubResource( 14 )

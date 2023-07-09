@@ -1,10 +1,16 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://sprites/beloved.png" type="Texture" id=1]
 [ext_resource path="res://sprites/good guy.png" type="Texture" id=2]
 [ext_resource path="res://scenes/utils/dialog/Dialog.gd" type="Script" id=3]
 [ext_resource path="res://scenes/cutscenes/end_cutscene/EndCutScene.gd" type="Script" id=4]
 [ext_resource path="res://sprites/forestbackground.png" type="Texture" id=5]
+[ext_resource path="res://sprites/hearts_animation/finishhearts6.png" type="Texture" id=6]
+[ext_resource path="res://sprites/hearts_animation/finishhearts3.png" type="Texture" id=7]
+[ext_resource path="res://sprites/hearts_animation/finishhearts1.png" type="Texture" id=8]
+[ext_resource path="res://sprites/hearts_animation/finishhearts4.png" type="Texture" id=9]
+[ext_resource path="res://sprites/hearts_animation/finishhearts2.png" type="Texture" id=10]
+[ext_resource path="res://sprites/hearts_animation/finishhearts5.png" type="Texture" id=11]
 
 [sub_resource type="Animation" id=2]
 resource_name = "cutscene"
@@ -23,6 +29,20 @@ tracks/0/keys = {
 "method": "start"
 } ]
 }
+tracks/1/type = "method"
+tracks/1/path = NodePath("AnimatedSprite")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.4 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ "hearts", false ],
+"method": "play"
+} ]
+}
 
 [sub_resource type="DynamicFontData" id=7]
 font_path = "res://fonts/fonts/ttf/Geologica-Black.ttf"
@@ -30,6 +50,14 @@ font_path = "res://fonts/fonts/ttf/Geologica-Black.ttf"
 [sub_resource type="DynamicFont" id=8]
 size = 10
 font_data = SubResource( 7 )
+
+[sub_resource type="SpriteFrames" id=9]
+animations = [ {
+"frames": [ ExtResource( 8 ), ExtResource( 10 ), ExtResource( 7 ), ExtResource( 9 ), ExtResource( 11 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "hearts",
+"speed": 5.0
+} ]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 4 )
@@ -44,6 +72,7 @@ centered = false
 anims/cutscene = SubResource( 2 )
 
 [node name="Beloved" type="Sprite" parent="."]
+visible = false
 position = Vector2( 445, 271 )
 scale = Vector2( 3, 3 )
 texture = ExtResource( 1 )
@@ -59,6 +88,7 @@ valign = 1
 autowrap = true
 
 [node name="Hero" type="Sprite" parent="."]
+visible = false
 position = Vector2( 519, 271 )
 scale = Vector2( 3, 3 )
 texture = ExtResource( 2 )
@@ -77,3 +107,9 @@ position = Vector2( 320, 180 )
 current = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 479, 238 )
+scale = Vector2( 3, 3 )
+frames = SubResource( 9 )
+animation = "hearts"
