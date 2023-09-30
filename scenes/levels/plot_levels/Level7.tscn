@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://scenes/entities/start/Start.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/entities/finish/Finish.tscn" type="PackedScene" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://sprites/cavebackground.png" type="Texture" id=11]
 [ext_resource path="res://sprites/cell2.png" type="Texture" id=12]
 [ext_resource path="res://sprites/beloved.png" type="Texture" id=13]
+[ext_resource path="res://audio/gunsound.mp3" type="AudioStream" id=14]
 
 [sub_resource type="NavigationPolygon" id=1]
 vertices = PoolVector2Array( 80, 4, 80, 24, 72, 14, 76, 4, 36, 4, 36, 0, 76, 0, 62, 28, 60, 28, 60, 44, 48, 44, 44, 116, 60, 116, 60, 125, 36, 125, 36, 112, 44, 66, 24, 94, 30, 56, 14, 108, -12, 108, -12, 4 )
@@ -235,6 +236,9 @@ texture = ExtResource( 12 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Start_cutscene_trigger"]
 position = Vector2( 352, 112 )
 shape = SubResource( 14 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." groups=["sound"]]
+stream = ExtResource( 14 )
 
 [connection signal="body_entered" from="Spikes" to="." method="_on_Spikes_body_entered"]
 [connection signal="body_entered" from="Start_cutscene_trigger" to="." method="_on_Start_cutscene_trigger_body_entered"]

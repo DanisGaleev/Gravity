@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scenes/entities/bullet/Bullet.gd" type="Script" id=1]
 [ext_resource path="res://sprites/bullet.png" type="Texture" id=2]
 [ext_resource path="res://sprites/bullet_light.png" type="Texture" id=3]
+[ext_resource path="res://audio/gunsound.mp3" type="AudioStream" id=4]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 10.5
@@ -31,6 +32,9 @@ shape = SubResource( 1 )
 rotation = 3.14159
 scale = Vector2( 0.12, 0.12 )
 texture = ExtResource( 2 )
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 4 )
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]

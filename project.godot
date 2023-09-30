@@ -119,11 +119,16 @@ jump={
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":0,"physical_scancode":81,"unicode":0,"echo":false,"script":null)
  ]
 }
+clean={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":0,"physical_scancode":67,"unicode":0,"echo":false,"script":null)
+ ]
+}
 
 [locale]
 
 test="ru"
-translations=PoolStringArray( "res://translation/start_cutscene/start_cutscene.en.translation", "res://translation/start_cutscene/start_cutscene.ru.translation", "res://translation/end_cutscene/end_cutscene.en.translation", "res://translation/end_cutscene/end_cutscene.ru.translation", "res://translation/final_cutscene/final_cutscene.en.translation", "res://translation/final_cutscene/final_cutscene.ru.translation", "res://translation/devil_level_phrases/devil_level_phrases.en.translation", "res://translation/devil_level_phrases/devil_level_phrases.ru.translation" )
+translations=PoolStringArray( "res://translation/start_cutscene/start_cutscene.en.translation", "res://translation/start_cutscene/start_cutscene.ru.translation", "res://translation/end_cutscene/end_cutscene.en.translation", "res://translation/end_cutscene/end_cutscene.ru.translation", "res://translation/final_cutscene/final_cutscene.en.translation", "res://translation/final_cutscene/final_cutscene.ru.translation", "res://translation/devil_level_phrases/devil_level_phrases.en.translation", "res://translation/devil_level_phrases/devil_level_phrases.ru.translation", "res://translation/system/game.en.translation", "res://translation/system/game.ru.translation" )
 translation_remaps={
 "res://audio/beloved_phrases/aaaa/aaaa_en.mp3": PoolStringArray( "res://audio/beloved_phrases/aaaa/aaaa_ru.mp3:ru" ),
 "res://audio/beloved_phrases/that_inside/that_inside_en.mp3": PoolStringArray( "res://audio/beloved_phrases/that_inside/that_inside_ru.mp3:ru" ),

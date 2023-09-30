@@ -1,4 +1,5 @@
 extends Control
+var save = Save_Handler.new()
 
 onready var bar = $MarginContainer/VBoxContainer/ProgressBar
 onready var best_res = $MarginContainer/VBoxContainer/BestRes
@@ -10,14 +11,27 @@ onready var skins = $MarginContainer/VBoxContainer/Skins
 onready var settings = $MarginContainer/VBoxContainer/Settings
 
 func _ready():
-	var save = Save_Handler.new()
+
 	save.load_from_file("user://data.txt")
 	var v = save.get_value("level")
 	var best = save.get_value("best_result")
-	bar.value = float(v) - 1
-	best_res.text = "BEST RESULT\n" + str(best)
 	TranslationServer.set_locale(save.get_value("language"))
+	bar.value = float(v) - 1
+	best_res.text = tr('best_result').to_upper() + "\n" + str(best)
+	print($MarginContainer/VBoxContainer.size_flags_stretch_ratio)
 
+func _input(event):
+	if event.is_action_pressed('clean'):
+		save.add_value("level", 1)
+		save.add_value("language", str(TranslationServer.get_locale()))
+		save.add_value("best_result", 0)
+		save.add_value("skin_path", "res://sprites/hero.png")
+		save.add_value("current_result", 0)
+		save.add_value("start_cutscene", false)
+		save.add_value("final_cutscene", false)
+		save.add_value("end_cutscene", false)
+		save.save_to_file("user://data.txt")
+		get_tree().reload_current_scene()
 func _on_Start_pressed():
 	var save = Save_Handler.new()
 	save.load_from_file("user://data.txt")

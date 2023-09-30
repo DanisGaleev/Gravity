@@ -1,5 +1,10 @@
 extends Node2D
 
+signal continue_animation
+
+export var speed : float
+
+var isStart : bool
 var win_screen_scene = preload("res://scenes/entities/win_screen/WinScreen.tscn")
 var win_screen: CanvasLayer
 var died_screen_scene = preload("res://scenes/entities/died_screen/DiedScreen.tscn")
@@ -11,11 +16,7 @@ onready var player = $Player
 onready var startPosition = $Start/startPos
 onready var enemyPos = $EnemyPos
 onready var navmesh = $Navigation2D
-
-signal continue_animation
-
-var isStart : bool
-export var speed : float
+onready var jump_hint = $JumpHint
 
 func start():
 	isStart = true
@@ -25,6 +26,7 @@ func _ready():
 func _input(event):
 	if event.is_action_pressed("jump"):
 		emit_signal("continue_animation")
+		jump_hint.visible = false
 func continue_animation() -> void:
 	$Sword_pick_up_animation.play("sword")
 func remove_wall() -> void:

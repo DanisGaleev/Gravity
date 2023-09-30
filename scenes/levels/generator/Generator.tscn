@@ -10,8 +10,8 @@ extents = Vector2( 8, 8 )
 [node name="GeneratedLevel" type="Node2D"]
 script = ExtResource( 3 )
 min_dist = 15
-spike_tile_index = 11
-wall_tile_index = 8
+spike_tile_index = 15
+wall_tile_index = 16
 start_tile_index = 13
 finish_tile_index = 12
 

@@ -1,9 +1,6 @@
 extends Node2D
 
-onready var tilemap = $TileMap
-onready var spikes_map = $Spikes/spikes_map
-onready var finish_area_node = $Finish
-onready var result_label = $Node/Control/CanvasLayer/MarginContainer/Result
+signal spike_connected
 
 export var map_size = Vector2(20, 20)
 export var wall = -0.2
@@ -13,8 +10,6 @@ export var spike_tile_index:int
 export var wall_tile_index:int
 export var start_tile_index:int
 export var finish_tile_index:int
-
-signal spike_connected
 
 var win_screen_scene = preload("res://scenes/entities/win_screen/WinScreen.tscn")
 var win_screen: CanvasLayer
@@ -37,12 +32,17 @@ var finish_vec:Vector2
 var current_result = 0
 var isFirstTime = false
 
+onready var tilemap = $TileMap
+onready var spikes_map = $Spikes/spikes_map
+onready var finish_area_node = $Finish
+onready var result_label = $Node/Control/CanvasLayer/MarginContainer/Result
+
 enum tiles{
 	nothing = 0,
 	wall = 1,
 	spike = 2,
 	start = 3,
-	finish = 4
+	finish = 4,
 }
 
 func _ready():
@@ -59,6 +59,7 @@ func _ready():
 	if tex_path != null:
 		pl.get_node("Sprite").texture = load(save.get_value("skin_path"))
 	pl.global_position = Vector2(start_vec.x, start_vec.y) * 16 + Vector2(8, 8)
+	print(tilemap.tile_set.find_tile_by_name("wall_new"))
 func create_level() -> void:
 	noise.seed = randi()
 	noise.octaves = 1
