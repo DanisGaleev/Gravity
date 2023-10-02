@@ -29,6 +29,9 @@ func load_from_file(file_path):
 		data = parse_json(file.get_as_text())
 		file.close()
 	else:
+		add_value("sound_value", 50)
+		add_value("music_value", 50)
+		add_value("cheech_value", 50)
 		add_value("level", 1)
 		add_value("language", str(TranslationServer.get_locale()))
 		add_value("best_result", 0)

@@ -22,6 +22,9 @@ func _ready():
 
 func _input(event):
 	if event.is_action_pressed('clean'):
+		save.add_value('sound_value', 50)
+		save.add_value('music_value', 50)
+		save.add_value('cheech_value', 50)
 		save.add_value("level", 1)
 		save.add_value("language", str(TranslationServer.get_locale()))
 		save.add_value("best_result", 0)
@@ -45,12 +48,13 @@ func _on_Start_pressed():
 	if level < 8:
 		if level == 1 and not start_cutscene: #исправить на level == 1 and not start_cutscene 
 			level_path = "res://scenes/cutscenes/start_cutscene/StartCutScene.tscn"
-		elif level == 7 and not final_cutscene:
+		elif level == 7:
 			level_path = "res://scenes/cutscenes/final_cutscene/Final_Cutscene.tscn"
 		else:
 			level_path = "res://scenes/levels/plot_levels/Level" + str(level) + ".tscn"
 	else:
 			level_path = "res://scenes/levels/plot_levels/Level7.tscn"
+	print(level_path)
 	$Scene_transition.transition_to(level_path)
 #	get_tree().change_scene(level_path)
 func _on_Authors_pressed():

@@ -14,9 +14,9 @@ func _on_Area2D_body_entered(body):
 	elif body.get_name() == "Player":
 		get_tree().get_nodes_in_group("sound")[0].play()
 		died_screen = died_screen_scene.instance()
-		get_parent().get_parent().get_node("Node/Control").add_child(died_screen)
-		for child in get_parent().get_parent().get_children():
-			if child.name != "Node":
+		get_parent().get_parent().get_parent().get_node("GUI/GUI").add_child(died_screen)
+		for child in get_parent().get_parent().get_parent().get_children():
+			if child.name != "GUI":
 				child.queue_free()
 
 
@@ -27,7 +27,7 @@ func _on_Area2D_area_entered(area):
 	elif area.get_name() == "Player":
 		get_tree().get_nodes_in_group("sound")[0].play()
 		died_screen = died_screen_scene.instance()
-		get_parent().get_parent().get_node("Node/Control").add_child(died_screen)
-		for child in get_parent().get_parent().get_children():
-			if child.name != "Node":
+		get_parent().get_parent().get_parent().get_node("GUI/GUI").add_child(died_screen)
+		for child in get_parent().get_parent().get_parent().get_children():
+			if child.name != "GUI":
 				child.queue_free()

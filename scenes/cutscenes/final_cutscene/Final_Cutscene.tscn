@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=2]
+[gd_scene load_steps=50 format=2]
 
 [ext_resource path="res://sprites/beloved.png" type="Texture" id=1]
 [ext_resource path="res://sprites/devil.png" type="Texture" id=2]
@@ -38,6 +38,7 @@
 [ext_resource path="res://scenes/entities/transition/Scene_transition.tscn" type="PackedScene" id=36]
 [ext_resource path="res://sprites/goodguysword.png" type="Texture" id=37]
 [ext_resource path="res://sprites/devilnohorn.png" type="Texture" id=38]
+[ext_resource path="res://audio/gunsound.mp3" type="AudioStream" id=39]
 
 [sub_resource type="Animation" id=2]
 length = 0.001
@@ -504,3 +505,7 @@ texture = ExtResource( 2 )
 [node name="Node" type="Node" parent="."]
 
 [node name="Scene_transition" parent="Node" instance=ExtResource( 36 )]
+
+[node name="BulletSound" type="AudioStreamPlayer" parent="." groups=["sound"]]
+stream = ExtResource( 39 )
+volume_db = -19.0

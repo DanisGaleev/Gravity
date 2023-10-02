@@ -15,7 +15,7 @@ var enemy: KinematicBody2D
 onready var player = $Player
 onready var startPosition = $Start/startPos
 onready var enemyPos = $EnemyPos
-onready var navmesh = $Navigation2D
+onready var navmesh = $BulletsNavigation
 onready var jump_hint = $JumpHint
 
 func start():
@@ -28,19 +28,21 @@ func _input(event):
 		emit_signal("continue_animation")
 		jump_hint.visible = false
 func continue_animation() -> void:
-	$Sword_pick_up_animation.play("sword")
-func remove_wall() -> void:
-	$TileMap.set_cell(17, 15, -1)
-	$TileMap.set_cell(20, 16, -1)
-	$TileMap.set_cell(21, 16, -1)
-	$TileMap.set_cell(22, 16, -1)
-	$TileMap.set_cell(23, 16, -1)
-	$TileMap.set_cell(24, 16, -1)
-	$TileMap.set_cell(25, 14, -1)
-	$TileMap.set_cell(26, 14, -1)
-	$TileMap.set_cell(27, 14, -1)
-	$TileMap.set_cell(28, 14, -1)
-	$TileMap.update_bitmask_region(Vector2(17, 16), Vector2(28, 14))
+	$SwordPickUpAnimation.play("sword")
+func remove_wall(tilemap_node_path : NodePath) -> void:
+	var tilemap = get_node(tilemap_node_path)
+	tilemap.set_cell(17, 15, -1)
+	tilemap.set_cell(20, 16, -1)
+	tilemap.set_cell(21, 16, -1)
+	tilemap.set_cell(22, 16, -1)
+	tilemap.set_cell(23, 16, -1)
+	tilemap.set_cell(24, 16, -1)
+	tilemap.set_cell(25, 14, -1)
+	tilemap.set_cell(26, 14, -1)
+	tilemap.set_cell(27, 14, -1)
+	tilemap.set_cell(28, 14, -1)
+	tilemap.update_bitmask_region(Vector2(17, 16), Vector2(28, 14))
+	
 func tween() -> void:
 	$Player.set_isCutScene(true)
 	$Player.set_velocity_v()
@@ -74,36 +76,39 @@ func tween() -> void:
 	 
 func _process(delta):
 	if isStart:
-		if $Path2D/PathFollow2D.unit_offset < 0.99:
+		if $JumpPath/JumpFollow2D.unit_offset < 0.99:
+			print($JumpPath/JumpFollow2D.offset)
 			$Player.set_isCutScene(true)
 			$Player.set_velocity_v()
-			$Path2D/PathFollow2D.offset = $Path2D/PathFollow2D.offset + delta * speed
-			$Player.global_position = $Path2D/PathFollow2D/Hero_move_node.global_position
+			$JumpPath/JumpFollow2D.offset = $JumpPath/JumpFollow2D.offset + delta * speed
+			$Player.global_position = $JumpPath/JumpFollow2D/HeroMoveNode.global_position
 		else:
-			$Path2D/PathFollow2D.unit_offset = 1
-			$Player.global_position = $Path2D/PathFollow2D/Hero_move_node.global_position
-			$Path2D.queue_free()
+			$JumpPath/JumpFollow2D.unit_offset = 1
+			$Player.global_position = $JumpPath/JumpFollow2D/HeroMoveNode.global_position
+			$JumpPath.queue_free()
 			isStart = false
 			$Player.set_isCutScene(false)
-
-func _on_Spikes_body_entered(body):
-	if body.get_name() == "Player":
-		died_screen = died_screen_scene.instance()
-		get_node("Node/Control").add_child(died_screen)
-		for i in get_children():
-			if i.name != "Node":
-				i.queue_free()
-		$Player.queue_free()
 
 
 func _on_EnemyTrigger_body_entered(body):
 	if body.name == "Player" and !has_node("Enemy") and has_node("EnemyPos"):
 		enemy = enemy_scene.instance()
+		enemy.sprite_visible = true
 		add_child(enemy)
 		enemy.global_position = enemyPos.global_position
 
+func _on_SpikeMap_body_entered(body):
+	if body.get_name() == "Player":
+		died_screen = died_screen_scene.instance()
+		print(get_node("GUI/GUI"))
+		get_node("GUI/GUI").add_child(died_screen)
+		for i in get_children():
+			if i.name != "GUI":
+				i.queue_free()
+		$Player.queue_free()
 
-func _on_Start_cutscene_trigger_body_entered(body):
+
+func _on_StartCutsceneTrigger_body_entered(body):
 	if body.name == "Player":
 		_Global.playerPos_bef_Cutscene = $Player.global_position
 		_Global.playerRotation_bef_Cutscene = round($Player.rotation_degrees)
@@ -112,5 +117,5 @@ func _on_Start_cutscene_trigger_body_entered(body):
 		save.load_from_file("user://data.txt")
 		save.add_value("level", 8)
 		save.save_to_file("user://data.txt")
-		$Start_cutscene_trigger.queue_free()
+		$StartCutsceneTrigger.queue_free()
 		get_tree().change_scene("res://scenes/cutscenes/final_cutscene/Final_Cutscene.tscn")

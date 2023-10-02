@@ -15,8 +15,8 @@ func _on_Area2D_body_entered(body):
 		save.add_value("level", int(get_parent().name.substr(5)) + 1)
 		save.save_to_file("user://data.txt")
 		win_screen = win_screen_scene.instance()
-		get_parent().get_node("Node/Control").add_child(win_screen)
+		get_parent().get_node("GUI/GUI").add_child(win_screen)
 		win_screen.visible = true
 		for child in get_parent().get_children():
-			if child.name != "Node":
+			if child.name != "GUI":
 				child.queue_free()

@@ -1,106 +1,48 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://scenes/entities/fps/Label.tscn" type="PackedScene" id=1]
-[ext_resource path="res://tilemaps/tilemap.tres" type="TileSet" id=2]
-[ext_resource path="res://scenes/entities/player/Player.tscn" type="PackedScene" id=3]
-[ext_resource path="res://scenes/entities/finish/Finish.tscn" type="PackedScene" id=4]
-[ext_resource path="res://sprites/cavebackground.png" type="Texture" id=5]
+[ext_resource path="res://scenes/levels/plot_levels/BasicLevel.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/entities/turret/Turret.tscn" type="PackedScene" id=6]
-[ext_resource path="res://scenes/entities/start/Start.tscn" type="PackedScene" id=7]
-[ext_resource path="res://scenes/levels/plot_levels/Level.gd" type="Script" id=8]
-[ext_resource path="res://sprites/background2.png" type="Texture" id=9]
 [ext_resource path="res://scenes/entities/torch/Torch.tscn" type="PackedScene" id=10]
-[ext_resource path="res://audio/gunsound.mp3" type="AudioStream" id=11]
-[ext_resource path="res://audio/6537897036218368.wav" type="AudioStream" id=12]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 110, 10.5 )
+extents = Vector2( 101.5, 10 )
 
-[node name="Level1" type="Node2D"]
-script = ExtResource( 8 )
+[node name="Level1" instance=ExtResource( 1 )]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-layer = -3
+[node name="CollisionShape2D" parent="EnemyTrigger" index="0"]
+position = Vector2( 540, 366 )
+shape = SubResource( 1 )
 
-[node name="Cavebackground" type="Sprite" parent="CanvasLayer"]
-position = Vector2( 320, 180 )
-scale = Vector2( 0.213333, 0.128571 )
-texture = ExtResource( 5 )
-
-[node name="Background" type="Sprite" parent="."]
-visible = false
-position = Vector2( 464, 321.5 )
-scale = Vector2( 1.00586, 1.69727 )
-texture = ExtResource( 9 )
-
-[node name="TileMap" type="TileMap" parent="."]
-tile_set = ExtResource( 2 )
-cell_size = Vector2( 16, 16 )
-format = 1
+[node name="WallMap" parent="." index="5"]
 tile_data = PoolIntArray( 720929, 16, 0, 720930, 16, 0, 720931, 16, 0, 720932, 16, 0, 720933, 16, 0, 720934, 16, 0, 720935, 16, 0, 720936, 16, 0, 720937, 16, 0, 786465, 16, 0, 786473, 16, 0, 852001, 16, 0, 852009, 16, 0, 917523, 16, 0, 917524, 16, 0, 917525, 16, 0, 917526, 16, 0, 917527, 16, 0, 917528, 16, 0, 917529, 16, 0, 917530, 16, 0, 917531, 16, 0, 917532, 16, 0, 917533, 16, 0, 917534, 16, 0, 917535, 16, 0, 917536, 16, 0, 917537, 16, 0, 917545, 16, 0, 983057, 16, 0, 983058, 16, 0, 983059, 16, 0, 983081, 16, 0, 1048593, 16, 0, 1048617, 16, 0, 1114129, 16, 0, 1114143, 16, 0, 1114153, 16, 0, 1179665, 16, 0, 1179689, 16, 0, 1245201, 16, 0, 1245225, 16, 0, 1310737, 16, 0, 1310741, 16, 0, 1310742, 16, 0, 1310743, 16, 0, 1310744, 16, 0, 1310745, 16, 0, 1310746, 16, 0, 1310761, 16, 0, 1376272, 16, 0, 1376273, 16, 0, 1376277, 16, 0, 1376282, 16, 0, 1376297, 16, 0, 1441808, 16, 0, 1441813, 16, 0, 1441818, 16, 0, 1441833, 16, 0, 1507344, 16, 0, 1507349, 16, 0, 1507354, 16, 0, 1507369, 16, 0, 1572880, 16, 0, 1572885, 16, 0, 1572890, 16, 0, 1572905, 16, 0, 1638416, 16, 0, 1638421, 16, 0, 1638426, 16, 0, 1638427, 16, 0, 1638428, 16, 0, 1638429, 16, 0, 1638430, 16, 0, 1638431, 16, 0, 1638432, 16, 0, 1638433, 16, 0, 1638434, 16, 0, 1638435, 16, 0, 1638436, 16, 0, 1638437, 16, 0, 1638438, 16, 0, 1638439, 16, 0, 1638440, 16, 0, 1638441, 16, 0, 1703952, 16, 0, 1703953, 16, 0, 1703957, 16, 0, 1769489, 16, 0, 1769490, 16, 0, 1769491, 16, 0, 1769492, 16, 0, 1769493, 16, 0 )
 
-[node name="Finish" parent="." instance=ExtResource( 4 )]
+[node name="SpikeMap" parent="SpikeMap" index="0"]
+tile_data = PoolIntArray( 786468, 1610612751, 0, 786469, 1610612751, 0, 786470, 1610612751, 0, 786471, 1610612751, 0, 786472, 1610612751, 0, 983062, 1610612751, 0, 983063, 1610612751, 0, 983064, 1610612751, 0, 983065, 1610612751, 0, 983066, 1610612751, 0, 983067, 1610612751, 0, 1048616, -1073741809, 0, 1114130, -1610612721, 0, 1114152, -1073741809, 0, 1179679, 1610612751, 0, 1179688, -1073741809, 0, 1245205, 15, 0, 1245206, 15, 0, 1245208, 15, 0, 1245209, 15, 0, 1245224, -1073741809, 0, 1310760, -1073741809, 0, 1441809, -1610612721, 0, 1507345, -1610612721, 0, 1572881, -1610612721, 0, 1572891, 15, 0, 1572892, 15, 0, 1572893, 15, 0, 1572897, 15, 0, 1572898, 15, 0, 1572899, 15, 0, 1572900, 15, 0, 1572901, 15, 0, 1638417, -1610612721, 0 )
+
+[node name="Finish" parent="." index="7"]
 position = Vector2( 312, 430.428 )
-scale = Vector2( 1.041, 1 )
 
-[node name="Player" parent="." instance=ExtResource( 3 )]
-position = Vector2( 504, 380 )
+[node name="Start" parent="." index="8"]
+position = Vector2( 504, 399 )
 
-[node name="Turret" parent="." instance=ExtResource( 6 )]
+[node name="Toarch1" parent="Toarches" index="0" instance=ExtResource( 10 )]
+position = Vector2( 432, 327 )
+
+[node name="Toarch2" parent="Toarches" index="1" instance=ExtResource( 10 )]
+position = Vector2( 656, 248 )
+scale = Vector2( -1, 1 )
+
+[node name="Toarch3" parent="Toarches" index="2" instance=ExtResource( 10 )]
+position = Vector2( 288, 311 )
+
+[node name="Turret1" parent="Turrets" index="0" instance=ExtResource( 6 )]
 position = Vector2( 424, 312 )
 direction = Vector2( 1, 0 )
 timerTime = 3
 speed = 100
 
-[node name="Start" parent="." instance=ExtResource( 7 )]
-position = Vector2( 504, 398 )
+[node name="Player" parent="." index="11"]
+position = Vector2( 504, 385 )
 
-[node name="toarchs" type="Node2D" parent="."]
-
-[node name="torch" parent="toarchs" instance=ExtResource( 10 )]
-position = Vector2( 432, 327 )
-
-[node name="torch2" parent="toarchs" instance=ExtResource( 10 )]
-position = Vector2( 656, 248 )
-scale = Vector2( -1, 1 )
-
-[node name="torch3" parent="toarchs" instance=ExtResource( 10 )]
-position = Vector2( 288, 311 )
-
-[node name="Node" type="CanvasLayer" parent="."]
-
-[node name="Control" type="Control" parent="Node"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-
-[node name="Label" parent="Node/Control" instance=ExtResource( 1 )]
-
-[node name="Spikes" type="Area2D" parent="."]
-
-[node name="TileMap" type="TileMap" parent="Spikes"]
-tile_set = ExtResource( 2 )
-cell_size = Vector2( 16, 16 )
-collision_use_parent = true
-format = 1
-tile_data = PoolIntArray( 786468, 1610612751, 0, 786469, 1610612751, 0, 786470, 1610612751, 0, 786471, 1610612751, 0, 786472, 1610612751, 0, 983062, 1610612751, 0, 983063, 1610612751, 0, 983064, 1610612751, 0, 983065, 1610612751, 0, 983066, 1610612751, 0, 983067, 1610612751, 0, 1048616, -1073741809, 0, 1114130, -1610612721, 0, 1114152, -1073741809, 0, 1179679, 1610612751, 0, 1179688, -1073741809, 0, 1245205, 15, 0, 1245206, 15, 0, 1245208, 15, 0, 1245209, 15, 0, 1245224, -1073741809, 0, 1310760, -1073741809, 0, 1441809, -1610612721, 0, 1507345, -1610612721, 0, 1572881, -1610612721, 0, 1572891, 15, 0, 1572892, 15, 0, 1572893, 15, 0, 1572897, 15, 0, 1572898, 15, 0, 1572899, 15, 0, 1572900, 15, 0, 1572901, 15, 0, 1638417, -1610612721, 0 )
-
-[node name="EnemyTrigger" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyTrigger"]
-position = Vector2( 544, 360 )
-shape = SubResource( 1 )
-
-[node name="EnemyPos" type="Position2D" parent="."]
+[node name="EnemyPos" parent="." index="12"]
 position = Vector2( 376, 304 )
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." groups=["sound"]]
-stream = ExtResource( 11 )
-volume_db = -19.0
-
-[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 12 )
-volume_db = -12.157
-autoplay = true
-
-[connection signal="body_entered" from="Spikes" to="." method="_on_Spikes_body_entered"]
-[connection signal="body_entered" from="EnemyTrigger" to="." method="_on_EnemyTrigger_body_entered"]

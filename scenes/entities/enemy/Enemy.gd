@@ -1,12 +1,13 @@
 extends KinematicBody2D
 
 export var canShot : bool
+export var sprite_visible : bool
 
 onready var timer = $Timer
 onready var text = $Text
 onready var pos = $Self_guided_bullets_position
 
-var self_guided_bul = preload("res://scenes/entities/self_guided_bullet/Self_giuded_bullet.tscn")
+var self_guided_bul
 
 var visibleTime = 4
 
@@ -40,9 +41,16 @@ var save = Save_Handler.new()
 
 func _ready():
 	randomize()
+	
+	if not sprite_visible:
+		$Sprite.visible = false
+	
 	save.load_from_file("user://data.txt")
+	print(self_guided_bul)
 	_on_Timer_timeout()
 	if canShot:
+		print(self_guided_bul, 'True')
+		self_guided_bul = load("res://scenes/entities/self_guided_bullet/Self_giuded_bullet.tscn")
 		var timer = Timer.new()
 		add_child(timer)
 		timer.wait_time = 15

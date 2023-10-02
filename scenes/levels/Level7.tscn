@@ -1,14 +1,19 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=29 format=2]
 
-[ext_resource path="res://scenes/levels/plot_levels/BasicLevel.tscn" type="PackedScene" id=1]
-[ext_resource path="res://scenes/entities/enemy/Enemy.tscn" type="PackedScene" id=2]
-[ext_resource path="res://scenes/entities/torch/Torch.tscn" type="PackedScene" id=4]
-[ext_resource path="res://scenes/entities/turret/Turret.tscn" type="PackedScene" id=5]
-[ext_resource path="res://sprites/beloved.png" type="Texture" id=6]
-[ext_resource path="res://sprites/cell2.png" type="Texture" id=7]
-
-[sub_resource type="RectangleShape2D" id=15]
-extents = Vector2( 0, 0 )
+[ext_resource path="res://scenes/entities/start/Start.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/entities/finish/Finish.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/entities/torch/Torch.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/entities/player/Player.tscn" type="PackedScene" id=4]
+[ext_resource path="res://sprites/background2.png" type="Texture" id=5]
+[ext_resource path="res://scenes/levels/plot_levels/Level.gd" type="Script" id=6]
+[ext_resource path="res://tilemaps/tilemap.tres" type="TileSet" id=7]
+[ext_resource path="res://scenes/entities/turret/Turret.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/entities/fps/Label.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/entities/enemy/Enemy.tscn" type="PackedScene" id=10]
+[ext_resource path="res://sprites/cavebackground.png" type="Texture" id=11]
+[ext_resource path="res://sprites/cell2.png" type="Texture" id=12]
+[ext_resource path="res://sprites/beloved.png" type="Texture" id=13]
+[ext_resource path="res://audio/gunsound.mp3" type="AudioStream" id=14]
 
 [sub_resource type="NavigationPolygon" id=1]
 vertices = PoolVector2Array( 80, 4, 80, 24, 72, 14, 76, 4, 36, 4, 36, 0, 76, 0, 62, 28, 60, 28, 60, 44, 48, 44, 44, 116, 60, 116, 60, 125, 36, 125, 36, 112, 44, 66, 24, 94, 30, 56, 14, 108, -12, 108, -12, 4 )
@@ -78,58 +83,152 @@ outlines = [ PoolVector2Array( 184, 164, 124, 164, 124, 152, 112, 152, 114, 156,
 [sub_resource type="RectangleShape2D" id=14]
 extents = Vector2( 7, 15 )
 
-[node name="Level7" instance=ExtResource( 1 )]
+[node name="Level7" type="Node2D"]
+script = ExtResource( 6 )
 
-[node name="CollisionShape2D" parent="EnemyTrigger" index="0"]
-shape = SubResource( 15 )
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -3
+visible = false
 
-[node name="WallMap" parent="." index="5"]
+[node name="Cavebackground" type="Sprite" parent="CanvasLayer"]
+position = Vector2( 320, 180 )
+scale = Vector2( 0.213333, 0.128571 )
+texture = ExtResource( 11 )
+
+[node name="Background" type="Sprite" parent="."]
+visible = false
+position = Vector2( 224, 160 )
+scale = Vector2( 1.07813, 1.78125 )
+texture = ExtResource( 5 )
+
+[node name="TileMap" type="TileMap" parent="."]
+visible = false
+tile_set = ExtResource( 7 )
+cell_size = Vector2( 16, 16 )
+bake_navigation = true
+format = 1
 tile_data = PoolIntArray( 65534, 16, 0, 65535, 16, 0, 0, 16, 0, 1, 16, 0, 2, 16, 0, 3, 16, 0, 4, 16, 0, 5, 16, 0, 6, 16, 0, 7, 16, 0, 8, 16, 0, 9, 16, 0, 10, 16, 0, 11, 16, 0, 12, 16, 0, 13, 16, 0, 14, 16, 0, 15, 16, 0, 16, 16, 0, 17, 16, 0, 18, 16, 0, 19, 16, 0, 20, 16, 0, 21, 16, 0, 22, 16, 0, 23, 16, 0, 24, 16, 0, 25, 16, 0, 26, 16, 0, 27, 16, 0, 28, 16, 0, 29, 16, 0, 131070, 16, 0, 65541, 16, 0, 65549, 16, 0, 65557, 16, 0, 65565, 16, 0, 196606, 16, 0, 131077, 16, 0, 131085, 16, 0, 131093, 16, 0, 131101, 16, 0, 262142, 16, 0, 196613, 16, 0, 196629, 16, 0, 196637, 16, 0, 327678, 16, 0, 262153, 16, 0, 262161, 16, 0, 262165, 16, 0, 262173, 16, 0, 393214, 16, 0, 327685, 16, 0, 327709, 16, 0, 458750, 16, 0, 393221, 16, 0, 393229, 16, 0, 393245, 16, 0, 524286, 16, 0, 524287, 16, 0, 458752, 16, 0, 458753, 16, 0, 458757, 16, 0, 458765, 16, 0, 458781, 16, 0, 589822, 16, 0, 524301, 16, 0, 524305, 16, 0, 524306, 16, 0, 524310, 16, 0, 524311, 16, 0, 524312, 16, 0, 524313, 16, 0, 524314, 16, 0, 524315, 16, 0, 524316, 16, 0, 524317, 16, 0, 655358, 16, 0, 589832, 16, 0, 589833, 16, 0, 589834, 16, 0, 589835, 16, 0, 589836, 16, 0, 589837, 16, 0, 589838, 16, 0, 589841, 16, 0, 589842, 16, 0, 589853, 16, 0, 720894, 16, 0, 655364, 16, 0, 655365, 16, 0, 655366, 16, 0, 655389, 16, 0, 786430, 16, 0, 720899, 16, 0, 720903, 16, 0, 720918, 16, 0, 720919, 16, 0, 720920, 16, 0, 720925, 16, 0, 851966, 16, 0, 786435, 16, 0, 786456, 16, 0, 786461, 16, 0, 917502, 16, 0, 851971, 16, 0, 851973, 16, 0, 851974, 16, 0, 851981, 16, 0, 851982, 16, 0, 851983, 16, 0, 851984, 16, 0, 851985, 16, 0, 851986, 16, 0, 851987, 16, 0, 851992, 16, 0, 851997, 16, 0, 983038, 16, 0, 917507, 16, 0, 917511, 16, 0, 917520, 16, 0, 917528, 16, 0, 917533, 16, 0, 1048574, 16, 0, 1048575, 16, 0, 983040, 16, 0, 983041, 16, 0, 983044, 16, 0, 983045, 16, 0, 983046, 16, 0, 983051, 16, 0, 983056, 16, 0, 983064, 16, 0, 983069, 16, 0, 1114110, 16, 0, 1048592, 16, 0, 1048600, 16, 0, 1048605, 16, 0, 1179646, 16, 0, 1114119, 16, 0, 1114141, 16, 0, 1245182, 16, 0, 1179655, 16, 0, 1179677, 16, 0, 1310718, 16, 0, 1310719, 16, 0, 1245184, 16, 0, 1245185, 16, 0, 1245186, 16, 0, 1245187, 16, 0, 1245188, 16, 0, 1245189, 16, 0, 1245190, 16, 0, 1245191, 16, 0, 1245192, 16, 0, 1245193, 16, 0, 1245194, 16, 0, 1245195, 16, 0, 1245196, 16, 0, 1245197, 16, 0, 1245198, 16, 0, 1245199, 16, 0, 1245200, 16, 0, 1245201, 16, 0, 1245202, 16, 0, 1245203, 16, 0, 1245204, 16, 0, 1245205, 16, 0, 1245206, 16, 0, 1245207, 16, 0, 1245208, 16, 0, 1245209, 16, 0, 1245210, 16, 0, 1245211, 16, 0, 1245212, 16, 0, 1245213, 16, 0 )
 
-[node name="SpikeMap" parent="SpikeMap" index="0"]
-tile_data = PoolIntArray( 196612, -1073741809, 0, 196617, 15, 0, 196621, 1610612751, 0, 196625, 15, 0, 262152, -1073741809, 0, 262154, -1610612721, 0, 262160, -1073741809, 0, 262162, -1610612721, 0, 327684, -1073741809, 0, 327689, 1610612751, 0, 327693, 15, 0, 327697, 1610612751, 0, 327701, 1610612751, 0, 458769, 15, 0, 524300, 15, 0, 524309, -1073741809, 0, 589828, 15, 0, 589830, 15, 0, 655372, 1610612751, 0, 655378, 1610612751, 0, 720898, -1073741809, 0, 720917, -1073741809, 0, 720921, -1610612721, 0, 786446, 15, 0, 786451, 15, 0, 786454, 1610612751, 0, 917505, 15, 0, 917515, 15, 0, 983047, 1610612751, 0, 983050, -1073741809, 0, 983052, -1610612721, 0, 1048587, 1610612751, 0, 1048601, -1610612721, 0, 1114128, 1610612751, 0, 1114136, 1610612751, 0, 1179650, 15, 0, 1179651, 15, 0, 1179652, 15, 0, 1179653, 15, 0, 1179654, 15, 0 )
+[node name="Player" parent="." instance=ExtResource( 4 )]
+visible = false
+position = Vector2( 33, 50 )
 
-[node name="Finish" parent="." index="7"]
+[node name="Navigation2D" type="Navigation2D" parent="."]
+visible = false
+
+[node name="NavigationPolygonInstance2" type="NavigationPolygonInstance" parent="Navigation2D"]
+position = Vector2( 0, 128 )
+navpoly = SubResource( 1 )
+
+[node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="Navigation2D"]
+navpoly = SubResource( 2 )
+
+[node name="NavigationPolygonInstance3" type="NavigationPolygonInstance" parent="Navigation2D"]
+navpoly = SubResource( 3 )
+
+[node name="NavigationPolygonInstance4" type="NavigationPolygonInstance" parent="Navigation2D"]
+navpoly = SubResource( 4 )
+
+[node name="NavigationPolygonInstance5" type="NavigationPolygonInstance" parent="Navigation2D"]
+navpoly = SubResource( 5 )
+
+[node name="NavigationPolygonInstance6" type="NavigationPolygonInstance" parent="Navigation2D"]
+navpoly = SubResource( 6 )
+
+[node name="NavigationPolygonInstance7" type="NavigationPolygonInstance" parent="Navigation2D"]
+navpoly = SubResource( 7 )
+
+[node name="NavigationPolygonInstance8" type="NavigationPolygonInstance" parent="Navigation2D"]
+navpoly = SubResource( 8 )
+
+[node name="NavigationPolygonInstance9" type="NavigationPolygonInstance" parent="Navigation2D"]
+navpoly = SubResource( 9 )
+
+[node name="NavigationPolygonInstance10" type="NavigationPolygonInstance" parent="Navigation2D"]
+navpoly = SubResource( 10 )
+
+[node name="NavigationPolygonInstance11" type="NavigationPolygonInstance" parent="Navigation2D"]
+navpoly = SubResource( 11 )
+
+[node name="NavigationPolygonInstance12" type="NavigationPolygonInstance" parent="Navigation2D"]
+navpoly = SubResource( 12 )
+
+[node name="NavigationPolygonInstance13" type="NavigationPolygonInstance" parent="Navigation2D"]
+navpoly = SubResource( 13 )
+
+[node name="Enemy" parent="Navigation2D" instance=ExtResource( 10 )]
+position = Vector2( 420, 112 )
+canShot = true
+
+[node name="Finish" parent="." instance=ExtResource( 2 )]
+visible = false
 position = Vector2( 391, 92 )
 scale = Vector2( 0.345, 0.666 )
 
-[node name="Start" parent="." index="8"]
+[node name="Start" parent="." instance=ExtResource( 1 )]
+visible = false
 position = Vector2( 25, 76 )
-scale = Vector2( 0.16, 0.181 )
+scale = Vector2( 0.16, 0.180501 )
 
-[node name="Toarch1" parent="Toarches" index="0" instance=ExtResource( 4 )]
+[node name="Node" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="Control" type="Control" parent="Node"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Label" parent="Node/Control" instance=ExtResource( 9 )]
+
+[node name="Spikes" type="Area2D" parent="."]
+visible = false
+
+[node name="TileMap" type="TileMap" parent="Spikes"]
+tile_set = ExtResource( 7 )
+cell_size = Vector2( 16, 16 )
+collision_use_parent = true
+format = 1
+tile_data = PoolIntArray( 196612, -1073741809, 0, 196617, 15, 0, 196621, 1610612751, 0, 196625, 15, 0, 262152, -1073741809, 0, 262154, -1610612721, 0, 262160, -1073741809, 0, 262162, -1610612721, 0, 327684, -1073741809, 0, 327689, 1610612751, 0, 327693, 15, 0, 327697, 1610612751, 0, 327701, 1610612751, 0, 458769, 15, 0, 524300, 15, 0, 524309, -1073741809, 0, 589828, 15, 0, 589830, 15, 0, 655372, 1610612751, 0, 655378, 1610612751, 0, 720898, -1073741809, 0, 720917, -1073741809, 0, 720921, -1610612721, 0, 786446, 15, 0, 786451, 15, 0, 786454, 1610612751, 0, 917505, 15, 0, 917515, 15, 0, 983047, 1610612751, 0, 983050, -1073741809, 0, 983052, -1610612721, 0, 1048587, 1610612751, 0, 1048601, -1610612721, 0, 1114128, 1610612751, 0, 1114136, 1610612751, 0, 1179650, 15, 0, 1179651, 15, 0, 1179652, 15, 0, 1179653, 15, 0, 1179654, 15, 0 )
+
+[node name="toarches" type="Node2D" parent="."]
+visible = false
+
+[node name="toarch" parent="toarches" instance=ExtResource( 3 )]
 position = Vector2( 96, 120 )
 
-[node name="Toarch2" parent="Toarches" index="1" instance=ExtResource( 4 )]
+[node name="toarch2" parent="toarches" instance=ExtResource( 3 )]
 position = Vector2( 128, 184 )
 
-[node name="Toarch3" parent="Toarches" index="2" instance=ExtResource( 4 )]
+[node name="toarch3" parent="toarches" instance=ExtResource( 3 )]
 position = Vector2( 352, 72 )
 
-[node name="Toarch4" parent="Toarches" index="3" instance=ExtResource( 4 )]
+[node name="toarch4" parent="toarches" instance=ExtResource( 3 )]
 position = Vector2( 464, 71 )
 scale = Vector2( -1, 1 )
 
-[node name="Turret1" parent="Turrets" index="0" instance=ExtResource( 5 )]
+[node name="Turret" parent="." instance=ExtResource( 8 )]
+visible = false
 position = Vector2( 456, 296 )
 scale = Vector2( -1, 1 )
 direction = Vector2( -1, 0 )
 timerTime = 3
 speed = 150
 
-[node name="Turret2" parent="Turrets" index="1" instance=ExtResource( 5 )]
+[node name="Turret2" parent="." instance=ExtResource( 8 )]
+visible = false
 position = Vector2( 296, 120 )
 direction = Vector2( 1, 0 )
 timerTime = 3
 speed = 150
 
-[node name="Turret3" parent="Turrets" index="2" instance=ExtResource( 5 )]
+[node name="Turret3" parent="." instance=ExtResource( 8 )]
+visible = false
 position = Vector2( 88, 200 )
 direction = Vector2( 1, 0 )
 timerTime = 6
 speed = 150
 
-[node name="Turret4" parent="Turrets" index="3" instance=ExtResource( 5 )]
+[node name="Turret4" parent="." instance=ExtResource( 8 )]
+visible = false
 position = Vector2( 328, 24 )
 rotation = -1.57079
 scale = Vector2( -1, 1 )
@@ -137,67 +236,25 @@ direction = Vector2( 0, 1 )
 timerTime = 8
 speed = 80
 
-[node name="Player" parent="." index="11"]
-position = Vector2( 25, 61 )
-
-[node name="BulletsNavigation" type="Navigation2D" parent="." index="13"]
-
-[node name="NavigationPolygonInstance2" type="NavigationPolygonInstance" parent="BulletsNavigation" index="0"]
-position = Vector2( 0, 128 )
-navpoly = SubResource( 1 )
-
-[node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="BulletsNavigation" index="1"]
-navpoly = SubResource( 2 )
-
-[node name="NavigationPolygonInstance3" type="NavigationPolygonInstance" parent="BulletsNavigation" index="2"]
-navpoly = SubResource( 3 )
-
-[node name="NavigationPolygonInstance4" type="NavigationPolygonInstance" parent="BulletsNavigation" index="3"]
-navpoly = SubResource( 4 )
-
-[node name="NavigationPolygonInstance5" type="NavigationPolygonInstance" parent="BulletsNavigation" index="4"]
-navpoly = SubResource( 5 )
-
-[node name="NavigationPolygonInstance6" type="NavigationPolygonInstance" parent="BulletsNavigation" index="5"]
-navpoly = SubResource( 6 )
-
-[node name="NavigationPolygonInstance7" type="NavigationPolygonInstance" parent="BulletsNavigation" index="6"]
-navpoly = SubResource( 7 )
-
-[node name="NavigationPolygonInstance8" type="NavigationPolygonInstance" parent="BulletsNavigation" index="7"]
-navpoly = SubResource( 8 )
-
-[node name="NavigationPolygonInstance9" type="NavigationPolygonInstance" parent="BulletsNavigation" index="8"]
-navpoly = SubResource( 9 )
-
-[node name="NavigationPolygonInstance10" type="NavigationPolygonInstance" parent="BulletsNavigation" index="9"]
-navpoly = SubResource( 10 )
-
-[node name="NavigationPolygonInstance11" type="NavigationPolygonInstance" parent="BulletsNavigation" index="10"]
-navpoly = SubResource( 11 )
-
-[node name="NavigationPolygonInstance12" type="NavigationPolygonInstance" parent="BulletsNavigation" index="11"]
-navpoly = SubResource( 12 )
-
-[node name="NavigationPolygonInstance13" type="NavigationPolygonInstance" parent="BulletsNavigation" index="12"]
-navpoly = SubResource( 13 )
-
-[node name="Enemy" parent="BulletsNavigation" index="13" instance=ExtResource( 2 )]
-position = Vector2( 420, 112 )
-canShot = true
-
-[node name="Beloved" type="Sprite" parent="." index="14"]
+[node name="Beloved" type="Sprite" parent="."]
+visible = false
 position = Vector2( 448, 120 )
-texture = ExtResource( 6 )
+texture = ExtResource( 13 )
 
-[node name="BelovedCell" type="Sprite" parent="." index="15"]
+[node name="Cell2" type="Sprite" parent="."]
+visible = false
 position = Vector2( 448, 112 )
-texture = ExtResource( 7 )
+texture = ExtResource( 12 )
 
-[node name="StartCutsceneTrigger" type="Area2D" parent="." index="16"]
+[node name="Start_cutscene_trigger" type="Area2D" parent="."]
+visible = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StartCutsceneTrigger" index="0"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Start_cutscene_trigger"]
 position = Vector2( 352, 112 )
 shape = SubResource( 14 )
 
-[connection signal="body_entered" from="StartCutsceneTrigger" to="." method="_on_StartCutsceneTrigger_body_entered"]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." groups=["sound"]]
+stream = ExtResource( 14 )
+
+[connection signal="body_entered" from="Spikes" to="." method="_on_Spikes_body_entered"]
+[connection signal="body_entered" from="Start_cutscene_trigger" to="." method="_on_Start_cutscene_trigger_body_entered"]

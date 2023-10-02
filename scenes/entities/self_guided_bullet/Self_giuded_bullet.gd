@@ -6,7 +6,9 @@ onready var navagent = $NavigationAgent2D
 onready var removeTimer : Timer = $RemoveTimer
 
 var velocity : Vector2
+
 var died_screen_scene = preload("res://scenes/entities/died_screen/DiedScreen.tscn")
+
 var died_screen: CanvasLayer
 
 func _ready():

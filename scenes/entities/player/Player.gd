@@ -29,19 +29,11 @@ func camera_to_def():
 func _input(event):
 	if event.is_action_pressed("left") or event.is_action_pressed("right") or event.is_action_pressed("rotate_left") or event.is_action_pressed("rotate_right"):
 		isStarted = true
-#	if event.is_action_pressed("zoom_in"):
-#		var x = 0
-#		$Camera2D.zoom += Vector2(0.1, 0.1)
-#	if event.is_action_pressed("zoom_out"):
-#		var x = 0
-#		$Camera2D.zoom += Vector2(-0.1, -0.1)
 
 func _process(delta):
-	#print(get_viewport_rect().size)
 	camera.zoom.x = 640 / get_viewport_rect().size.x
 	camera.zoom.y = camera.zoom.x
-	print(get_viewport_rect().size)
-	get_parent().get_node("CanvasLayer").scale = Vector2(get_viewport_rect().size.x / 640, get_viewport_rect().size.y / 360)
+	get_parent().get_node("CaveBackground").scale = Vector2(get_viewport_rect().size.x / 640, get_viewport_rect().size.y / 360)
 
 func _physics_process(delta):
 	if isStarted and !isCutScene:
@@ -107,7 +99,6 @@ func _physics_process(delta):
 				velocity.x = 0
 				velocity.y = -x
 			rotation_degrees -= 90
-			#rotate(-PI / 2)
 			normal.x = yn
 			normal.y = -xn
 		velocity = move_and_slide(velocity)

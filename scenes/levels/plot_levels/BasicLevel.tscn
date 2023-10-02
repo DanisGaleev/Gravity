@@ -1,0 +1,76 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://scenes/entities/player/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/entities/finish/Finish.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/entities/fps/Label.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/entities/start/Start.tscn" type="PackedScene" id=4]
+[ext_resource path="res://sprites/cavebackground.png" type="Texture" id=5]
+[ext_resource path="res://audio/6537897036218368.wav" type="AudioStream" id=6]
+[ext_resource path="res://audio/gunsound.mp3" type="AudioStream" id=7]
+[ext_resource path="res://scenes/levels/plot_levels/Level.gd" type="Script" id=8]
+[ext_resource path="res://tilemaps/tilemap.tres" type="TileSet" id=9]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+[node name="BasicLevel" type="Node2D"]
+script = ExtResource( 8 )
+
+[node name="LevelMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+volume_db = -12.157
+autoplay = true
+
+[node name="BulletSound" type="AudioStreamPlayer" parent="." groups=["sound"]]
+stream = ExtResource( 7 )
+volume_db = -19.0
+
+[node name="CaveBackground" type="CanvasLayer" parent="."]
+layer = -3
+
+[node name="Cavebackground" type="Sprite" parent="CaveBackground"]
+position = Vector2( 320, 180 )
+scale = Vector2( 0.213333, 0.128571 )
+texture = ExtResource( 5 )
+
+[node name="GUI" type="CanvasLayer" parent="."]
+
+[node name="GUI" type="Control" parent="GUI"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="FPSLabel" parent="GUI/GUI" instance=ExtResource( 3 )]
+
+[node name="EnemyTrigger" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyTrigger"]
+shape = SubResource( 1 )
+
+[node name="WallMap" type="TileMap" parent="."]
+tile_set = ExtResource( 9 )
+cell_size = Vector2( 16, 16 )
+format = 1
+
+[node name="SpikeMap" type="Area2D" parent="."]
+
+[node name="SpikeMap" type="TileMap" parent="SpikeMap"]
+tile_set = ExtResource( 9 )
+cell_size = Vector2( 16, 16 )
+collision_use_parent = true
+format = 1
+
+[node name="Finish" parent="." instance=ExtResource( 2 )]
+scale = Vector2( 1.041, 1 )
+
+[node name="Start" parent="." instance=ExtResource( 4 )]
+
+[node name="Toarches" type="Node2D" parent="."]
+
+[node name="Turrets" type="Node2D" parent="."]
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 0, 0 )
+
+[node name="EnemyPos" type="Position2D" parent="."]
+
+[connection signal="body_entered" from="EnemyTrigger" to="." method="_on_EnemyTrigger_body_entered"]
+[connection signal="body_entered" from="SpikeMap" to="." method="_on_SpikeMap_body_entered"]

@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scenes/entities/died_screen/DiedScreen.gd" type="Script" id=1]
 [ext_resource path="res://scenes/entities/exit/Exit.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/entities/transition/Scene_transition.tscn" type="PackedScene" id=3]
 [ext_resource path="res://fonts/fonts/ttf/Geologica-Black.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://scenes/entities/enemy/Enemy.tscn" type="PackedScene" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 4 )
@@ -47,5 +48,17 @@ margin_bottom = 340.0
 size_flags_horizontal = 4
 size_flags_vertical = 8
 exit_to_path = "res://scenes/menu/menu/Menu.tscn"
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer"]
+margin_left = 320.0
+margin_top = 180.0
+margin_right = 320.0
+margin_bottom = 180.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Enemy" parent="MarginContainer/CenterContainer" instance=ExtResource( 5 )]
+position = Vector2( 0, 0 )
+scale = Vector2( 3.44, 3.44 )
 
 [node name="Scene_transition" parent="." instance=ExtResource( 3 )]
