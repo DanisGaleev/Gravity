@@ -1,5 +1,9 @@
 extends Node2D
 
+onready var audio_1 = $AudioStreamPlayer
+onready var audio_2 = $AudioStreamPlayer2
+onready var bullet_sound = $BulletSound
+
 var is_begin = false #исправить на _Global.is_begin
 export var jump_speed : int
 
@@ -49,6 +53,11 @@ func horn_anim() -> void:
 func _ready():
 	
 	save.load_from_file("user://data.txt")
+	
+	audio_1.volume_db = _Global.map_number(save.get_value("cheech_value"), 0, 100, -80, 24)
+	audio_2.volume_db = _Global.map_number(save.get_value("cheech_value"), 0, 100, -80, 24)
+	bullet_sound.volume_db = _Global.map_number(save.get_value("sound_value"), 0, 100, -80, 24)	
+
 	if is_begin:
 		$SceneManagerBegin.play("cutscene")
 		_Global.isStartScene = false

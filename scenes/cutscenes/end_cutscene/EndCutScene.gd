@@ -2,9 +2,12 @@ extends Node2D
 
 var save = Save_Handler.new()
 onready var camera = $Camera2D
+onready var audio_1 = $AudioStreamPlayer
 
 func _ready():
 	save.load_from_file("user://data.txt")
+	audio_1.volume_db = _Global.map_number(save.get_value("cheech_value"), 0, 100, -80, 24)
+		
 	$AnimationPlayer.play("cutscene")
 	yield($AnimationPlayer, "animation_finished")
 	change_scene()

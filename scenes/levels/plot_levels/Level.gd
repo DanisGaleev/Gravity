@@ -17,12 +17,21 @@ onready var startPosition = $Start/startPos
 onready var enemyPos = $EnemyPos
 onready var navmesh = $BulletsNavigation
 onready var jump_hint = $JumpHint
+onready var level_music = $LevelMusic
+onready var bullet_sound = $BulletSound
 
 func start():
 	isStart = true
 
 func _ready():
 	player.global_position = startPosition.global_position
+	
+	var save = Save_Handler.new()
+	save.load_from_file("user://data.txt")
+	
+	bullet_sound.volume_db = _Global.map_number(save.get_value("sound_value"), 0, 100, -80, 24)
+	level_music.volume_db = _Global.map_number(save.get_value("music_value"), 0, 100, -80, 24)
+	
 func _input(event):
 	if event.is_action_pressed("jump"):
 		emit_signal("continue_animation")
@@ -94,6 +103,9 @@ func _on_EnemyTrigger_body_entered(body):
 	if body.name == "Player" and !has_node("Enemy") and has_node("EnemyPos"):
 		enemy = enemy_scene.instance()
 		enemy.sprite_visible = true
+		var save = Save_Handler.new()
+		save.load_from_file("user://data.txt")
+		enemy.get_node("AudioStreamPlayer").volume_db = _Global.map_number(save.get_value("cheech_value"), 0, 100, -80, 24)
 		add_child(enemy)
 		enemy.global_position = enemyPos.global_position
 

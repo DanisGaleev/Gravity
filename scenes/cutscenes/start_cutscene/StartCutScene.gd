@@ -1,6 +1,9 @@
 extends Node2D
 
 onready var camera = $Camera2D
+onready var audio_1 = $AudioStreamPlayer
+onready var audio_2 = $AudioStreamPlayer2
+
 export var jump_speed : int
 var jump = false
 var sub : Vector2
@@ -23,6 +26,12 @@ func _ready():
 	$Path2D/PathFollow2D/move.global_position = Vector2(482, 285)
 	print($Path2D/PathFollow2D/move.global_position)
 	sub = $Hero.global_position - $Path2D/PathFollow2D/move.global_position
+	
+	var save = Save_Handler.new()
+	save.load_from_file("user://data.txt")
+	
+	audio_1.volume_db = _Global.map_number(save.get_value("cheech_value"), 0, 100, -80, 24)
+	audio_2.volume_db = _Global.map_number(save.get_value("cheech_value"), 0, 100, -80, 24)
 	
 func _input(event):
 	if event.is_action_pressed("exit"):
